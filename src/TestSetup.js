@@ -12,6 +12,9 @@ AestheticTest.TestSetup = (function () {
             testUrl = getParameterByName("testurl");
             time = getParameterByName("time");
 
+            setupIframe(testUrl);
+            runTimer();
+
             return this;
         },
 
@@ -20,6 +23,25 @@ AestheticTest.TestSetup = (function () {
             var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
                 results = regex.exec(location.search);
             return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        },
+
+        setupIframe = function (url) {
+            var $iframe = $("#test-page");
+            if ( $iframe.length ) {
+                $iframe.attr('src',url);
+                return false;
+            }
+            return true;
+
+        },
+
+        runTimer = function(){
+            $('#test-page').load(function() {
+                console.log("seite geladen");
+                setTimeout(function(){
+                    $('#aestheticSliderModal').foundation('reveal', 'open');
+                },time * 1000);
+            });
         };
 
     that.init = init;
