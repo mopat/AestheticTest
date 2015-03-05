@@ -27,7 +27,8 @@ AestheticTest.TestSetup = (function () {
 
             setupIframe(testUrl);
             runTimer();
-
+            
+            $("#close-slider-modal").on("click", setNewHeight);
             return this;
         },
 
@@ -45,7 +46,6 @@ AestheticTest.TestSetup = (function () {
                 return false;
             }
             return true;
-
         },
 
         runTimer = function(){
@@ -55,6 +55,12 @@ AestheticTest.TestSetup = (function () {
                     $('#aestheticSliderModal').foundation('reveal', 'open');
                 },time * 1000);
             });
+        },
+
+        setNewHeight = function(){
+            $("#rating-box").show();
+            var height = $(document).height() - $("#rating-box").height();
+            $("#test-page").css("height", height);
         };
 
     that.init = init;
