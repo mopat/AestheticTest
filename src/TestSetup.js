@@ -27,7 +27,7 @@ AestheticTest.TestSetup = (function () {
 
             setupIframe(testUrl);
             runTimer();
-            
+            ;
             $("#close-slider-modal").on("click", setNewHeight);
             return this;
         },
