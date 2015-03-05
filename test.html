@@ -17,14 +17,23 @@
     }
 
     var link = getParameterByName('link');
-    alert(link);
+
+    var time = getParameterByName('time');
 </script>
 
 
 <script src="js/vendor/jquery.js"></script>
 <script src="js/foundation.min.js"></script>
+
+<script type="text/javascript" src="src/AestheticTest.js"></script>
+<script type="text/javascript" src="src/MainController.js"></script>
+<script type="text/javascript" src="src/SliderView.js"></script>
+<script type="text/javascript" src="src/RatingView.js"></script>
+<script type="text/javascript" src="src/FreeTextView.js"></script>
+
 <script>
     $(document).foundation();
+    $(function() {AestheticTest.init(); });
 </script>
 </body>
 </html>
