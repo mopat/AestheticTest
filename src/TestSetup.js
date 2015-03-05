@@ -5,12 +5,25 @@ AestheticTest.TestSetup = (function () {
     var that = {},
         testUrl = null,
         time = null,
+        color = null,
+        chracteristic1 = null,
+        chracteristic2 = null,
+        chracteristic3 = null,
+        chracteristic4 = null,
+        chracteristic5 = null,
 
         init = function () {
             console.log("init testsetup");
 
             testUrl = getParameterByName("testurl");
             time = getParameterByName("time");
+            chracteristic1 = getParameterByName("chracteristic1");
+            chracteristic2 = getParameterByName("chracteristic2");
+            chracteristic3 = getParameterByName("chracteristic3");
+            chracteristic4 = getParameterByName("chracteristic4");
+            chracteristic5 = getParameterByName("chracteristic5");
+            color = getParameterByName("color");
+            console.log(color, chracteristic1, chracteristic2, chracteristic3, chracteristic4, chracteristic5);
 
             setupIframe(testUrl);
             runTimer();
