@@ -9,7 +9,15 @@
 </head>
 <body>
 <script type="text/javascript">
-    document.getElementById("write").innerHTML = window.location.search;
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+    var link = getParameterByName('link');
+    alert(link);
 </script>
 
 
