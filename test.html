@@ -1,11 +1,11 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>AestheticTest.com</title>
-    <link rel="stylesheet" href="css/foundation.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/foundation.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
     <script src="js/vendor/modernizr.js"></script>
 </head>
 <body>
@@ -13,21 +13,27 @@
 
 <iframe src="" id="test-page" width="100%" height="100%"></iframe>
 
-<a href="#" data-reveal-id="aestheticSliderModal">Click Me For A Modal</a>
 
-<div id="aestheticSliderModal" class="reveal-modal" data-reveal>
-    <h2>Determine the aesthetics of the website!</h2>
-    <div class="range-slider" data-slider>
-        <span class="range-slider-handle" role="slider" tabindex="0"></span>
-        <span class="range-slider-active-segment"></span>
-        <input type="hidden">
-        <button id="close-slider-modal"></button>
-    </div>
-    <a class="close-reveal-modal">&#215;</a>
-</div>
-<div id="rating-box">
 <div class="row">
     <div class="large-12 columns">
+
+        <div id="aesthetic-slider-modal" class="reveal-modal" data-reveal>
+            <h2>Determine the aesthetics of the website!</h2>
+
+            <div class="range-slider" data-slider>
+                <span class="range-slider-handle" role="slider" tabindex="0"></span>
+                <span class="range-slider-active-segment"></span>
+                <input type="hidden">
+            </div>
+            <button id="close-slider-modal-button">Close</button>
+            <a class="close-reveal-modal">&#215;</a>
+        </div>
+
+    </div>
+</div>
+<div id="rating-box">
+    <div class="row">
+        <div class="large-12 columns">
 
 
         </div>
@@ -46,7 +52,9 @@
 
 <script>
     $(document).foundation();
-    $(function() {AestheticTest.init(); });
+    $(function () {
+        AestheticTest.init();
+    });
 </script>
 </body>
 </html>

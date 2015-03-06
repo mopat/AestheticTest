@@ -6,6 +6,7 @@ AestheticTest.TestSetup = (function () {
         testUrl = null,
         time = null,
         color = null,
+        testPage = null,
         chracteristic1 = null,
         chracteristic2 = null,
         chracteristic3 = null,
@@ -17,6 +18,7 @@ AestheticTest.TestSetup = (function () {
 
             testUrl = getParameterByName("testurl");
             time = getParameterByName("time");
+            testPage = $("#test-page");
             chracteristic1 = getParameterByName("chracteristic1");
             chracteristic2 = getParameterByName("chracteristic2");
             chracteristic3 = getParameterByName("chracteristic3");
@@ -25,10 +27,11 @@ AestheticTest.TestSetup = (function () {
             color = getParameterByName("color");
             console.log(color, chracteristic1, chracteristic2, chracteristic3, chracteristic4, chracteristic5);
 
-            setupIframe(testUrl);
-            runTimer();
-            ;
-            $("#close-slider-modal").on("click", setNewHeight);
+            $(document).ready(function(){
+                setupIframe();
+                runTimer();
+            });
+
             return this;
         },
 
@@ -39,29 +42,20 @@ AestheticTest.TestSetup = (function () {
             return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
         },
 
-        setupIframe = function (url) {
-            var $iframe = $("#test-page");
-            if ( $iframe.length ) {
-                $iframe.attr('src',url);
-                return false;
-            }
-            return true;
+        setupIframe = function () {
+            if ( testPage.length )
+                testPage.attr('src',testUrl);
         },
 
         runTimer = function(){
-            $('#test-page').load(function() {
+            testPage.ready(function() {
                 console.log("seite geladen");
                 setTimeout(function(){
-                    $('#aestheticSliderModal').foundation('reveal', 'open');
-                },time * 1000);
+                    $(that).trigger("showSliderModal");
+                }, 1000);
             });
-        },
-
-        setNewHeight = function(){
-            $("#rating-box").show();
-            var height = $(document).height() - $("#rating-box").height();
-            $("#test-page").css("height", height);
         };
+
 
     that.init = init;
 
