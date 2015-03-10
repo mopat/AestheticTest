@@ -48,11 +48,11 @@ AestheticTest.TestSetup = (function () {
         },
 
         runTimer = function(){
-            testPage.ready(function() {
+            testPage.load(function() {
                 console.log("seite geladen");
                 setTimeout(function(){
                     $(that).trigger("showSliderModal");
-                }, 1000);
+                }, time * 1000);
             });
         };
 
