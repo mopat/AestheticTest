@@ -37,3 +37,10 @@ body{
 .reveal-modal-bg {
     background: rgba(0, 0, 0, 0.95);
 }
+
+#aesthetic-test-link-box {
+    padding: 10px;
+    height: 100px;
+    background: cornflowerblue;
+    font-weight: bold;
+}

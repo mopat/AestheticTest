@@ -25,11 +25,22 @@ AestheticTest.TestSetup = (function () {
             chracteristic4 = getParameterByName("chracteristic4");
             chracteristic5 = getParameterByName("chracteristic5");
             color = getParameterByName("color");
-            console.log(color, chracteristic1, chracteristic2, chracteristic3, chracteristic4, chracteristic5);
 
             $(document).ready(function(){
                 setupIframe();
                 runTimer();
+            });
+
+
+            // Initialize Parse with your Parse application javascript keys
+            Parse.initialize("f9adAlRbVFDK1YlOeuU5sbeIi6e46brSVvADAUZW",
+                "Y9hZUmuVX5EHU7q05rdsO7CuaOQNH1XxZ0K5IWk1");
+
+            var TestObject = Parse.Object.extend("TestObject");
+            var testObject = new TestObject();
+            testObject.save({foo: "bar"}).then(function (object) {
+                var msgbox = alert("yay! it worked");
+                return msgbox.showAsync();
             });
 
             return this;

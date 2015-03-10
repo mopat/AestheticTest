@@ -6,6 +6,7 @@
     <title>AestheticTest.com</title>
     <link rel="stylesheet" href="css/foundation.css"/>
     <link rel="stylesheet" href="css/style.css"/>
+    <script src="js/parse-1.3.5.js"></script>
     <script src="js/vendor/modernizr.js"></script>
 </head>
 <body>
@@ -41,9 +42,23 @@
     <div class="row">
         <div class="large-12 columns">
 
-
+            <a href="#" data-reveal-id="general-aesthetic-modal">Click Me For general-aesthetic-modal</a>
         </div>
     </div>
+</div>
+
+
+<div id="general-aesthetic-modal" class="reveal-modal" data-reveal>
+    <h2>I love Aesthtetic!</h2>
+
+    <div class="row">
+        <div class="large-12 columns">
+            <label>Your last possibility to say something about the aesthtetic of this page!
+                <textarea placeholder="More negative or positive aspects?"></textarea>
+            </label>
+        </div>
+    </div>
+    <a href="#" class="button">finish test and send test data button</a>
 </div>
 
 <script src="js/vendor/jquery.js"></script>
