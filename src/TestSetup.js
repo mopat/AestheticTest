@@ -25,7 +25,6 @@ AestheticTest.TestSetup = (function () {
             chracteristic4 = getParameterByName("chracteristic4");
             chracteristic5 = getParameterByName("chracteristic5");
             color = getParameterByName("color");
-            console.log(color, chracteristic1, chracteristic2, chracteristic3, chracteristic4, chracteristic5);
 
             $(document).ready(function(){
                 setupIframe();

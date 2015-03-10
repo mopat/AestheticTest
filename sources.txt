@@ -6,3 +6,11 @@ http://stackoverflow.com/questions/2930315/changing-iframe-source-with-jquery
 
 check if iframe is loaded
 http://stackoverflow.com/questions/17045645/check-if-iframe-is-loaded-inside-document-ready
+
+get current url
+http://stackoverflow.com/questions/1034621/get-current-url-in-web-browser
+
+
+http://www.w3schools.com/jsref/jsref_replace.asp
+
+http://stackoverflow.com/questions/21683816/getting-full-url-with-jquery-including-parameters-after-question-mark

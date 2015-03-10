@@ -10,3 +10,8 @@
 .reveal-modal-bg {
     background: rgba(0, 0, 0, 0.95);
 }
+
+#aesthetic-test-link-box {
+    background: greenyellow;
+    font-weight: bold;
+}
