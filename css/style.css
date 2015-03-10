@@ -26,6 +26,8 @@ body{
 }
 
 #aesthetic-test-link-box {
-    background: greenyellow;
+    padding: 10px;
+    height: 100px;
+    background: cornflowerblue;
     font-weight: bold;
 }

@@ -8,5 +8,5 @@
 $(document).ready(function () {
     console.log(window.location.pathname);
     var res = document.URL.replace(window.location.pathname, "/AestheticTest/test.html");
-    $("#aesthetic-test-link-box").text(res);
+    $("#aesthetic-test-link-label").text(res);
 });
