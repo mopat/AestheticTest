@@ -1,3 +1,7 @@
+body{
+    overflow: hidden;
+}
+
 #rating-box{
     height: 150px;
     width: 100%;
@@ -5,6 +9,16 @@
     position: absolute;
     bottom: 0;
     display: none;
+}
+
+#show-rating-box-button{
+    display: none;
+}
+
+.hide-show-button{
+    right: 0;
+    bottom: 0;
+    position: absolute;
 }
 
 .reveal-modal-bg {

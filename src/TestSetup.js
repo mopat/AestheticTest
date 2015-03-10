@@ -52,7 +52,7 @@ AestheticTest.TestSetup = (function () {
                 console.log("seite geladen");
                 setTimeout(function(){
                     $(that).trigger("showSliderModal");
-                }, time * 1000);
+                }, 1000);
             });
         };
 
