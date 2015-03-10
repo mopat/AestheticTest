@@ -48,6 +48,7 @@
 
 <script src="js/vendor/jquery.js"></script>
 <script src="js/foundation.min.js"></script>
+<script src="libs/underscore.js"></script>
 
 <script type="text/javascript" src="src/AestheticTest.js"></script>
 <script type="text/javascript" src="src/MainController.js"></script>
@@ -56,6 +57,19 @@
 <script type="text/javascript" src="src/RatingView.js"></script>
 <script type="text/javascript" src="src/FreeTextView.js"></script>
 
+
+<script type="text/html" id="to-rate-tpl">
+    <div class="to-rate-wrapper">
+
+        <button class="show-rate-components-button" id="<%= attribute %>"><%= button_attribute_to_rate %></button>
+
+        <div class="show-rate-components" id="rate-components-<%= attribute %>">
+            <div>Please rate the overall <%= attribute %></div>
+            <textarea style="float: left" cols="100" rows="10" type="text" placeholder="Name what you didn't like " id="rate-textbox-<%= attribute %>" class="rate-textbox"/>
+            <button  class="ok-button" id="ok-button-<%= attribute %>">OK</button>
+        </div>
+    </div>
+</script>
 <script>
     $(document).foundation();
     $(function () {

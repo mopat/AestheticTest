@@ -6,6 +6,7 @@ AestheticTest.RatingView = (function() {
         $ratingBox = null,
         $hideButton = null,
         $showButton = null,
+        toRateTpl = null,
 
         init = function() {
             console.log("init rating");
@@ -14,8 +15,11 @@ AestheticTest.RatingView = (function() {
             $hideButton = $("#hide-rating-box-button");
             $showButton = $("#show-rating-box-button");
 
+            toRateTpl = _.template($("#to-rate-tpl").html());
+
             initHandler();
 
+            _addRatingFields();
             return this;
         },
 
@@ -46,8 +50,43 @@ AestheticTest.RatingView = (function() {
                 var height = $(document).height() - $ratingBox.height();
                 $("#test-page").css("height", height);
             });
+        },
+
+        _addRatingFields = function(toRate){
+            toRate = [];
+            toRate.push("font");
+            toRate.push("color");
+            toRate.push("bla");
+            toRate.push("blun");
+
+            for(var i = 0; i < toRate.length; i++){
+                var rateItem = toRateTpl({
+                    button_attribute_to_rate: toRate[i],
+                    attribute: toRate[i]
+                });
+                $ratingBox.append(rateItem);
+            }
+
+            $(".show-rate-components-button").on("click", function(e){
+                $(this).hide();
+                $(".to-rate-wrapper").hide();
+                $(e.target).closest(".to-rate-wrapper").show();
+                var id = $(this).attr("id"),
+                rateComponents =  $("#rate-components-" + id),
+                   okButton = $("#ok-button-" + id),
+                    rateInfo = $("#rate-info-" + id);
+
+                rateComponents.show();
+
+                okButton.on("click", function (e) {
+                    rateComponents.hide();
+                    $(".to-rate-wrapper").show();
+                    $(".show-rate-components-button").show();
+                });
+            })
         };
 
+    that._addRatingFields = _addRatingFields;
     that._showRatingBox = _showRatingBox;
     that.init = init;
 

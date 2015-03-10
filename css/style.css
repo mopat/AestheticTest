@@ -3,14 +3,27 @@ body{
 }
 
 #rating-box{
-    height: 150px;
+    height: 200px;
     width: 100%;
-    background: red;
+    background: rgba(0,0,0,0.5);
     position: absolute;
     bottom: 0;
     display: none;
 }
 
+.show-rate-components-button{
+    float: left;
+    margin-right: 5px;
+}
+
+.show-rate-components{
+    display: none;
+}
+
+.rate-textbox {
+    width: 600px !important;
+    resize: none;
+}
 #show-rating-box-button{
     display: none;
 }
