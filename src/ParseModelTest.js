@@ -36,33 +36,31 @@ AestheticTest.ParseModelTest = (function () {
         },
 
         saveAestheticData = function (projectName, freetext, firstAeRate) {
-            console.log(freetext);
-            var tableName = projectName + "_table";
-            var TestObject = Parse.Object.extend(tableName);
-            var testObject = new TestObject();
+            var tableName = projectName + "_table",
+                TestPerson = Parse.Object.extend(tableName),
+                testPerson = new TestPerson();
 
-            testObject.set("first_aesthetic_rate", firstAeRate);
+            testPerson.set("first_aesthetic_rate", firstAeRate);
 
             for (var i = 0; i < ratingFields.length; i++) {
-                var colName = ratingFields[i] + "text";
-                var colText = $("#rate-textbox-" + ratingFields[i]).val();
-                testObject.set(colName, colText);
+                var colNameText = ratingFields[i] + "Text",
+                    colNameVal = ratingFields[i] + "Val",
+                    textBoxValue = $("#rate-textbox-" + ratingFields[i]).val(),
+                    sliderValue = $("#rate-slider-" + ratingFields[i]).val();
 
-                //rateVar = ratingFields[i] + "wert";
-                // rateWert = "wert" + i;
-                // testObject.set(rateVar, rateWert);
-
+                testPerson.set(colNameText, textBoxValue);
+                testPerson.set(colNameVal, sliderValue);
             }
 
 
-            testObject.set("freetext_aesthetic", freetext);
+            testPerson.set("freetext_aesthetic", freetext);
 
-            testObject.save(null, {
-                success: function (gameScore) {
+            testPerson.save(null, {
+                success: function (val) {
                     // Execute any logic that should take place after the object is saved.
                     alert('New object created with objectId: ');
                 },
-                error: function (gameScore, error) {
+                error: function (val, error) {
                     // Execute any logic that should take place if the save fails.
                     // error is a Parse.Error with an error code and message.
                     alert('Failed to create new object, with error code: ' + error.message);
