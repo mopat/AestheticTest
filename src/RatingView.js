@@ -7,6 +7,7 @@ AestheticTest.RatingView = (function() {
         $hideButton = null,
         $showButton = null,
         toRateTpl = null,
+        ratingFields = null,
 
         init = function() {
             console.log("init rating");
@@ -19,7 +20,6 @@ AestheticTest.RatingView = (function() {
 
             initHandler();
 
-            _addRatingFields();
             return this;
         },
 
@@ -53,18 +53,13 @@ AestheticTest.RatingView = (function() {
         },
 
         _addRatingFields = function(toRate){
-            toRate = [];
-            toRate.push("font");
-            toRate.push("color");
-            toRate.push("bla");
-            toRate.push("blun");
-            toRate.push("uuuuu");
-
+            ratingFields = toRate;
             for(var i = 0; i < toRate.length; i++){
                 var rateItem = toRateTpl({
                     button_attribute_to_rate: toRate[i],
                     attribute: toRate[i]
                 });
+                console.log("TEXTVAL" + $("#rate-textbox-"+toRate[i]).html())
                 $ratingBox.append(rateItem);
             }
 
