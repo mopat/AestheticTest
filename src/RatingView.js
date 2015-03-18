@@ -55,12 +55,19 @@ AestheticTest.RatingView = (function() {
         _addRatingFields = function(toRate){
             ratingFields = toRate;
             for(var i = 0; i < toRate.length; i++){
+                var currentCharactersitic = ratingFields[i];
                 var rateItem = toRateTpl({
-                    button_attribute_to_rate: toRate[i],
-                    attribute: toRate[i]
+                    button_attribute_to_rate: ratingFields[i],
+                    attribute: ratingFields[i]
                 });
-                console.log("TEXTVAL" + $("#rate-textbox-"+toRate[i]).html())
+                
                 $ratingBox.append(rateItem);
+
+                $("#rate-slider-"+ currentCharactersitic).on("mousemove", function(){
+                    console.log($(this).val())
+                    $("#rate-slider-value-" + currentCharactersitic).html($("#rate-slider-"+ currentCharactersitic).val());
+                    console.log("TEXTVAL" + $("#rate-textbox-"+toRate[i]).html())
+                });
             }
 
             $(".show-rate-components-button").on("click", function(e){

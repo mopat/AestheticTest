@@ -72,7 +72,6 @@
 <script type="text/javascript" src="src/RatingView.js"></script>
 <script type="text/javascript" src="src/FreeTextView.js"></script>
 <script type="text/javascript" src="src/ParseModelTest.js"></script>
-<script type=""
 
 
 <script type="text/html" id="to-rate-tpl">
@@ -83,7 +82,10 @@
         <div class="show-rate-components" id="rate-components-<%= attribute %>">
             <div class="row">
                 <div class="large-12 columns">
-                   <input class="rate-slider" type="range" min="0" max="100" id="rate-slider-<%= attribute %>">
+                   <input class="rate-slider" type="range" min="0" max="100" value="50" id="rate-slider-<%= attribute %>">
+                    <div id="rate-slider-value-<%= attribute %>">
+                        50
+                    </div>
                 </div>
             </div>
             <div class="row">
