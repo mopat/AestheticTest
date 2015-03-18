@@ -80,9 +80,22 @@
         <button class="show-rate-components-button" id="<%= attribute %>"><%= button_attribute_to_rate %></button>
 
         <div class="show-rate-components" id="rate-components-<%= attribute %>">
-            <div>Please rate the overall <%= attribute %></div>
-            <textarea style="float: left" cols="100" rows="10" type="text" placeholder="Name what you didn't like " id="rate-textbox-<%= attribute %>" class="rate-textbox"/>
-            <button  class="ok-button" id="ok-button-<%= attribute %>">OK</button>
+            <div class="row">
+                <div class="large-12 columns">
+                   <input class="rate-slider" type="range" min="0" max="100" id="rate-slider-<%= attribute %>">
+                </div>
+            </div>
+            <div class="row">
+                <div class="large-12 columns">
+                    <div>Please rate the overall <%= attribute %></div>
+                    <textarea style="float: left" cols="100" rows="10" type="text"
+                              placeholder="Name what you didn't like " id="rate-textbox-<%= attribute %>"
+                              class="rate-textbox"></textarea>
+                    <button class="ok-button" id="ok-button-<%= attribute %>">OK</button>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </script>
