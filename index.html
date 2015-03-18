@@ -12,26 +12,31 @@
 
 <div class="row">
     <div class="large-12 columns">
-        <h1>Welcome to AestheticTest.com</h1>
+        <h1>Welcome to AestheticTest</h1>
     </div>
 </div>
 
 <form action="aesthetictestlink.html" method="get">
+
+    <div class="row">
+        <div class="large-12 columns">
+            <input type="text" placeholder="Enter a project name!" name="projectname"/>
+        </div>
+    </div>
+
+
     <div class="row">
         <div class="large-12 columns medium-centered small-centered">
             <input type="text" placeholder="Insert the URL of your website" name="testurl">
         </div>
     </div>
 
-    <div class="row">
-        <div class="large-3 columns large-centered medium-centered small-centered">
-            <input type="submit" value="Generate Aesthetic Test Link!" class="button text-center">
-        </div>
-    </div>
+
 
     <div class="row">
         <div class="large-4 columns large-centered medium-centered small-centered">
-            Time <input id="time-slider" type="range" min="5" max="15" value="10" name="time">
+            Time for the first aesthetic assessment: <input id="time-slider" type="range" min="5" max="15" value="10"
+                                                            name="time">
             <span id="range-value">10</span>
         </div>
     </div>
@@ -55,7 +60,11 @@
             <input type="text" placeholder="Own chracteristic 5" name="chracteristic5"/>
         </div>
     </div>
-
+    <div class="row">
+        <div class="large-3 columns large-centered medium-centered small-centered">
+            <input type="submit" value="Generate Aesthetic Test Link!" class="button text-center">
+        </div>
+    </div>
 </form>
 
 
