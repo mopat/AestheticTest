@@ -14,3 +14,5 @@ http://stackoverflow.com/questions/1034621/get-current-url-in-web-browser
 http://www.w3schools.com/jsref/jsref_replace.asp
 
 http://stackoverflow.com/questions/21683816/getting-full-url-with-jquery-including-parameters-after-question-mark
+
+http://codepen.io/johngerome/pen/pdrgk
