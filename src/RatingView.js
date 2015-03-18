@@ -59,6 +59,7 @@ AestheticTest.RatingView = (function() {
                     button_attribute_to_rate: toRate[i],
                     attribute: toRate[i]
                 });
+                console.log("TEXTVAL" + $("#rate-textbox-"+toRate[i]).html())
                 $ratingBox.append(rateItem);
             }
 

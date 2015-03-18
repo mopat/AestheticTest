@@ -34,8 +34,6 @@ AestheticTest.TestSetup = (function () {
                 }
             }
 
-
-
             $(document).ready(function(){
                 setupIframe();
                 runTimer();
