@@ -1,6 +1,7 @@
 AestheticTest.ParseModelTest = (function () {
     var that = {},
         projectName = null,
+        ratingFields = null,
 
         init = function () {
             projectName = getParameterByName("projectname");
@@ -11,11 +12,11 @@ AestheticTest.ParseModelTest = (function () {
             Parse.initialize("f9adAlRbVFDK1YlOeuU5sbeIi6e46brSVvADAUZW",
                 "Y9hZUmuVX5EHU7q05rdsO7CuaOQNH1XxZ0K5IWk1");
 
-            toRate = ["color", "font", "jonas"];
 
             $("#finish-test-button").click(function () {
 
-                saveAestheticData(projectName, toRate, $("#end-freetext-aesthetic-test").val());
+
+                saveAestheticData(projectName, $("#end-freetext-aesthetic-test").val(), $("#first-aesthetic-rate-value").val());
 
             });
 
@@ -30,22 +31,26 @@ AestheticTest.ParseModelTest = (function () {
             return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
         },
 
-        saveAestheticData = function (projectName, toRate, freetext) {
+        _setRatingArray = function (toRate) {
+            ratingFields = toRate;
+        },
+
+        saveAestheticData = function (projectName, freetext, firstAeRate) {
             console.log(freetext);
             var tableName = projectName + "_table";
             var TestObject = Parse.Object.extend(tableName);
             var testObject = new TestObject();
 
-            testObject.set("freetext_aesthetic", freetext);
+            testObject.set("first_aesthetic_rate", firstAeRate);
 
-            for (var i = 0; i < toRate.length; i++) {
-                var rateVar = toRate[i] + "text";
-                var rateWert = "text" + i;
-                testObject.set(rateVar, rateWert);
+            for (var i = 0; i < ratingFields.length; i++) {
+                var colName = ratingFields[i] + "text";
+                var colText = $("#rate-textbox-" + ratingFields[i]).val();
+                testObject.set(colName, colText);
 
-                rateVar = toRate[i] + "wert";
-                rateWert = "wert" + i;
-                testObject.set(rateVar, rateWert);
+                //rateVar = ratingFields[i] + "wert";
+                // rateWert = "wert" + i;
+                // testObject.set(rateVar, rateWert);
 
             }
 
@@ -66,8 +71,9 @@ AestheticTest.ParseModelTest = (function () {
 
 
         };
-
+    that._setRatingArray = _setRatingArray;
     that.init = init;
+
 
     return that;
 }());

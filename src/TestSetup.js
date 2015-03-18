@@ -16,7 +16,7 @@ AestheticTest.TestSetup = (function () {
 
         init = function () {
             console.log("init testsetup");
-          toRate = [];
+            toRate = [];
 
             testUrl = getParameterByName("testurl");
             time = getParameterByName("time");
@@ -27,9 +27,9 @@ AestheticTest.TestSetup = (function () {
             chracteristic4 = getParameterByName("chracteristic4");
             chracteristic5 = getParameterByName("chracteristic5");
 
-            for(var i = 1; i <= 10; i++){
+            for (var i = 1; i <= 10; i++) {
                 var characteristic = getParameterByName("chracteristic" + i);
-                if(characteristic != ""){
+                if (characteristic != "") {
                     toRate.push(characteristic);
                 }
             }

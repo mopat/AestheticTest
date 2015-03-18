@@ -8,6 +8,7 @@ AestheticTest.MainController = (function () {
         ratingView = null,
         freeTextView = null,
         parseModalTest = null,
+        result
 
         init = function () {
             testSetup = AestheticTest.TestSetup.init();
@@ -15,6 +16,7 @@ AestheticTest.MainController = (function () {
             ratingView = AestheticTest.RatingView.init();
             freeTextView = AestheticTest.FreeTextView.init();
             parseModalTest = AestheticTest.ParseModelTest.init();
+            result = AestheticTest.Result.init();
 
             $(testSetup).on("characteristicsGenerated", generateCharacteristics);
             $(testSetup).on("showSliderModal", showSliderModal);
@@ -32,8 +34,9 @@ AestheticTest.MainController = (function () {
             ratingView._showRatingBox();
         },
 
-        generateCharacteristics = function(e, toRate){
-            ratingView._addRatingFields(toRate);
+            generateCharacteristics = function (e, toRate) {
+                ratingView._addRatingFields(toRate)
+                parseModalTest._setRatingArray(toRate);
         };
 
     that.init = init;
