@@ -8,7 +8,7 @@ AestheticTest.MainController = (function () {
         ratingView = null,
         freeTextView = null,
         parseModalTest = null,
-
+        result = null,
 
         init = function () {
             testSetup = AestheticTest.TestSetup.init();
@@ -16,7 +16,6 @@ AestheticTest.MainController = (function () {
             ratingView = AestheticTest.RatingView.init();
             freeTextView = AestheticTest.FreeTextView.init();
             parseModalTest = AestheticTest.ParseModelTest.init();
-
 
             $(testSetup).on("characteristicsGenerated", generateCharacteristics);
             $(testSetup).on("showSliderModal", showSliderModal);
