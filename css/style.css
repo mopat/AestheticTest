@@ -31,6 +31,10 @@ body{
     width: 600px !important;
     resize: none;
 }
+
+.rate-slider{
+    width: 100%;
+}
 #show-rating-box-button{
     display: none;
 }
