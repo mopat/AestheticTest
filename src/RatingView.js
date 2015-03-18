@@ -58,6 +58,7 @@ AestheticTest.RatingView = (function() {
             toRate.push("color");
             toRate.push("bla");
             toRate.push("blun");
+            toRate.push("uuuuu");
 
             for(var i = 0; i < toRate.length; i++){
                 var rateItem = toRateTpl({

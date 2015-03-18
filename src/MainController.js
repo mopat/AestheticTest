@@ -7,12 +7,14 @@ AestheticTest.MainController = (function () {
         sliderView = null,
         ratingView = null,
         freeTextView = null,
+        parseModalTest = null,
 
         init = function () {
             testSetup = AestheticTest.TestSetup.init();
             sliderView = AestheticTest.SliderView.init();
             ratingView = AestheticTest.RatingView.init();
             freeTextView = AestheticTest.FreeTextView.init();
+            parseModalTest = AestheticTest.ParseModelTest.init();
 
 
             $(testSetup).on("showSliderModal", showSliderModal);
