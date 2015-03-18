@@ -14,9 +14,10 @@ AestheticTest.MainController = (function () {
             ratingView = AestheticTest.RatingView.init();
             freeTextView = AestheticTest.FreeTextView.init();
 
-
+            $(testSetup).on("characteristicsGenerated", generateCharacteristics);
             $(testSetup).on("showSliderModal", showSliderModal);
             $(sliderView).on("showRatingBox", showRatingBox);
+
             return this;
         },
 
@@ -27,6 +28,10 @@ AestheticTest.MainController = (function () {
 
         showRatingBox = function(){
             ratingView._showRatingBox();
+        },
+
+        generateCharacteristics = function(e, toRate){
+            ratingView._addRatingFields(toRate);
         };
 
     that.init = init;

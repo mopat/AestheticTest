@@ -12,9 +12,11 @@ AestheticTest.TestSetup = (function () {
         chracteristic3 = null,
         chracteristic4 = null,
         chracteristic5 = null,
+        toRate = null,
 
         init = function () {
             console.log("init testsetup");
+          toRate = [];
 
             testUrl = getParameterByName("testurl");
             time = getParameterByName("time");
@@ -24,11 +26,20 @@ AestheticTest.TestSetup = (function () {
             chracteristic3 = getParameterByName("chracteristic3");
             chracteristic4 = getParameterByName("chracteristic4");
             chracteristic5 = getParameterByName("chracteristic5");
-            color = getParameterByName("color");
+
+            for(var i = 1; i <= 10; i++){
+                var characteristic = getParameterByName("chracteristic" + i);
+                if(characteristic != ""){
+                    toRate.push(characteristic);
+                }
+            }
+
+
 
             $(document).ready(function(){
                 setupIframe();
                 runTimer();
+                $(that).trigger("characteristicsGenerated", [toRate]);
             });
 
 
@@ -51,6 +62,7 @@ AestheticTest.TestSetup = (function () {
             var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
                 results = regex.exec(location.search);
             return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+            $(that).trigger()
         },
 
         setupIframe = function () {
