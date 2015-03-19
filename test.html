@@ -21,11 +21,13 @@
         <div id="aesthetic-slider-modal" class="reveal-modal" data-reveal>
             <h2>Determine the aesthetics of the website!</h2>
 
-            <div class="range-slider" data-slider>
+            <div class="range-slider" data-slider data-options="display_selector: #first-slider-output;">
                 <span class="range-slider-handle" role="slider" tabindex="0"></span>
                 <span class="range-slider-active-segment"></span>
                 <input id="first-aesthetic-rate-value" type="hidden">
             </div>
+                <div class="text-center" id="first-slider-output"></div>
+            <br>
             <button id="close-slider-modal-button">Close</button>
         </div>
     </div>
@@ -80,19 +82,19 @@
         <button class="show-rate-components-button" id="<%= attribute %>"><%= button_attribute_to_rate %></button>
 
         <div class="show-rate-components" id="rate-components-<%= attribute %>">
-            <div class="row">
-                <div class="large-12 columns">
+            <div class="row full-width">
+                <div class="large-6 columns">
                    <input class="rate-slider" type="range" min="0" max="100" value="50" id="rate-slider-<%= attribute %>">
-                    <div class="rate-slider-value" id="rate-slider-value-<%= attribute %>">
+                    <div class="rate-slider-value text-center" id="rate-slider-value-<%= attribute %>">
                         50
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row full-width">
                 <div class="large-12 columns">
                     <div>Please rate the overall <%= attribute %></div>
-                    <textarea style="float: left" cols="100" rows="10" type="text"
-                              placeholder="Name what you didn't like " id="rate-textbox-<%= attribute %>"
+                    <textarea style="float: left" cols="100" rows="5" type="text"
+                              placeholder="Tell us what you didn't like! " id="rate-textbox-<%= attribute %>"
                               class="rate-textbox"></textarea>
                     <button class="ok-button" id="ok-button-<%= attribute %>">OK</button>
                 </div>
