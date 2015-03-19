@@ -60,17 +60,14 @@ AestheticTest.RatingView = (function() {
                     button_attribute_to_rate: ratingFields[i],
                     attribute: ratingFields[i]
                 });
-                
-                $ratingBox.append(rateItem);
 
-                $("#rate-slider-"+ currentCharactersitic).on("mousemove", function(){
-                    console.log($(this).val())
-                    $("#rate-slider-value-" + currentCharactersitic).html($("#rate-slider-"+ currentCharactersitic).val());
-                    console.log("TEXTVAL" + $("#rate-textbox-"+toRate[i]).html())
-                });
+                $ratingBox.append(rateItem);
+console.log("#rate-slider-value-"+ currentCharactersitic)
+
             }
 
             $(".show-rate-components-button").on("click", function(e){
+                $(".active").removeClass("active");
                 $(this).hide();
                 $(".to-rate-wrapper").hide();
                 $(e.target).closest(".to-rate-wrapper").show();
@@ -79,6 +76,11 @@ AestheticTest.RatingView = (function() {
                    okButton = $("#ok-button-" + id),
                     rateInfo = $("#rate-info-" + id);
 
+                $("#rate-slider-value-" + id).addClass("active");
+
+                $(".rate-slider").on("mousemove", function(){
+                    $(".active").html($(this).val());
+                });
                 rateComponents.show();
 
                 okButton.on("click", function (e) {
