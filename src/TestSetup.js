@@ -32,6 +32,7 @@ AestheticTest.TestSetup = (function () {
             color = getParameterByName("color"),
             pictures = getParameterByName("pictures");
 
+            
             if (font == "on")
                 toRate.push("Font");
 
