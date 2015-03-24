@@ -1,6 +1,4 @@
-/**
- * Created by Patrick on 05.03.2015.
- */
+
 AestheticTest.MainController = (function () {
     var that = {},
         testSetup = null,

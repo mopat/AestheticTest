@@ -15,30 +15,16 @@
         <h1>AestheticTest Result</h1>
     </div>
 </div>
-<form>
-    <div class="row">
-        <div class="large-12 columns">
-            <div class="row collapse postfix-round">
-                <div class="small-9 columns">
-                    <input type="text" id="projectname-input" placeholder="Enter your project name!">
-                </div>
-                <div class="small-3 columns">
-                    <a href="#" class="button postfix" id="test-result-button">Show Test Result</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
-<div class="row">
-    <div class="large-12 columns" id="player-container">
-                         <span data-tooltip class="has-tip"
-                               title="Spieler bearbeiten durch Klicken auf Spieler!">Spieler Übersicht:</span>
 
-        <table id="player-table">
+<div class="row">
+    <div class="large-12 columns" id="result-container">
+                         <span data-tooltip class="has-tip"
+                               title="">Result Table</span>
+
+        <table id="result-table">
             <thead>
             <tr>
-                <th width="200" id="player-icon">Spieler Avatar</th>
-                <th width="150" id="player-name">Spieler Name</th>
+
             </tr>
             </thead>
             <tbody>
@@ -46,6 +32,12 @@
         </table>
     </div>
 </div>
+
+<div id="number-of-tests"></div>
+
+
+<a href="#" id="logout-button" class="button">Logout</a>
+
 <script src="js/vendor/jquery.js"></script>
 <script src="js/foundation.min.js"></script>
 <script src="src/Result.js"></script>
