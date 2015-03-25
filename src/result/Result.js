@@ -20,7 +20,7 @@ $(document).ready(function () {
                     var object = results[i];
 
 
-                    $("#result-table").append('<tr>' + '<td>' + object.get("freetext_aesthetic") + '</td>' + '</tr>');
+                    $("#result-table").append('<tr>' + '<td>' + object + '</td>' + '</tr>');
 
                 }
 
