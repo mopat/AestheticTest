@@ -18,6 +18,7 @@ $(document).ready(function () {
                 for (var x = 0; x < toRate.length; x++) {
                     var toRateVal = toRate[x];
                     console.log(toRateVal);
+                    $("#result-table").append('<tr>' + '<td>' + toRate[x] + '</td>' + '</tr>');
                     for (var i = 0; i < results.length; i++) {
                         var object = results[i];
                         $("#result-table").append('<tr>' + '<td>' + object.get(toRateVal + "text") + '</td>' + '<td>' + object.get(toRateVal + "val") + '</td>' + '</tr>');
@@ -25,8 +26,8 @@ $(document).ready(function () {
 
                     }
                 }
-                $("#result-table").append('<tr>' + '<td>' + object.get("freetext_aesthetic") + '</td>' + '</tr>');
-                $("#result-table").append('<tr>' + '<td>' + object.get("first_aesthetic_rate") + '</td>' + '</tr>');
+                //$("#result-table").append('<tr>' + '<td>' + object.get("freetext_aesthetic") + '</td>' + '</tr>');
+                //$("#result-table").append('<tr>' + '<td>' + object.get("first_aesthetic_rate") + '</td>' + '</tr>');
 
 
 
