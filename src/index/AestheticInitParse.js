@@ -45,6 +45,7 @@ $(document).ready(function () {
         user.set("username", projectname);
         user.set("password", pw);
         user.set("testurl", testurl);
+
         user.set("to_rate_array", toRate);
 
         user.signUp(null, {
