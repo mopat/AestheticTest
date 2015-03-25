@@ -1,6 +1,3 @@
-/**
- * Created by Patrick on 05.03.2015.
- */
 AestheticTest.TestSetup = (function () {
     var that = {},
         testUrl = null,
@@ -64,7 +61,6 @@ AestheticTest.TestSetup = (function () {
 
         runTimer = function () {
             testPage.load(function () {
-                console.log("seite geladen");
                 setTimeout(function () {
                     $(that).trigger("showSliderModal");
                 }, 1000);

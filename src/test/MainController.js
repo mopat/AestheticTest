@@ -1,4 +1,3 @@
-
 AestheticTest.MainController = (function () {
     var that = {},
         testSetup = null,

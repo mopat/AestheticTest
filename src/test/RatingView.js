@@ -1,6 +1,3 @@
-/**
- * Created by Patrick on 05.03.2015.
- */
 AestheticTest.RatingView = (function() {
     var that = {},
         $ratingBox = null,
@@ -11,8 +8,6 @@ AestheticTest.RatingView = (function() {
         firstAestheticRangeSlider = null,
 
         init = function() {
-            console.log("init rating");
-
             $ratingBox = $("#rating-box");
             $hideButton = $("#hide-rating-box-button");
             $showButton = $("#show-rating-box-button");
@@ -64,8 +59,6 @@ AestheticTest.RatingView = (function() {
                 });
 
                 $ratingBox.append(rateItem);
-console.log("#rate-slider-value-"+ currentCharactersitic)
-
             }
 
             $(".show-rate-components-button").on("click", function(e){
