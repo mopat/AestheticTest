@@ -56,3 +56,8 @@ body{
     background: cornflowerblue;
     font-weight: bold;
 }
+
+.finish-button {
+    right: 0;
+    position: absolute;
+}

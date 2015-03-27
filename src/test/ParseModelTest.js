@@ -12,6 +12,10 @@ AestheticTest.ParseModelTest = (function () {
 
             $("#finish-test-button").click(function () {
                 saveAestheticData(projectName, $("#end-freetext-aesthetic-test").val(), $("#first-aesthetic-rate-value").val());
+                $('#general-aesthetic-modal').foundation('reveal', 'close');
+                $('#test-box').hide();
+                $('#test-finished').show();
+
             });
 
             return this;
@@ -50,6 +54,7 @@ AestheticTest.ParseModelTest = (function () {
 
             testPerson.save(null, {
                 success: function (val) {
+
                     // Execute any logic that should take place after the object is saved.
                     //alert('New object created with objectId: ');
                 },
