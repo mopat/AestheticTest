@@ -34,7 +34,7 @@ $(document).ready(function () {
         var user = Parse.User.current();
         user.set("evaluation_criteria", toRate);
         user.save();
-        //$('#div-index-create-test').hide();
+        $('#div-index-create-test').hide();
     }
 
 

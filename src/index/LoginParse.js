@@ -5,16 +5,16 @@ $(document).ready(function () {
 
     $("#button-login").click(function (event) {
         //event.preventDefault();
+
         login($('#input-projectname-login').val(), $('#input-password-login').val());
     });
 
     $("#button-logout").click(function (event) {
         console.log("Logout");
         //event.preventDefault();
-        Parse.User.logOut();
+        //Parse.User.logOut();
         location.reload();
     });
-
 
 
     function login(username, password) {
@@ -23,7 +23,14 @@ $(document).ready(function () {
                 $('.login-element').hide();
                 $('#logout-element').show();
                 $('#div-index-start').hide();
-                $('#div-index-create-test').show();
+
+
+                if (Parse.User.current().get("aesthetic_test_link") === undefined) {
+                    $('#div-index-create-test').show();
+                }
+                $('#div-aesthetic-test-link-panel').show();
+                $('#label-aesthetic-test-link').text(Parse.User.current().get("aesthetic_test_link"));
+
                 $('#div-index-result-panel').show();
             },
             error: function (user, error) {

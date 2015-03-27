@@ -31,16 +31,16 @@ $(document).ready(function () {
 
         aestheticTestLink = aestheticTestLink + "?projectname=" + projectName + "&testurl=" + testurl + "&time=" + time +
         "&font=" + checkbox1 + "&color=" + "on" + "&pictures=" + "on" + "&chracteristic1=" + $('#chracteristic1').val() + "&chracteristic2=" + $('#chracteristic2').val() + "&chracteristic3=" + $('#chracteristic3').val();
-
+        saveAestheticTestLink(aestheticTestLink);
         showAestheticTestLink(aestheticTestLink);
 
-        saveAestheticTestLink(aestheticTestLink);
+
     }
 
-    function showAestheticTestLink(aestheticTestLink) {
+    function showAestheticTestLink() {
 
-        $('#label-aesthetic-test-link').text(aestheticTestLink);
-        $('#div-aesthetic-test-link-panel').show();
+        $('#label-aesthetic-test-link').text(Parse.User.current().get("aesthetic_test_link"));
+
     }
 
     function saveAestheticTestLink(aestheticTestLink) {
