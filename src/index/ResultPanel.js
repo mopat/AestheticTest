@@ -47,7 +47,6 @@ $(document).ready(function () {
 
     };
 
-    showResults(Parse.User.current().get("evaluation_criteria"));
-
-
+    if (Parse.User.current() != null)
+        showResults(Parse.User.current().get("evaluation_criteria"));
 });

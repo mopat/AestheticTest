@@ -34,7 +34,7 @@
                                              placeholder="Password"/></li>
             <li class="login-element"><a href="#" id="button-login">Login</a></li>
 
-            <li id="logout-element" hidden><a href="#" id="button-logout">Logut</a></li>
+            <li id="logout-element" hidden><a href="#" id="button-logout">Logout</a></li>
         </ul>
 
     </section>
@@ -47,7 +47,7 @@
 
             <p>A simple and rapid test for developers!</p>
             <img src="http://placehold.it/400x300&amp;text=[AestheticTest]">
-    </div>
+        </div>
     </div>
 
     <div class="large-6 columns">
@@ -82,8 +82,8 @@
                            class="button success text-center large-12">
                 </div>
             </div>
-</div>
-</div>
+        </div>
+    </div>
 </div>
 
 
@@ -110,13 +110,15 @@
 
 <div hidden id="div-aesthetic-test-link-panel" class="panel callout radius">
     <h5>Your AestheticTest link!</h5>
-    <label id="label-aesthetic-test-link"></label>
+    <a href="" id="label-aesthetic-test-link" name="label-aesthetic-test-link" target="_blank"></a>
+    <br>
+    <button id="copy-link-button" data-clipboard-target="label-aesthetic-test-link">Copy to Clipboard</button>
 </div>
 
 
 <div id="div-index-result-panel" hidden class="panel">
 
-<h5>AestheticTest Result</h5>
+    <h5>AestheticTest Result</h5>
 
     <div id="number-of-tests"></div>
     <div id="alert-null-tests" hidden data-alert class="alert-box info radius">
@@ -135,7 +137,8 @@
 
 <script src="js/vendor/jquery.js"></script>
 <script src="js/foundation.min.js"></script>
-<script src="js/parse-1.3.5.js"></script>
+<script src="libs/parse-1.3.5.js"></script>
+<script src="libs/ZeroClipboard.js"></script>
 
 <script src="src/index/InitParse.js"></script>
 <script src="src/index/LoginParse.js"></script>
