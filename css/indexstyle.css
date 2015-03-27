@@ -1,0 +1,64 @@
+body {
+    overflow: scroll;
+}
+
+.full-width {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: initial
+}
+
+#rating-box {
+    height: 200px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    bottom: 0;
+    display: none;
+}
+
+.show-rate-components-button {
+    float: left;
+    margin-right: 5px;
+}
+
+.show-rate-components {
+    display: none;
+}
+
+.rate-textbox {
+    width: 600px !important;
+    margin-bottom: 10px !important;
+    resize: none;
+}
+
+.rate-slider {
+    width: 100%;
+}
+
+#show-rating-box-button {
+    display: none;
+}
+
+.hide-show-button {
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.reveal-modal-bg {
+    background: rgba(0, 0, 0, 0.95);
+}
+
+#aesthetic-test-link-box {
+    padding: 10px;
+    height: 100px;
+    background: cornflowerblue;
+    font-weight: bold;
+}
+
+.finish-button {
+    right: 0;
+    position: absolute;
+}
