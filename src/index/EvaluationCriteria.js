@@ -30,7 +30,6 @@ $(document).ready(function () {
 
     });
 
-
     function saveEvaluationCriteria(toRate) {
         var user = Parse.User.current();
         user.set("evaluation_criteria", toRate);

@@ -8,6 +8,15 @@ $(document).ready(function () {
         login($('#input-projectname-login').val(), $('#input-password-login').val());
     });
 
+    $("#button-logout").click(function (event) {
+        console.log("Logout");
+        //event.preventDefault();
+        Parse.User.logOut();
+        location.reload();
+    });
+
+
+
     function login(username, password) {
         Parse.User.logIn(username, password, {
             success: function (user) {

@@ -23,19 +23,18 @@ $(document).ready(function () {
         testurl = testurl.replace(":", "%3A");
         testurl = testurl.replace("/", "%2F");
 
-        /*     if ($('#checkbox1').prop('checked') == true) {
-         var checkbox1 = "on";
-         }*/
+        if ($('#checkbox1').prop('checked') == true) {
+            var checkbox1 = "on";
+        } else {
+            checkbox1 = "";
+        }
 
         aestheticTestLink = aestheticTestLink + "?projectname=" + projectName + "&testurl=" + testurl + "&time=" + time +
-        "&font=" + "on" + "&color=" + "on" + "&pictures=" + "on" + "&chracteristic1=" + $('#chracteristic1').val() + "&chracteristic2=" + $('#chracteristic2').val() + "&chracteristic3=" + $('#chracteristic3').val();
+        "&font=" + checkbox1 + "&color=" + "on" + "&pictures=" + "on" + "&chracteristic1=" + $('#chracteristic1').val() + "&chracteristic2=" + $('#chracteristic2').val() + "&chracteristic3=" + $('#chracteristic3').val();
 
         showAestheticTestLink(aestheticTestLink);
 
-
-        //&color=on&chracteristic1=Icons&chracteristic2=Logo&chracteristic3=
-
-        //saveAestheticTestLink(aestheticTestLink);
+        saveAestheticTestLink(aestheticTestLink);
     }
 
     function showAestheticTestLink(aestheticTestLink) {
@@ -44,12 +43,12 @@ $(document).ready(function () {
         $('#div-aesthetic-test-link-panel').show();
     }
 
-    /*    function saveAestheticTestLink(aestheticTestLink) {
-     var user = Parse.User.current();
-     user.set("aesthetic_test_link", aestheticTestLink);
-     user.save();
-     //$('#div-index-create-test').hide();
-     }*/
+    function saveAestheticTestLink(aestheticTestLink) {
+        var user = Parse.User.current();
+        user.set("aesthetic_test_link", aestheticTestLink);
+        user.save();
+        //$('#div-index-create-test').hide();
+    }
 
 
 });

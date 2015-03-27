@@ -19,3 +19,5 @@ http://codepen.io/johngerome/pen/pdrgk
 
 http://stackoverflow.com/questions/426258/checking-a-checkbox-with-jquery
 
+
+http://stackoverflow.com/questions/5404839/how-can-i-refresh-a-page-with-jquery
