@@ -48,7 +48,7 @@ $(document).ready(function () {
         $('#div-index-result-panel').show();
 
 
-        
+
 
         //in zwischenablage kopieren
         var linkUrl = new ZeroClipboard($("#copy-link-button"), {
