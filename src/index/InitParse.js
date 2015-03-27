@@ -17,6 +17,7 @@ $(document).ready(function () {
 
         user.signUp(null, {
             success: function (user) {
+                //$('#alert-now-login').show();
                 alert("user erzeugt");
             },
             error: function (user, error) {
