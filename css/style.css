@@ -19,7 +19,8 @@ body{
 }
 
 .picked{
-    background-color: #007095;
+    border: 3px solid #008CBA;
+    border-radius: 5px;
 }
 
 .show-rate-components-button{
@@ -69,4 +70,5 @@ body{
 .at-general-rate-box {
     width: 14.26%;
     float: left;
+    text-align: center;
 }
