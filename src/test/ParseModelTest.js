@@ -11,8 +11,7 @@ AestheticTest.ParseModelTest = (function () {
                 "Y9hZUmuVX5EHU7q05rdsO7CuaOQNH1XxZ0K5IWk1");
 
             $("#finish-test-button").click(function () {
-                saveAestheticData(projectName, $("#end-freetext-aesthetic-test").val(), $(".picked").attr("data-value"));
-                alert($(".picked").attr("data-value"))
+        saveAestheticData();
                 $('#general-aesthetic-modal').foundation('reveal', 'close');
                 $('#test-box').hide();
                 $('#test-finished').show();
@@ -33,25 +32,27 @@ AestheticTest.ParseModelTest = (function () {
             ratingFields = toRate;
         },
 
-        saveAestheticData = function (projectName, freetext, firstAeRate) {
+        saveAestheticData = function () {
+            var endFreeText = $("#end-freetext-aesthetic-test").val();
+            var firstAestheticValue = $(".picked-first-aesthetic").attr("data-value");
             var tableName = projectName + "_table",
                 TestPerson = Parse.Object.extend(tableName),
                 testPerson = new TestPerson();
 
 
             for (var i = 0; i < ratingFields.length; i++) {
+
                 var colNameText = ratingFields[i] + "Text",
                     colNameVal = ratingFields[i] + "Val",
                     textBoxValue = $("#rate-textbox-" + ratingFields[i]).val(),
-                    sliderValue = $("#rate-slider-" + ratingFields[i]).val();
-
+                    pickedRatingBoxValue = $("#value-" + ratingFields[i]).html();
 
                 testPerson.set(colNameText.toLocaleLowerCase(), textBoxValue);
-                testPerson.set(colNameVal.toLocaleLowerCase(), sliderValue);
+                testPerson.set(colNameVal.toLocaleLowerCase(), pickedRatingBoxValue);
             }
 
-            testPerson.set("first_aesthetic_rate", firstAeRate);
-            testPerson.set("freetext_aesthetic", freetext);
+            testPerson.set("first_aesthetic_rate", firstAestheticValue);
+            testPerson.set("freetext_aesthetic", endFreeText);
 
             testPerson.save(null, {
                 success: function (val) {
@@ -66,9 +67,9 @@ AestheticTest.ParseModelTest = (function () {
                 }
             });
         };
+
     that._setRatingArray = _setRatingArray;
     that.init = init;
-
 
     return that;
 }());

@@ -3,30 +3,29 @@ AestheticTest.SliderView = (function () {
         $aestheticSliderModal = null,
         $closeSliderModalButton = null,
         $atGeneralRateBox = null,
+        $firstAesthteticRateBox = null,
 
         init = function () {
             console.log("init slider");
             $aestheticSliderModal = $('#aesthetic-slider-modal');
             $closeSliderModalButton = $("#close-slider-modal-button");
-            $closeSliderModalButton.on("click", closeSliderModal);
-           $atGeneralRateBox = $(".at-general-rate-box");
+            $firstAesthteticRateBox = $("#first-aesthetic-rate-box");
 
-            $atGeneralRateBox.on("click", handleRateBoxClick);
+            $firstAesthteticRateBox.on("click", ".at-general-rate-box", handleFirstRateBoxClick);
+            $closeSliderModalButton.on("click", closeSliderModal);
             return this;
         },
 
-        handleRateBoxClick = function(e){
-            var $target = $(e.currentTarget)
-            var value = $target.attr("data-value");
-            $atGeneralRateBox.removeClass("picked");
-            $target.addClass("picked");
+        handleFirstRateBoxClick = function () {
+            var value = $(this).attr("data-value");
+            $(this).parent().find(".picked").removeClass("picked-first-aesthetic").removeClass("picked").addClass("picked-first-aesthetic").addClass("picked");
         },
 
         _showSliderModal = function () {
             $aestheticSliderModal.foundation('reveal', 'open');
         },
 
-        closeSliderModal = function(){
+        closeSliderModal = function () {
             $aestheticSliderModal.foundation('reveal', 'close');
             $(that).trigger("showRatingBox");
         };

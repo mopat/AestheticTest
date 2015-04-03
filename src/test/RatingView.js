@@ -50,14 +50,25 @@ AestheticTest.RatingView = (function() {
         _addRatingFields = function(toRate){
             ratingFields = toRate;
             for(var i = 0; i < toRate.length; i++){
-                var currentCharactersitic = ratingFields[i];
+
                 var rateItem = toRateTpl({
                     button_attribute_to_rate: ratingFields[i],
                     attribute: ratingFields[i]
                 });
 
                 $ratingBox.append(rateItem);
+                $("#rate-list-" + ratingFields[i]).attr("data-num-characteristic", i);
             }
+
+            $(".rate-list").on("click", ".at-general-rate-box", function(e){
+                var $list = $(this).parent().parent(),
+                    currentChar = ratingFields[$list.attr("data-num-characteristic")];
+                $list.find(".picked").removeClass("picked");
+
+                $(this).addClass("picked");
+
+                $("#value-" + currentChar).html($list.find(".picked").attr("data-value"));
+            });
 
             $(".show-rate-components-button").on("click", function(e){
                 $(".active").removeClass("active");
