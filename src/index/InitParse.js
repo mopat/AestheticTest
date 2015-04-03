@@ -8,21 +8,21 @@ $(document).ready(function () {
     });
 
     $('#button-reset-pw').on('click', function () {
-        alert("You will receive an e -mail with a link to reset your password.");
+        swal("You will receive an e -mail with a link to reset your password.");
         $('#modal-reset-pw').foundation('reveal', 'close');
         Parse.User.requestPasswordReset($('#input-email-reset-pw').val(), {
             success: function () {
             },
             error: function (error) {
                 // Show the error message somewhere
-                alert("For this e -mail address , there is no top team account.");
+                swal("For this e -mail address , there is no top team account.");
             }
         });
     });
 
     function signUpUser(projectname, pw, testurl, email) {
         if (isNumeric(projectname.charAt(0))) {
-            alert("Projectname may not start with a number")
+            swal("Projectname may not start with a number", null, "error");
         }
         if (isNumeric(projectname.charAt(0)) == false) {
             var user = new Parse.User();
@@ -35,11 +35,11 @@ $(document).ready(function () {
             user.signUp(null, {
                 success: function (user) {
                     //$('#alert-now-login').show();
-                    alert("user erzeugt");
+                    swal("user erzeugt", null, "success");
                     loggedIn();
                 },
                 error: function (user, error) {
-                    alert("user nicht erzeugt");
+                    swal(error.message, null, "error");
                 }
             });
         }
@@ -80,7 +80,7 @@ $(document).ready(function () {
         document.getElementById('input-projectname-login').onkeypress = function (e) {
             if (!e) e = window.event;
             var keyCode = e.keyCode || e.which;
-            alert("HEEE")
+            swal("HEEE")
             if (keyCode == '13') {
                 // Enter pressed
                 return false;
