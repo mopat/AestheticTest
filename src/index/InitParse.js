@@ -8,24 +8,33 @@ $(document).ready(function () {
     });
 
     function signUpUser(projectname, pw, testurl) {
+        if (isNumeric(projectname.charAt(0))) {
+            alert("Projectname may not start with a number")
+        }
+        if (isNumeric(projectname.charAt(0)) == false) {
+            var user = new Parse.User();
+            user.set("username", projectname);
+            user.set("password", pw);
 
-        var user = new Parse.User();
-        user.set("username", projectname);
-        user.set("password", pw);
+            user.set("testurl", testurl);
 
-        user.set("testurl", testurl);
-
-        user.signUp(null, {
-            success: function (user) {
-                //$('#alert-now-login').show();
-                alert("user erzeugt");
-                loggedIn();
-            },
-            error: function (user, error) {
-                alert("user nicht erzeugt");
-            }
-        });
+            user.signUp(null, {
+                success: function (user) {
+                    //$('#alert-now-login').show();
+                    alert("user erzeugt");
+                    loggedIn();
+                },
+                error: function (user, error) {
+                    alert("user nicht erzeugt");
+                }
+            });
+        }
     }
+
+    function isNumeric(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+
     function loggedIn() {
         $('.login-element').hide();
         $('#logout-element').show();
@@ -45,8 +54,6 @@ $(document).ready(function () {
             moviePath: "libs/ZeroClipboard.swf",
             debug: false
         });
-
-
 
 
         //in zwischenablage kopieren
