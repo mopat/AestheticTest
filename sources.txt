@@ -26,3 +26,7 @@ http://stackoverflow.com/questions/5404839/how-can-i-refresh-a-page-with-jquery
 http://www.paulund.co.uk/jquery-copy-clipboard
 
 https://github.com/zeroclipboard/zeroclipboard
+
+
+//Sweet alert
+http://tristanedwards.me/sweetalert

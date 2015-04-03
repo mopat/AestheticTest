@@ -9,9 +9,11 @@ $(document).ready(function () {
 
     $("#button-login").click(function (event) {
         //event.preventDefault();
+        console.log(Parse.User.current())
          login($('#input-projectname-login').val(), $('#input-password-login').val());
         if (Parse.User.current() != null) {
             loggedIn();
+            showResults();
         }
     });
 
@@ -25,10 +27,11 @@ $(document).ready(function () {
     function login(username, password) {
         Parse.User.logIn(username, password, {
             success: function (user) {
+                showResults(Parse.User.current().get("evaluation_criteria"));
                 loggedIn();
             },
             error: function (user, error) {
-                alert(error.message);
+                swal(error.message);
             }
         });
     }
@@ -65,7 +68,6 @@ $(document).ready(function () {
         document.getElementById('input-projectname-login').onkeypress = function (e) {
             if (!e) e = window.event;
             var keyCode = e.keyCode || e.which;
-            alert("HEEE")
             if (keyCode == '13') {
                 // Enter pressed
                 return false;

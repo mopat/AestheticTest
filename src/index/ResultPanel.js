@@ -5,10 +5,15 @@ $(document).ready(function () {
         "Y9hZUmuVX5EHU7q05rdsO7CuaOQNH1XxZ0K5IWk1");
 
     showResults = function (toRate) {
+        if (Parse.User.current() != null)
+            showResults(Parse.User.current().get("evaluation_criteria"));
 
-        var projectTable = Parse.User.current().get("username") + "_table";
-        var project = Parse.Object.extend(projectTable);
-        var query = new Parse.Query(project);
+
+            var projectTable = Parse.User.current().get("username") + "_table";
+            var project = Parse.Object.extend(projectTable);
+            var query = new Parse.Query(project);
+
+
 
         query.find({
             success: function (results) {
@@ -41,12 +46,9 @@ $(document).ready(function () {
                 }
             },
             error: function (error) {
-                alert("Error: " + error.code + " " + error.message);
+                swal("Error: " + error.code + " " + error.message, null, "error");
             }
         });
 
     };
-
-    if (Parse.User.current() != null)
-        showResults(Parse.User.current().get("evaluation_criteria"));
 });
