@@ -12,50 +12,80 @@
 <body>
 
 <div id="test-box">
-<iframe src="" id="test-page" width="100%" height="100%"></iframe>
+    <iframe src="" id="test-page" width="100%" height="100%"></iframe>
 
-
-<div class="row">
-    <div class="large-12 columns">
-
-        <div id="aesthetic-slider-modal" class="reveal-modal" data-reveal>
-            <h2>Determine the aesthetics of the website!</h2>
-
-            <div class="range-slider" data-slider data-options="display_selector: #first-slider-output;">
-                <span class="range-slider-handle" role="slider" tabindex="0"></span>
-                <span class="range-slider-active-segment"></span>
-                <input id="first-aesthetic-rate-value" type="hidden">
-            </div>
-                <div class="text-center" id="first-slider-output"></div>
-            <br>
-            <button id="close-slider-modal-button">Close</button>
-        </div>
-    </div>
-</div>
-
-<button id="show-rating-box-button" class="hide-show-button">
-    Show
-</button>
-<div id="rating-box">
-    <button id="hide-rating-box-button" class="hide-show-button">
-        Hide
-    </button>
-
-    <a href="#" class="button success finish-button" data-reveal-id="general-aesthetic-modal">Finish AestheticTest</a>
-</div>
-
-
-<div id="general-aesthetic-modal" class="reveal-modal" data-reveal>
 
     <div class="row">
         <div class="large-12 columns">
-            <label>Your last possibility to say something about the aesthtetic of this page!
-                <textarea id="end-freetext-aesthetic-test" placeholder="More negative or positive aspects?"></textarea>
-            </label>
+
+            <div id="aesthetic-slider-modal" class="reveal-modal" data-reveal>
+                <h2>Determine the aesthetics of the website!</h2>
+
+
+                <div class="row">
+
+                    <div class="at-general-rate-box">
+                        Urghhh, this is pretty ugly!
+                    </div>
+                    <div class="at-general-rate-box">
+                        Urghhh, this is ugly!
+                    </div>
+                    <div class="at-general-rate-box">
+                        This is bad!
+                    </div>
+                    <div class="at-general-rate-box">
+                        This is okay!
+                    </div>
+                    <div class="at-general-rate-box">
+                        This is not bad!
+                    </div>
+                    <div class="at-general-rate-box">
+                        Uihhh, this is beautiful!
+                    </div>
+                    <div class="at-general-rate-box">
+                        Uihhh, this is very beautiful!
+                    </div>
+
+
+                </div>
+
+                <div class="range-slider" data-slider data-options="display_selector: #first-slider-output; step:14.26">
+                    <span class="range-slider-handle" role="slider" tabindex="0"></span>
+                    <span class="range-slider-active-segment"></span>
+                    <input id="first-aesthetic-rate-value" type="hidden">
+                </div>
+                <div class="text-center" id="first-slider-output"></div>
+                <br>
+                <button id="close-slider-modal-button">Close</button>
+            </div>
         </div>
     </div>
-    <a href="#" id="finish-test-button" class="button">finish test and send test data</a>
-</div>
+
+    <button id="show-rating-box-button" class="hide-show-button">
+        Show
+    </button>
+    <div id="rating-box">
+        <button id="hide-rating-box-button" class="hide-show-button">
+            Hide
+        </button>
+
+        <a href="#" class="button success finish-button" data-reveal-id="general-aesthetic-modal">Finish
+            AestheticTest</a>
+    </div>
+
+
+    <div id="general-aesthetic-modal" class="reveal-modal" data-reveal>
+
+        <div class="row">
+            <div class="large-12 columns">
+                <label>Your last possibility to say something about the aesthtetic of this page!
+                    <textarea id="end-freetext-aesthetic-test"
+                              placeholder="More negative or positive aspects?"></textarea>
+                </label>
+            </div>
+        </div>
+        <a href="#" id="finish-test-button" class="button">finish test and send test data</a>
+    </div>
 </div>
 
 <div hidden id="test-finished">
@@ -86,7 +116,9 @@
         <div class="show-rate-components" id="rate-components-<%= attribute %>">
             <div class="row full-width">
                 <div class="large-6 columns">
-                   <input class="rate-slider" type="range" min="0" max="100" value="50" id="rate-slider-<%= attribute %>">
+                    <input class="rate-slider" type="range" min="0" max="100" value="50"
+                           id="rate-slider-<%= attribute %>">
+
                     <div class="rate-slider-value text-center" id="rate-slider-value-<%= attribute %>">
                         50
                     </div>

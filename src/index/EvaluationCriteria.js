@@ -7,13 +7,13 @@ $(document).ready(function () {
 
         var toRate = [];
 
-        if ($('#checkbox1').prop('checked') == true) {
+        if ($('#checkbox1').attr('checked') == true) {
             toRate.push($('#checkbox1').attr('name'));
         }
-        if ($('#checkbox2').prop('checked') == true) {
+        if ($('#checkbox2').attr('checked') == true) {
             toRate.push($('#checkbox2').attr('name'));
         }
-        if ($('#checkbox3').prop('checked') == true) {
+        if ($('#checkbox3').attr('checked') == true) {
             toRate.push($('#checkbox3').attr('name'));
         }
         if ($('#chracteristic1').val() != "") {
