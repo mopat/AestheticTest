@@ -39,7 +39,7 @@ $(document).ready(function () {
                     loggedIn();
                 },
                 error: function (user, error) {
-                    alert("user nicht erzeugt");
+                    alert(error.message);
                 }
             });
         }
