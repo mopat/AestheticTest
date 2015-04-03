@@ -5,13 +5,11 @@ AestheticTest.RatingView = (function() {
         $showButton = null,
         toRateTpl = null,
         ratingFields = null,
-        firstAestheticRangeSlider = null,
 
         init = function() {
             $ratingBox = $("#rating-box");
             $hideButton = $("#hide-rating-box-button");
             $showButton = $("#show-rating-box-button");
-            firstAestheticRangeSlider =  $("#first-aesthetic-range-slider");
 
             toRateTpl = _.template($("#to-rate-tpl").html());
 
