@@ -5,14 +5,15 @@ $(document).ready(function () {
 
     console.log(Parse.User.current())
 
-    if (Parse.User.current() != null) {
-        loggedIn();
-    }
+
 
 
     $("#button-login").click(function (event) {
         //event.preventDefault();
-        login($('#input-projectname-login').val(), $('#input-password-login').val());
+         login($('#input-projectname-login').val(), $('#input-password-login').val());
+        if (Parse.User.current() != null) {
+            loggedIn();
+        }
     });
 
     $("#button-logout").click(function (event) {
@@ -46,7 +47,6 @@ $(document).ready(function () {
         $('#label-aesthetic-test-link').html(Parse.User.current().get("aesthetic_test_link"));
         $('#label-aesthetic-test-link').attr("href", Parse.User.current().get("aesthetic_test_link"));
         $('#div-index-result-panel').show();
-
 
 
 
