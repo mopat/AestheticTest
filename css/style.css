@@ -10,12 +10,16 @@ body{
 }
 
 #rating-box{
-    height: 1200px;
+    height: 200px;
     width: 100%;
     background: rgba(0,0,0,0.5);
     position: absolute;
     bottom: 0;
     display: none;
+}
+
+.picked{
+    background-color: #007095;
 }
 
 .show-rate-components-button{

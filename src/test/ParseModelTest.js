@@ -11,7 +11,8 @@ AestheticTest.ParseModelTest = (function () {
                 "Y9hZUmuVX5EHU7q05rdsO7CuaOQNH1XxZ0K5IWk1");
 
             $("#finish-test-button").click(function () {
-                saveAestheticData(projectName, $("#end-freetext-aesthetic-test").val(), $("#first-aesthetic-rate-value").val());
+                saveAestheticData(projectName, $("#end-freetext-aesthetic-test").val(), $(".picked").attr("data-value"));
+                alert($(".picked").attr("data-value"))
                 $('#general-aesthetic-modal').foundation('reveal', 'close');
                 $('#test-box').hide();
                 $('#test-finished').show();

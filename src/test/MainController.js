@@ -23,7 +23,6 @@ AestheticTest.MainController = (function () {
 
         showSliderModal = function () {
             sliderView._showSliderModal();
-
         },
 
         showRatingBox = function(){
