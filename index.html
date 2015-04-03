@@ -74,6 +74,13 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="large-12 columns medium-centered small-centered">
+                    <input id="input-project-email" type="text" placeholder="Insert your email here!" required
+                           name="email">
+                </div>
+            </div>
+
 
             <div class="row">
                 <div class="columns large-centered medium-centered small-centered">
@@ -82,8 +89,26 @@
                            class="button success text-center large-12">
                 </div>
             </div>
+
+
+            <div class="row">
+                <a id="button-forgotten-pw" class="large-12 small-12 columns" href="#"
+                   data-reveal-id="modal-reset-pw">Forgot Password?</a>
+            </div>
         </div>
     </div>
+</div>
+
+
+<div id="modal-reset-pw" class="reveal-modal" data-reveal>
+    <h2>Do you really want to reset your password ?</h2>
+
+    <p class="lead">Please enter your e- mail address with which you are logged in TopTeam !</p>
+
+    <p><input id="input-email-reset-pw" required="true" type="email" placeholder="E-mail"/></p>
+
+    <button id="button-reset-pw">Reset password!</button>
+    <a class="close-reveal-modal">&#215;</a>
 </div>
 
 

@@ -4,10 +4,23 @@ $(document).ready(function () {
         "Y9hZUmuVX5EHU7q05rdsO7CuaOQNH1XxZ0K5IWk1");
 
     $('#button-sign-up-parse').on('click', function () {
-        signUpUser($("#input-projectname").val(), $("#input-projectpassword").val(), $("#input-project-testurl").val());
+        signUpUser($("#input-projectname").val(), $("#input-projectpassword").val(), $("#input-project-testurl").val(), $("#input-project-email").val());
     });
 
-    function signUpUser(projectname, pw, testurl) {
+    $('#button-reset-pw').on('click', function () {
+        alert("You will receive an e -mail with a link to reset your password.");
+        $('#modal-reset-pw').foundation('reveal', 'close');
+        Parse.User.requestPasswordReset($('#input-email-reset-pw').val(), {
+            success: function () {
+            },
+            error: function (error) {
+                // Show the error message somewhere
+                alert("For this e -mail address , there is no top team account.");
+            }
+        });
+    });
+
+    function signUpUser(projectname, pw, testurl, email) {
         if (isNumeric(projectname.charAt(0))) {
             alert("Projectname may not start with a number")
         }
@@ -17,6 +30,7 @@ $(document).ready(function () {
             user.set("password", pw);
 
             user.set("testurl", testurl);
+            user.set("email", email);
 
             user.signUp(null, {
                 success: function (user) {
