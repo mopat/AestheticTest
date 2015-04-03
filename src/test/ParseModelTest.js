@@ -11,7 +11,7 @@ AestheticTest.ParseModelTest = (function () {
                 "Y9hZUmuVX5EHU7q05rdsO7CuaOQNH1XxZ0K5IWk1");
 
             $("#finish-test-button").click(function () {
-        saveAestheticData();
+                saveAestheticData();
                 $('#general-aesthetic-modal').foundation('reveal', 'close');
                 $('#test-box').hide();
                 $('#test-finished').show();
@@ -30,11 +30,13 @@ AestheticTest.ParseModelTest = (function () {
 
         _setRatingArray = function (toRate) {
             ratingFields = toRate;
+            console.log(ratingFields)
         },
 
         saveAestheticData = function () {
             var endFreeText = $("#end-freetext-aesthetic-test").val();
             var firstAestheticValue = $(".picked-first-aesthetic").attr("data-value");
+
             var tableName = projectName + "_table",
                 TestPerson = Parse.Object.extend(tableName),
                 testPerson = new TestPerson();

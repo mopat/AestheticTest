@@ -17,7 +17,6 @@ AestheticTest.SliderView = (function () {
         },
 
         handleFirstRateBoxClick = function (e) {
-            console.log(e.currentTarget)
             var value = $(this).attr("data-value");
             $(this).parent().find(".picked").removeClass("picked-first-aesthetic").removeClass("picked");
             $(this).addClass("picked-first-aesthetic").addClass("picked")
