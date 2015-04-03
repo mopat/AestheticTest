@@ -4,7 +4,7 @@ $(document).ready(function () {
     Parse.initialize("f9adAlRbVFDK1YlOeuU5sbeIi6e46brSVvADAUZW",
         "Y9hZUmuVX5EHU7q05rdsO7CuaOQNH1XxZ0K5IWk1");
 
-     showResults = function () {
+    /* showResults = function () {
         var toRate = Parse.User.current().get("evaluation_criteria");
             var projectTable = Parse.User.current().get("username") + "_table";
             var project = Parse.Object.extend(projectTable);
@@ -21,7 +21,15 @@ $(document).ready(function () {
                 }
                 $('#div-aesthetic-test-result').append('<div id="first-aesthetic-rate">' + '<h1 class="subheader">' + "First Aesthetic Rate" + '</h1>' + '</div>');
 
-                $('#div-aesthetic-test-result').append('<div id="freetext-aesthetic">' + '<h1 class="subheader">' + "Freetext Aesthetic" + '</h1>' + '</div>');
+
+
+
+
+
+
+
+
+     $('#div-aesthetic-test-result').append('<div id="freetext-aesthetic">' + '<h1 class="subheader">' + "Freetext Aesthetic" + '</h1>' + '</div>');
 
                 for (var j = 0; j < results.length; j++) {
                     var object = results[j];
@@ -47,5 +55,5 @@ $(document).ready(function () {
             }
         });
 
-    };
+     };*/
 });

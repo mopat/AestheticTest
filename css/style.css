@@ -75,3 +75,13 @@ body{
     float: left;
     text-align: center;
 }
+
+.at-smiley-rate-box {
+    width: 14.26%;
+    float: left;
+}
+
+.smileys {
+    width: 25%;
+    height: 25%;
+}

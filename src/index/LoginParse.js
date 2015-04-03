@@ -14,7 +14,7 @@ $(document).ready(function () {
          login($('#input-projectname-login').val(), $('#input-password-login').val());
         if (Parse.User.current() != null) {
             loggedIn();
-            showResults();
+            showResults(Parse.User.current().get("evaluation_criteria"));
         }
     });
 
@@ -90,8 +90,53 @@ $(document).ready(function () {
                     $('#alert-null-tests').show();
                 }
                 $('#div-aesthetic-test-result').append('<div id="first-aesthetic-rate">' + '<h1 class="subheader">' + "First Aesthetic Rate" + '</h1>' + '</div>');
+                var firstAestheticRateMedian = 0;
+
+                for (var j = 0; j < results.length; j++) {
+                    var object = results[j];
+                    console.log(firstAestheticRateMedian);
+                    firstAestheticRateMedian = firstAestheticRateMedian + object.get("first_aesthetic_rate") * 1;
+
+                }
+
+                var ugBeaArray = [];
+                ugBeaArray.push("Urghhh, this is pretty ugly!");
+                ugBeaArray.push("Urghhh, this is ugly!");
+                ugBeaArray.push("This is bad!");
+                ugBeaArray.push("This is okay!");
+                ugBeaArray.push("This is not bad!");
+                ugBeaArray.push("Uihhh, this is beautiful!");
+                ugBeaArray.push("Uihhh, this is very beautiful!");
+
+                var fARMRound = Math.round(firstAestheticRateMedian / results.length);
+                alert(fARMRound);
+
+
+                $('#first-aesthetic-rate').append('<img src="img/smileys/' + fARMRound + '.png">' + '<label>' + ugBeaArray[fARMRound] + '</label>');
+
+
+                firstAestheticRateMedian = 100 / 7 * firstAestheticRateMedian / results.length;
+
+                $('#first-aesthetic-rate').append('<div class="progress secondary alert success radius round">' +
+                '<span id="aesthetic-bar" class="meter " style="width:' + firstAestheticRateMedian + '%"' + '></span></div>');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 $('#div-aesthetic-test-result').append('<div id="freetext-aesthetic">' + '<h1 class="subheader">' + "Freetext Aesthetic" + '</h1>' + '</div>');
+
 
                 for (var j = 0; j < results.length; j++) {
                     var object = results[j];
@@ -101,6 +146,12 @@ $(document).ready(function () {
                     $('#freetext-aesthetic').append('<p>' + object.get("freetext_aesthetic") + '</p>');
 
                 }
+
+
+                // $('#aesthetic-bar').width(firstAestheticRateMedian + "%");
+
+
+                alert(firstAestheticRateMedian);
 
 
                 for (var i = 0; i < toRate.length; i++) {
