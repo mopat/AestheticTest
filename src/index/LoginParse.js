@@ -162,6 +162,70 @@ $(document).ready(function () {
                         $('#' + criteria).append('<p>' + object.get(criteria + "text") + "Wert" + object.get(criteria + "val") + '</p>');
                     }
                 }
+
+
+                $('#container').highcharts({
+                    chart: {
+                        type: 'bar'
+                    },
+                    title: {
+                        text: 'AestheticTest bar chart'
+                    },
+                    xAxis: {
+                        categories: ['Characteristic1', 'Characteristic2', 'Characteristic3', 'Characteristic4', 'Characteristic5']
+                    },
+                    yAxis: {
+                        min: 0,
+
+                        title: {
+                            text: ''
+                        }
+                    },
+                    legend: {
+                        reversed: true
+                    },
+                    plotOptions: {
+                        series: {
+                            stacking: 'normal'
+                        }
+                    },
+                    series: [{
+                        name: 'Uihhh, this is very beautiful!',
+                        data: [5, 3, 4, 1, 2]
+                    }, {
+                        name: 'Uihhh, this is beautiful!',
+                        data: [5, 3, 4, 2, 2]
+                    }, {
+                        name: 'This is not bad!',
+                        data: [5, 3, 4, 1, 2]
+                    }, {
+                        name: 'This is okay!',
+                        data: [5, 3, 4, 6, 2]
+                    }, {
+                        name: 'This is bad!',
+                        data: [5, 3, 4, 6, 2]
+                    }, {
+                        name: 'Urghhh, this is ugly!',
+                        data: [2, 2, 3, 2, 1]
+                    }, {
+                        name: 'Urghhh, this is pretty ugly!',
+                        data: [3, 4, 4, 2, 5]
+                    }]
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             },
             error: function (error) {
                 swal("Error: " + error.code + " " + error.message, null, "error");
