@@ -164,6 +164,7 @@ $(document).ready(function () {
                 }
 
 
+
                 $('#container').highcharts({
                     chart: {
                         type: 'bar'
@@ -172,13 +173,12 @@ $(document).ready(function () {
                         text: 'AestheticTest bar chart'
                     },
                     xAxis: {
-                        categories: ['Characteristic1', 'Characteristic2', 'Characteristic3', 'Characteristic4', 'Characteristic5']
+                        categories: ['Characteristic1']
                     },
                     yAxis: {
                         min: 0,
-
                         title: {
-                            text: ''
+                            text: 'Percent'
                         }
                     },
                     legend: {
@@ -186,36 +186,36 @@ $(document).ready(function () {
                     },
                     plotOptions: {
                         series: {
-                            stacking: 'normal'
+                            stacking: 'percent'
                         }
                     },
                     series: [{
                         name: 'Uihhh, this is very beautiful!',
-                        data: [5, 3, 4, 1, 2]
+                        data: [1]
                     }, {
                         name: 'Uihhh, this is beautiful!',
-                        data: [5, 3, 4, 2, 2]
+                        data: [1]
                     }, {
                         name: 'This is not bad!',
-                        data: [5, 3, 4, 1, 2]
+                        data: [1]
                     }, {
                         name: 'This is okay!',
-                        data: [5, 3, 4, 6, 2]
+                        data: [1]
                     }, {
                         name: 'This is bad!',
-                        data: [5, 3, 4, 6, 2]
+                        data: [1]
                     }, {
                         name: 'Urghhh, this is ugly!',
-                        data: [2, 2, 3, 2, 1]
+                        data: [1]
                     }, {
                         name: 'Urghhh, this is pretty ugly!',
-                        data: [3, 4, 4, 2, 5]
+                        data: [1]
                     }]
+
                 });
 
 
-
-
+                //$('#container').highcharts().options.series[0].data.push([1]);
 
 
 
