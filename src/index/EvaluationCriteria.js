@@ -3,18 +3,30 @@ $(document).ready(function () {
     Parse.initialize("f9adAlRbVFDK1YlOeuU5sbeIi6e46brSVvADAUZW",
         "Y9hZUmuVX5EHU7q05rdsO7CuaOQNH1XxZ0K5IWk1");
 
+    $('input:checkbox').on("click", function(){
+        if($(this).attr('checked')== 'checked'){
+            $(this).removeAttr("checked")
+        }
+        else{
+            $(this).attr("checked", "checked");
+        }
+    });
+
     $('#button-create-aesthetic-test').on('click', function () {
 
         var toRate = [];
 
-        if ($('#checkbox1').attr('checked') == true) {
+        if ($('#checkbox1').attr("checked") == "checked") {
             toRate.push($('#checkbox1').attr('name'));
+            alert("CHECKED")
         }
-        if ($('#checkbox2').attr('checked') == true) {
+        if ($('#checkbox2').attr("checked") == "checked") {
             toRate.push($('#checkbox2').attr('name'));
+            alert("CHECKED")
         }
-        if ($('#checkbox3').attr('checked') == true) {
+        if ($('#checkbox3').attr("checked") == "checked") {
             toRate.push($('#checkbox3').attr('name'));
+            alert("CHECKED")
         }
         if ($('#chracteristic1').val() != "") {
             toRate.push($('#chracteristic1').val().toLowerCase());
