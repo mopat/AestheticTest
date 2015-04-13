@@ -76,7 +76,7 @@ $(document).ready(function () {
         }
     }
      function showResults() {
-        alert(Parse.User.current())
+         //alert(Parse.User.current())
         var toRate = Parse.User.current().get("evaluation_criteria");
         var projectTable = Parse.User.current().get("username") + "_table";
         var project = Parse.Object.extend(projectTable);
@@ -109,7 +109,7 @@ $(document).ready(function () {
                 ugBeaArray.push("Uihhh, this is very beautiful!");
 
                 var fARMRound = Math.round(firstAestheticRateMedian / results.length);
-                alert(fARMRound);
+                //alert(fARMRound);
 
 
                 $('#first-aesthetic-rate').append('<img src="img/smileys/' + fARMRound + '.png">' + '<label>' + ugBeaArray[fARMRound] + '</label>');
@@ -151,7 +151,7 @@ $(document).ready(function () {
                 // $('#aesthetic-bar').width(firstAestheticRateMedian + "%");
 
 
-                alert(firstAestheticRateMedian);
+                //(alert(firstAestheticRateMedian);
 
 
                 for (var i = 0; i < toRate.length; i++) {
@@ -163,17 +163,74 @@ $(document).ready(function () {
                     }
                 }
 
+                var seriesDataHc1 = [],
+                    seriesDataHc2 = [],
+                    seriesDataHc3 = [],
+                    seriesDataHc4 = [],
+                    seriesDataHc5 = [],
+                    seriesDataHc6 = [],
+                    seriesDataHc0 = [];
+
+                for (var x = 0; x < toRate.length; x++) {
+                    seriesDataHc1.push(0);
+                    seriesDataHc2.push(0);
+                    seriesDataHc3.push(0);
+                    seriesDataHc4.push(0);
+                    seriesDataHc5.push(0);
+                    seriesDataHc6.push(0);
+                    seriesDataHc0.push(0);
+
+                }
 
 
-                $('#container').highcharts({
+                for (var i = 0; i < toRate.length; i++) {
+                    var criteria = toRate[i];
+                    $('#' + criteria).append('<div id="' + criteria + '-hc">' + 'criteria' + '</div>');
+
+
+                    for (var j = 0; j < results.length; j++) {
+                        var object = results[j];
+
+
+                        if (object.get(criteria + "val") == 0)
+                            seriesDataHc0[i]++;
+
+                        if (object.get(criteria + "val") == 1)
+                            seriesDataHc1[i]++;
+
+                        if (object.get(criteria + "val") == 2)
+                            seriesDataHc2[i]++;
+
+                        if (object.get(criteria + "val") == 3)
+                            seriesDataHc3[i]++;
+
+                        if (object.get(criteria + "val") == 4)
+                            seriesDataHc4[i]++;
+
+                        if (object.get(criteria + "val") == 5)
+                            seriesDataHc5[i]++;
+
+                        if (object.get(criteria + "val") == 6)
+                            seriesDataHc6[i]++;
+
+
+                    }
+                }
+
+
+                console.log(seriesDataHc1, seriesDataHc6);
+
+
+                var options = {
                     chart: {
-                        type: 'bar'
+                        type: 'bar',
+                        renderTo: 'container'
                     },
                     title: {
                         text: 'AestheticTest bar chart'
                     },
                     xAxis: {
-                        categories: ['Characteristic1']
+                        categories: toRate
                     },
                     yAxis: {
                         min: 0,
@@ -191,28 +248,102 @@ $(document).ready(function () {
                     },
                     series: [{
                         name: 'Uihhh, this is very beautiful!',
-                        data: [1]
+                        data: seriesDataHc6
                     }, {
                         name: 'Uihhh, this is beautiful!',
-                        data: [1]
+                        data: seriesDataHc5
                     }, {
                         name: 'This is not bad!',
-                        data: [1]
+                        data: seriesDataHc4
                     }, {
                         name: 'This is okay!',
-                        data: [1]
+                        data: seriesDataHc3
                     }, {
                         name: 'This is bad!',
-                        data: [1]
+                        data: seriesDataHc2
                     }, {
                         name: 'Urghhh, this is ugly!',
-                        data: [1]
+                        data: seriesDataHc1
                     }, {
                         name: 'Urghhh, this is pretty ugly!',
-                        data: [1]
+                        data: seriesDataHc0
                     }]
+                };
 
+                $(document).ready(function () {
+                    var chart = new Highcharts.Chart(options);
                 });
+
+                //-------------
+
+
+                for (var i = 0; i < toRate.length; i++) {
+                    var criteria = toRate[i];
+                    var optionsHc = {
+                        chart: {
+                            type: 'bar',
+                            renderTo: criteria + "-hc"
+                        },
+                        title: {
+                            text: 'AestheticTest bar chart'
+                        },
+                        xAxis: {
+
+                            categories: [criteria]
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Percent'
+                            }
+                        },
+                        legend: {
+                            reversed: true
+                        },
+                        plotOptions: {
+                            series: {
+                                stacking: 'percent'
+                            }
+                        },
+                        series: [{
+                            name: 'Uihhh, this is very beautiful!',
+                            data: [seriesDataHc6[i]]
+                        }, {
+                            name: 'Uihhh, this is beautiful!',
+                            data: [seriesDataHc5[i]]
+                        }, {
+                            name: 'This is not bad!',
+                            data: [seriesDataHc4[i]]
+                        }, {
+                            name: 'This is okay!',
+                            data: [seriesDataHc3[i]]
+                        }, {
+                            name: 'This is bad!',
+                            data: [seriesDataHc2[i]]
+                        }, {
+                            name: 'Urghhh, this is ugly!',
+                            data: [seriesDataHc1[i]]
+                        }, {
+                            name: 'Urghhh, this is pretty ugly!',
+                            data: [seriesDataHc0[i]]
+                        }]
+                    };
+
+                    $(document).ready(function () {
+                        var chartHc = new Highcharts.Chart(optionsHc);
+                    });
+
+
+                }
+
+
+                //var myArray = [1];
+
+
+                //$('#container').highcharts({
+
+
+                // });
 
 
                 //$('#container').highcharts().options.series[0].data.push([1]);
