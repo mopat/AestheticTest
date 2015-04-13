@@ -3,6 +3,13 @@ $(document).ready(function () {
     Parse.initialize("f9adAlRbVFDK1YlOeuU5sbeIi6e46brSVvADAUZW",
         "Y9hZUmuVX5EHU7q05rdsO7CuaOQNH1XxZ0K5IWk1");
 
+    var $downloadPDFButton = $("#download-pdf-button");
+
+    $downloadPDFButton.on("click", function () {
+
+        doc.output("dataurlnewwindow");
+    });
+
     if (Parse.User.current() != null) {
         loggedIn();
         showResults();
@@ -11,7 +18,7 @@ $(document).ready(function () {
     $("#button-login").click(function (event) {
         //event.preventDefault();
         console.log(Parse.User.current())
-         login($('#input-projectname-login').val(), $('#input-password-login').val());
+        login($('#input-projectname-login').val(), $('#input-password-login').val());
         if (Parse.User.current() != null) {
             loggedIn();
             showResults(Parse.User.current().get("evaluation_criteria"));
@@ -38,7 +45,6 @@ $(document).ready(function () {
     }
 
 
-
     function loggedIn() {
         $('.login-element').hide();
         $('#logout-element').show();
@@ -52,7 +58,6 @@ $(document).ready(function () {
         $('#label-aesthetic-test-link').html(Parse.User.current().get("aesthetic_test_link"));
         $('#label-aesthetic-test-link').attr("href", Parse.User.current().get("aesthetic_test_link"));
         $('#div-index-result-panel').show();
-
 
 
         //in zwischenablage kopieren
@@ -75,8 +80,8 @@ $(document).ready(function () {
             }
         }
     }
-     function showResults() {
-        alert(Parse.User.current())
+
+    function showResults() {
         var toRate = Parse.User.current().get("evaluation_criteria");
         var projectTable = Parse.User.current().get("username") + "_table";
         var project = Parse.Object.extend(projectTable);
@@ -109,7 +114,6 @@ $(document).ready(function () {
                 ugBeaArray.push("Uihhh, this is very beautiful!");
 
                 var fARMRound = Math.round(firstAestheticRateMedian / results.length);
-                alert(fARMRound);
 
 
                 $('#first-aesthetic-rate').append('<img src="img/smileys/' + fARMRound + '.png">' + '<label>' + ugBeaArray[fARMRound] + '</label>');
@@ -119,20 +123,6 @@ $(document).ready(function () {
 
                 $('#first-aesthetic-rate').append('<div class="progress secondary alert success radius round">' +
                 '<span id="aesthetic-bar" class="meter " style="width:' + firstAestheticRateMedian + '%"' + '></span></div>');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                 $('#div-aesthetic-test-result').append('<div id="freetext-aesthetic">' + '<h1 class="subheader">' + "Freetext Aesthetic" + '</h1>' + '</div>');
@@ -151,9 +141,6 @@ $(document).ready(function () {
                 // $('#aesthetic-bar').width(firstAestheticRateMedian + "%");
 
 
-                alert(firstAestheticRateMedian);
-
-
                 for (var i = 0; i < toRate.length; i++) {
                     var criteria = toRate[i];
                     $('#div-aesthetic-test-result').append('<div id="' + criteria + '">' + '<h1 class="subheader">' + criteria + '</h1>' + '</div>');
@@ -163,14 +150,12 @@ $(document).ready(function () {
                     }
                 }
 
+                var array = new Array(1, 4);
 
-
-                $('#container').highcharts({
+                var options = {
                     chart: {
+                        renderTo: 'container',
                         type: 'bar'
-                    },
-                    title: {
-                        text: 'AestheticTest bar chart'
                     },
                     xAxis: {
                         categories: ['Characteristic1']
@@ -191,39 +176,31 @@ $(document).ready(function () {
                     },
                     series: [{
                         name: 'Uihhh, this is very beautiful!',
-                        data: [1]
+                        data: array
+
+
                     }, {
-                        name: 'Uihhh, this is beautiful!',
-                        data: [1]
+                        name: 'Uihhh, this is beautiful!', data: array
+
                     }, {
-                        name: 'This is not bad!',
-                        data: [1]
+                        name: 'This is not bad!', data: array
+
+                    }, {}, {
+                        name: 'This is bad!', data: array
+
                     }, {
-                        name: 'This is okay!',
-                        data: [1]
-                    }, {
-                        name: 'This is bad!',
-                        data: [1]
-                    }, {
-                        name: 'Urghhh, this is ugly!',
-                        data: [1]
+                        name: 'Urghhh, this is ugly!', data: array
+
                     }, {
                         name: 'Urghhh, this is pretty ugly!',
-                        data: [1]
+                        data: array
                     }]
 
+                };
+
+                $(document).ready(function() {
+                    var chart = new Highcharts.Chart(options);
                 });
-
-
-                //$('#container').highcharts().options.series[0].data.push([1]);
-
-
-
-
-
-
-
-
 
 
             },
