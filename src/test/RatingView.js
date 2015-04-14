@@ -1,4 +1,4 @@
-AestheticTest.RatingView = (function() {
+AestheticTest.RatingView = (function () {
     var that = {},
         $ratingBox = null,
         $hideButton = null,
@@ -6,50 +6,57 @@ AestheticTest.RatingView = (function() {
         toRateTpl = null,
         ratingFields = null,
 
-        init = function() {
+        init = function () {
             $ratingBox = $("#rating-box");
             $hideButton = $("#hide-rating-box-button");
             $showButton = $("#show-rating-box-button");
 
             toRateTpl = _.template($("#to-rate-tpl").html());
 
+            addAgeOptions();
             initHandler();
 
             return this;
         },
 
-        initHandler = function(){
+        initHandler = function () {
             $hideButton.on("click", hideButtonClick);
             $showButton.on("click", showButtonClick);
         },
 
-        hideButtonClick = function(){
+        addAgeOptions = function(){
+            for (i = 10; i < 100; i++) {
+                $("#age").append($("<option></option>").val(i).html(i));
+            }
+        },
+
+        hideButtonClick = function () {
             $(this).hide();
             $showButton.show();
-            $ratingBox.slideUp(200, function(){
+            $ratingBox.slideUp(200, function () {
                 var height = $(document).height();
                 $("#test-page").css("height", height);
             });
         },
-        showButtonClick = function(){
+        showButtonClick = function () {
             $(this).hide();
             $hideButton.show();
-            $ratingBox.slideDown(200, function(){
+            $ratingBox.slideDown(200, function () {
                 var height = $(document).height() - $ratingBox.height();
                 $("#test-page").css("height", height);
             });
         },
 
-        _showRatingBox = function(){
-            $ratingBox.slideDown(200, function(){
+        _showRatingBox = function () {
+            $ratingBox.slideDown(200, function () {
                 var height = $(document).height() - $ratingBox.height();
                 $("#test-page").css("height", height);
             });
         },
 
-        _addRatingFields = function(toRate){
+        _addRatingFields = function (toRate) {
             ratingFields = toRate;
-            for(var i = 0; i < toRate.length; i++){
+            for (var i = 0; i < toRate.length; i++) {
 
                 var rateItem = toRateTpl({
                     button_attribute_to_rate: ratingFields[i],
@@ -60,7 +67,7 @@ AestheticTest.RatingView = (function() {
                 $("#rate-list-" + ratingFields[i]).attr("data-num-characteristic", i);
             }
 
-            $(".rate-list").on("click", ".at-general-rate-box", function(e){
+            $(".rate-list").on("click", ".at-general-rate-box", function (e) {
                 var $list = $(this).parent().parent(),
                     currentChar = ratingFields[$list.attr("data-num-characteristic")];
                 $list.find(".picked").removeClass("picked");
@@ -70,19 +77,19 @@ AestheticTest.RatingView = (function() {
                 $("#value-" + currentChar).html($list.find(".picked").attr("data-value"));
             });
 
-            $(".show-rate-components-button").on("click", function(e){
+            $(".show-rate-components-button").on("click", function (e) {
                 $(".active").removeClass("active");
                 $(this).hide();
                 $(".to-rate-wrapper").hide();
                 $(e.target).closest(".to-rate-wrapper").show();
                 var id = $(this).attr("id"),
-                rateComponents =  $("#rate-components-" + id),
-                   okButton = $("#ok-button-" + id),
+                    rateComponents = $("#rate-components-" + id),
+                    okButton = $("#ok-button-" + id),
                     rateInfo = $("#rate-info-" + id);
 
                 $("#rate-slider-value-" + id).addClass("active");
 
-                $(".rate-slider").on("mousemove", function(){
+                $(".rate-slider").on("mousemove", function () {
                     $(".active").html($(this).val());
                 });
                 rateComponents.show();
