@@ -118,8 +118,7 @@ $(document).ready(function () {
 
                 firstAestheticRateMedian = 100 / 7 * firstAestheticRateMedian / results.length;
 
-                $('#first-aesthetic-rate').append('<div class="progress secondary alert success radius round">' +
-                '<span id="aesthetic-bar" class="meter " style="width:' + firstAestheticRateMedian + '%"' + '></span></div>');
+                $('#first-aesthetic-rate').append('<div id="first-aesthetic-rate-hc">' + '</div>');
 
 
                 $('#div-aesthetic-test-result').append('<div id="freetext-aesthetic" class="panel">' + '<h1 class="subheader">' + "Freetext Aesthetic" + '</h1>' + '</div>');
@@ -127,8 +126,6 @@ $(document).ready(function () {
 
                 for (var j = 0; j < results.length; j++) {
                     var object = results[j];
-
-                    $('#first-aesthetic-rate').append('<p>' + object.get("first_aesthetic_rate") + '</p>');
 
                     $('#freetext-aesthetic').append('<p>' + object.get("freetext_aesthetic") + '</p>');
                 }
@@ -140,14 +137,14 @@ $(document).ready(function () {
                     for (var j = 0; j < results.length; j++) {
                         var object = results[j];
                         aestheticRateMedian = aestheticRateMedian + object.get(criteria + "val") * 1;
-                        // $('#' + criteria).append('<blockquote>' + object.get(criteria + "text") + '</blockquote>');
                     }
 
                     $('#' + criteria).append('<div>' + '<img src="img/smileys/' + Math.round(aestheticRateMedian / results.length) + '.png">' + '<h2 class="subheader">' + ugBeaArray[Math.round(aestheticRateMedian / results.length)] + '</h2>' + '</div>');
                 }
 
 
-                var seriesDataHc1 = [],
+                var seriesDataHcFirstAe = [0, 0, 0, 0, 0, 0, 0],
+                    seriesDataHc1 = [],
                     seriesDataHc2 = [],
                     seriesDataHc3 = [],
                     seriesDataHc4 = [],
@@ -164,6 +161,36 @@ $(document).ready(function () {
                     seriesDataHc6.push(0);
                     seriesDataHc0.push(0);
                 }
+
+                for (var j = 0; j < results.length; j++) {
+                    var object = results[j];
+
+
+                    if (object.get("first_aesthetic_rate") == 0)
+                        seriesDataHcFirstAe[0]++;
+
+                    if (object.get("first_aesthetic_rate") == 1)
+                        seriesDataHcFirstAe[1]++;
+
+                    if (object.get("first_aesthetic_rate") == 2)
+                        seriesDataHcFirstAe[2]++;
+
+                    if (object.get("first_aesthetic_rate") == 3)
+                        seriesDataHcFirstAe[3]++;
+
+                    if (object.get("first_aesthetic_rate") == 4)
+                        seriesDataHcFirstAe[4]++;
+
+                    if (object.get("first_aesthetic_rate") == 5)
+                        seriesDataHcFirstAe[5]++;
+
+                    if (object.get("first_aesthetic_rate") == 6)
+                        seriesDataHcFirstAe[6]++;
+
+
+                }
+
+
 
 
                 for (var i = 0; i < toRate.length; i++) {
@@ -206,7 +233,7 @@ $(document).ready(function () {
                         renderTo: 'container'
                     },
                     title: {
-                        text: 'AestheticTest bar chart'
+                        text: 'AestheticTest Characteristics'
                     },
                     xAxis: {
                         categories: toRate
@@ -254,6 +281,61 @@ $(document).ready(function () {
                 });
 
                 //-------------
+
+
+                var optionsFirstAestheticHc = {
+                    chart: {
+                        type: 'bar',
+                        renderTo: 'first-aesthetic-rate-hc'
+                    },
+                    title: {
+                        text: 'AestheticTest first aesthetic rate'
+                    },
+                    xAxis: {
+
+                        categories: ["first aesthetic rate"]
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Percent'
+                        }
+                    },
+                    legend: {
+                        reversed: true
+                    },
+                    plotOptions: {
+                        series: {
+                            stacking: 'percent'
+                        }
+                    },
+                    series: [{
+                        name: 'Uihhh, this is very beautiful!',
+                        data: [seriesDataHcFirstAe[6]]
+                    }, {
+                        name: 'Uihhh, this is beautiful!',
+                        data: [seriesDataHcFirstAe[5]]
+                    }, {
+                        name: 'This is not bad!',
+                        data: [seriesDataHcFirstAe[4]]
+                    }, {
+                        name: 'This is okay!',
+                        data: [seriesDataHcFirstAe[3]]
+                    }, {
+                        name: 'This is bad!',
+                        data: [seriesDataHcFirstAe[2]]
+                    }, {
+                        name: 'Urghhh, this is ugly!',
+                        data: [seriesDataHcFirstAe[1]]
+                    }, {
+                        name: 'Urghhh, this is pretty ugly!',
+                        data: [seriesDataHcFirstAe[0]]
+                    }]
+                };
+
+                $(document).ready(function () {
+                    var chartHc = new Highcharts.Chart(optionsFirstAestheticHc);
+                });
 
 
                 for (var i = 0; i < toRate.length; i++) {
