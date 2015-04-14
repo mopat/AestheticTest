@@ -132,7 +132,20 @@ $(document).ready(function () {
                 for (var i = 0; i < toRate.length; i++) {
                     var criteria = toRate[i];
                     var aestheticRateMedian = 0;
-                    $('#div-aesthetic-test-result').append('<div class="criteria"> <h1 class="subheader">' + criteria + '</h1>' + '<div class="panel result-wrapper" id="' + criteria + '"</div></div>');
+//Aufbau RESULTPANLÈL
+
+                    var $criteriaDiv = $("<div>", {class: "criteria"});
+                    var subheader = "<h1 class='subheader'>" + criteria + "</h1>";
+
+                    var $resultPanel = $("<div>", {id: criteria, class:"result-wrapper panel"});
+                    $("#div-aesthetic-test-result").append($criteriaDiv);
+
+                    $criteriaDiv.html(subheader);
+                    $criteriaDiv.append($resultPanel);
+
+
+                    $criteriaDiv.append($resultPanel);
+
                     for (var j = 0; j < results.length; j++) {
                         var object = results[j];
                         aestheticRateMedian = aestheticRateMedian + object.get(criteria + "val") * 1;
@@ -145,9 +158,9 @@ $(document).ready(function () {
                 $(".result-wrapper").hide();
                 $(".subheader").on("click", function (e) {
                     var $result = $(e.target).parent().find(".panel");
+
                     if ($result.is(":visible")) {
                         $result.slideUp(500, function () {
-
                         });
                     }
                     else $result.slideDown(500);

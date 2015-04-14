@@ -27,14 +27,11 @@ body {
     display: none;
 }
 
+.highcharts-container{width:100% !important; height:100% !important;}
 .rate-textbox {
-    width: 600px !important;
+    width: 100% !important;
     margin-bottom: 10px !important;
     resize: none;
-}
-
-.rate-slider {
-    width: 100%;
 }
 
 #show-rating-box-button {
