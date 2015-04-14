@@ -84,17 +84,19 @@ $(document).ready(function () {
 
         query.find({
             success: function (results) {
-
-                $("#number-of-tests").append('<lable>' + "Number of finished Tests: " + results.length + '</lable>');
                 if (results.length === 0) {
                     $('#alert-null-tests').show();
+                } else {
+                    $('#alert-null-tests').hide();
                 }
-                $('#div-aesthetic-test-result').append('<div id="first-aesthetic-rate">' + '<h1 class="subheader">' + "First Aesthetic Rate" + '</h1>' + '</div>');
+                $("#number-of-tests").append('<div id="demographic-test-data" class="panel">' + '<lable>' + "Number of finished Tests: " + results.length + '</lable>' + '</div');
+
+
+                $('#div-aesthetic-test-result').append('<div id="first-aesthetic-rate" class="panel">' + '<h1 class="subheader">' + "First Aesthetic Rate" + '</h1>' + '</div>');
                 var firstAestheticRateMedian = 0;
 
                 for (var j = 0; j < results.length; j++) {
                     var object = results[j];
-                    console.log(firstAestheticRateMedian);
                     firstAestheticRateMedian = firstAestheticRateMedian + object.get("first_aesthetic_rate") * 1;
 
                 }
@@ -109,10 +111,9 @@ $(document).ready(function () {
                 ugBeaArray.push("Uihhh, this is very beautiful!");
 
                 var fARMRound = Math.round(firstAestheticRateMedian / results.length);
-                //alert(fARMRound);
 
 
-                $('#first-aesthetic-rate').append('<img src="img/smileys/' + fARMRound + '.png">' + '<label>' + ugBeaArray[fARMRound] + '</label>');
+                $('#first-aesthetic-rate').append('<img src="img/smileys/' + fARMRound + '.png">' + '<h2 class="subheader">' + ugBeaArray[fARMRound] + '</h2>');
 
 
                 firstAestheticRateMedian = 100 / 7 * firstAestheticRateMedian / results.length;
@@ -121,21 +122,7 @@ $(document).ready(function () {
                 '<span id="aesthetic-bar" class="meter " style="width:' + firstAestheticRateMedian + '%"' + '></span></div>');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                $('#div-aesthetic-test-result').append('<div id="freetext-aesthetic">' + '<h1 class="subheader">' + "Freetext Aesthetic" + '</h1>' + '</div>');
+                $('#div-aesthetic-test-result').append('<div id="freetext-aesthetic" class="panel">' + '<h1 class="subheader">' + "Freetext Aesthetic" + '</h1>' + '</div>');
 
 
                 for (var j = 0; j < results.length; j++) {
@@ -144,24 +131,21 @@ $(document).ready(function () {
                     $('#first-aesthetic-rate').append('<p>' + object.get("first_aesthetic_rate") + '</p>');
 
                     $('#freetext-aesthetic').append('<p>' + object.get("freetext_aesthetic") + '</p>');
-
                 }
-
-
-                // $('#aesthetic-bar').width(firstAestheticRateMedian + "%");
-
-
-                //(alert(firstAestheticRateMedian);
-
 
                 for (var i = 0; i < toRate.length; i++) {
                     var criteria = toRate[i];
-                    $('#div-aesthetic-test-result').append('<div id="' + criteria + '">' + '<h1 class="subheader">' + criteria + '</h1>' + '</div>');
+                    var aestheticRateMedian = 0;
+                    $('#div-aesthetic-test-result').append('<div id="' + criteria + '" class="panel">' + '<h1 class="subheader">' + criteria + '</h1>' + '</div>');
                     for (var j = 0; j < results.length; j++) {
                         var object = results[j];
-                        $('#' + criteria).append('<p>' + object.get(criteria + "text") + "Wert" + object.get(criteria + "val") + '</p>');
+                        aestheticRateMedian = aestheticRateMedian + object.get(criteria + "val") * 1;
+                        // $('#' + criteria).append('<blockquote>' + object.get(criteria + "text") + '</blockquote>');
                     }
+
+                    $('#' + criteria).append('<div>' + '<img src="img/smileys/' + Math.round(aestheticRateMedian / results.length) + '.png">' + '<h2 class="subheader">' + ugBeaArray[Math.round(aestheticRateMedian / results.length)] + '</h2>' + '</div>');
                 }
+
 
                 var seriesDataHc1 = [],
                     seriesDataHc2 = [],
@@ -179,7 +163,6 @@ $(document).ready(function () {
                     seriesDataHc5.push(0);
                     seriesDataHc6.push(0);
                     seriesDataHc0.push(0);
-
                 }
 
 
@@ -216,10 +199,6 @@ $(document).ready(function () {
 
                     }
                 }
-
-
-                console.log(seriesDataHc1, seriesDataHc6);
-
 
                 var options = {
                     chart: {
@@ -333,29 +312,18 @@ $(document).ready(function () {
                         var chartHc = new Highcharts.Chart(optionsHc);
                     });
 
-
                 }
 
-
-                //var myArray = [1];
-
-
-                //$('#container').highcharts({
+                for (var i = 0; i < toRate.length; i++) {
+                    var criteria = toRate[i];
 
 
-                // });
+                    for (var j = 0; j < results.length; j++) {
+                        var object = results[j];
+                        $('#' + criteria).append('<blockquote>' + object.get(criteria + "text") + '</blockquote>');
+                    }
 
-
-                //$('#container').highcharts().options.series[0].data.push([1]);
-
-
-
-
-
-
-
-
-
+                }
 
             },
             error: function (error) {
