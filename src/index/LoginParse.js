@@ -11,7 +11,7 @@ $(document).ready(function () {
     $("#button-login").click(function (event) {
         //event.preventDefault();
         console.log(Parse.User.current())
-         login($('#input-projectname-login').val(), $('#input-password-login').val());
+        login($('#input-projectname-login').val(), $('#input-password-login').val());
         if (Parse.User.current() != null) {
             loggedIn();
             showResults(Parse.User.current().get("evaluation_criteria"));
@@ -38,7 +38,6 @@ $(document).ready(function () {
     }
 
 
-
     function loggedIn() {
         $('.login-element').hide();
         $('#logout-element').show();
@@ -52,7 +51,6 @@ $(document).ready(function () {
         $('#label-aesthetic-test-link').html(Parse.User.current().get("aesthetic_test_link"));
         $('#label-aesthetic-test-link').attr("href", Parse.User.current().get("aesthetic_test_link"));
         $('#div-index-result-panel').show();
-
 
 
         //in zwischenablage kopieren
@@ -75,8 +73,9 @@ $(document).ready(function () {
             }
         }
     }
-     function showResults() {
-         //alert(Parse.User.current())
+
+    function showResults() {
+        //alert(Parse.User.current())
         var toRate = Parse.User.current().get("evaluation_criteria");
         var projectTable = Parse.User.current().get("username") + "_table";
         var project = Parse.Object.extend(projectTable);
@@ -133,7 +132,7 @@ $(document).ready(function () {
                 for (var i = 0; i < toRate.length; i++) {
                     var criteria = toRate[i];
                     var aestheticRateMedian = 0;
-                    $('#div-aesthetic-test-result').append('<div id="' + criteria + '" class="panel">' + '<h1 class="subheader">' + criteria + '</h1>' + '</div>');
+                    $('#div-aesthetic-test-result').append('<div class="criteria"> <h1 class="subheader">' + criteria + '</h1>' + '<div class="panel result-wrapper" id="' + criteria + '"</div></div>');
                     for (var j = 0; j < results.length; j++) {
                         var object = results[j];
                         aestheticRateMedian = aestheticRateMedian + object.get(criteria + "val") * 1;
@@ -142,6 +141,22 @@ $(document).ready(function () {
                     $('#' + criteria).append('<div>' + '<img src="img/smileys/' + Math.round(aestheticRateMedian / results.length) + '.png">' + '<h2 class="subheader">' + ugBeaArray[Math.round(aestheticRateMedian / results.length)] + '</h2>' + '</div>');
                 }
 
+                //open wrapper
+                $(".result-wrapper").hide();
+                $(".subheader").on("click", function (e) {
+                    var $result = $(e.target).parent().find(".panel");
+                    if ($result.is(":visible")) {
+                        $result.slideUp(500, function () {
+
+                        });
+                    }
+                    else $result.slideDown(500);
+
+
+                    $('body').animate({
+                        scrollTop: $(e.target).offset().top
+                    }, 500);
+                });
 
                 var seriesDataHcFirstAe = [0, 0, 0, 0, 0, 0, 0],
                     seriesDataHc1 = [],
@@ -189,8 +204,6 @@ $(document).ready(function () {
 
 
                 }
-
-
 
 
                 for (var i = 0; i < toRate.length; i++) {

@@ -12,7 +12,7 @@ AestheticTest.RatingView = (function () {
             $showButton = $("#show-rating-box-button");
 
             toRateTpl = _.template($("#to-rate-tpl").html());
-            
+
             initHandler();
 
             return this;
