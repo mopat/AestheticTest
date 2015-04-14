@@ -34,12 +34,16 @@ AestheticTest.ParseModelTest = (function () {
         },
 
         saveAestheticData = function () {
-            var endFreeText = $("#end-freetext-aesthetic-test").val();
-            var firstAestheticValue = $(".picked-first-aesthetic").attr("data-value");
-
-            var tableName = projectName + "_table",
+            var endFreeText = $("#end-freetext-aesthetic-test").val(),
+             firstAestheticValue = $(".picked-first-aesthetic").attr("data-value"),
+             tableName = projectName + "_table",
                 TestPerson = Parse.Object.extend(tableName),
-                testPerson = new TestPerson();
+                testPerson = new TestPerson(),
+                gender = $("#gender option:selected").text(),
+                age = $("#age option:selected").text(),
+                websiteExperience = $("#website-experience option:selected").text(),
+                profession = $("#profession").val();
+            console.log(gender,age,websiteExperience,profession);
 
 
             for (var i = 0; i < ratingFields.length; i++) {
