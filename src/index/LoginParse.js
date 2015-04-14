@@ -135,7 +135,7 @@ $(document).ready(function () {
 //Aufbau RESULTPANLÈL
 
                     var $criteriaDiv = $("<div>", {class: "criteria"});
-                    var subheader = "<h1 class='subheader'>" + criteria + "</h1>";
+                    var subheader = "<h1 class='subheader'><a href='#' class='open-panel'>" + criteria + "</a></h1>";
 
                     var $resultPanel = $("<div>", {id: criteria, class:"result-wrapper panel"});
                     $("#div-aesthetic-test-result").append($criteriaDiv);
@@ -144,7 +144,7 @@ $(document).ready(function () {
                     $criteriaDiv.append($resultPanel);
 
 
-                    $criteriaDiv.append($resultPanel);
+
 
                     for (var j = 0; j < results.length; j++) {
                         var object = results[j];
@@ -155,12 +155,13 @@ $(document).ready(function () {
                 }
 
                 //open wrapper
-                $(".result-wrapper").hide();
-                $(".subheader").on("click", function (e) {
-                    var $result = $(e.target).parent().find(".panel");
+                //$(".result-wrapper").hide();
+                $(".open-panel").on("click", function (e) {
+                    var $result = $(e.target).parent().parent().find(".panel");
 
                     if ($result.is(":visible")) {
                         $result.slideUp(500, function () {
+                            $(window).resize();
                         });
                     }
                     else $result.slideDown(500);
@@ -170,6 +171,8 @@ $(document).ready(function () {
                         scrollTop: $(e.target).offset().top
                     }, 500);
                 });
+
+
 
                 var seriesDataHcFirstAe = [0, 0, 0, 0, 0, 0, 0],
                     seriesDataHc1 = [],
@@ -251,6 +254,7 @@ $(document).ready(function () {
 
 
                     }
+
                 }
 
                 var options = {
@@ -418,6 +422,7 @@ $(document).ready(function () {
 
                     $(document).ready(function () {
                         var chartHc = new Highcharts.Chart(optionsHc);
+
                     });
 
                 }
@@ -429,6 +434,8 @@ $(document).ready(function () {
                     for (var j = 0; j < results.length; j++) {
                         var object = results[j];
                         $('#' + criteria).append('<blockquote>' + object.get(criteria + "text") + '</blockquote>');
+                        $(".result-wrapper").hide();
+
                     }
 
                 }

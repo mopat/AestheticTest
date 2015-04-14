@@ -27,7 +27,11 @@ body {
     display: none;
 }
 
-.highcharts-container{width:100% !important; height:100% !important;}
+.highcharts-container {
+    width: 100% !important;
+    height: 100% !important;
+}
+
 .rate-textbox {
     width: 100% !important;
     margin-bottom: 10px !important;
