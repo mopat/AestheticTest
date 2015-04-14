@@ -12,8 +12,7 @@ AestheticTest.RatingView = (function () {
             $showButton = $("#show-rating-box-button");
 
             toRateTpl = _.template($("#to-rate-tpl").html());
-
-            addAgeOptions();
+            
             initHandler();
 
             return this;
@@ -24,11 +23,6 @@ AestheticTest.RatingView = (function () {
             $showButton.on("click", showButtonClick);
         },
 
-        addAgeOptions = function(){
-            for (i = 10; i < 100; i++) {
-                $("#age").append($("<option></option>").val(i).html(i));
-            }
-        },
 
         hideButtonClick = function () {
             $(this).hide();
