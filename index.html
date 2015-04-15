@@ -44,11 +44,7 @@
 <div id="div-index-start">
     <div class="large-6 columns">
         <div class="panel">
-            <h5>Is your website aesthetically ?</h5>
-
-            <p>A simple and rapid test for developers!</p>
-
-
+            <h2>Is your website aesthetically ?</h2>
             <img src="img/aet.png">
         </div>
     </div>
@@ -59,47 +55,49 @@
             <h5>AesthteticTest Sign Up</h5>
 
             <form>
-            <div class="row">
-                <div class="large-6 columns">
+                <div class="row">
+                    <div class="large-6 columns">
 
-                    <input id="input-projectname" type="text" placeholder="Enter a project name!" required
-                           name="projectname"/>
+                        <input id="input-projectname" type="text" placeholder="Enter a project name!" required
+                               name="projectname"/>
+                    </div>
+                    <div class="large-6 columns">
+                        <input id="input-projectpassword" type="password" placeholder="Enter a project password!"
+                               required
+                               name="projectpassword"/>
+                    </div>
                 </div>
-                <div class="large-6 columns">
-                    <input id="input-projectpassword" type="password" placeholder="Enter a project password!" required
-                           name="projectpassword"/>
+
+
+                <div class="row">
+                    <div class="large-12 columns medium-centered small-centered">
+                        <input id="input-project-testurl" type="text" placeholder="Insert the URL of your website!"
+                               required
+                               name="testurl">
+                    </div>
                 </div>
-            </div>
 
-
-            <div class="row">
-                <div class="large-12 columns medium-centered small-centered">
-                    <input id="input-project-testurl" type="text" placeholder="Insert the URL of your website!" required
-                           name="testurl">
+                <div class="row">
+                    <div class="large-12 columns medium-centered small-centered">
+                        <input id="input-project-email" type="text" placeholder="Insert your email here!" required
+                               name="email">
+                    </div>
                 </div>
-            </div>
 
-            <div class="row">
-                <div class="large-12 columns medium-centered small-centered">
-                    <input id="input-project-email" type="text" placeholder="Insert your email here!" required
-                           name="email">
+
+                <div class="row">
+                    <div class="columns large-centered medium-centered small-centered">
+                        <input id="button-sign-up-parse"
+                               value="Create AestheticTest Account!"
+                               class="button success text-center large-12">
+                    </div>
                 </div>
-            </div>
 
 
-            <div class="row">
-                <div class="columns large-centered medium-centered small-centered">
-                    <input id="button-sign-up-parse"
-                           value="Create AestheticTest Account!"
-                           class="button success text-center large-12">
+                <div class="row">
+                    <a id="button-forgotten-pw" class="large-12 small-12 columns" href="#"
+                       data-reveal-id="modal-reset-pw">Forgot Password?</a>
                 </div>
-            </div>
-
-
-            <div class="row">
-                <a id="button-forgotten-pw" class="large-12 small-12 columns" href="#"
-                   data-reveal-id="modal-reset-pw">Forgot Password?</a>
-            </div>
             </form>
         </div>
     </div>
@@ -153,26 +151,14 @@
 
 <div id="div-index-result-panel" class="small-12" hidden>
     <p>
-
     <h2 id="result-h">AestheticTest Result</h2>
-    <h5 class="subheader">In the following, the test results will be presented.</h5></p>
-
-
-    <div id="demographic-test-data" class="panel">
-        <h4>Demographic data</h4>
-
-
-    </div>
-
+    <h5 class="subheader">In the following, the test results will be presented.</h5>
+    </p>
     <div id="alert-null-tests" hidden data-alert class="alert-box info radius">
         Until now, no one has tested your site. Send your AestheticTest link to people!
         <a href="#" class="close">&times;</a>
     </div>
 
-    <div id="div-aesthetic-test-result">
-
-        <div id="container" class="panel"></div>
-    </div>
 
 </div>
 

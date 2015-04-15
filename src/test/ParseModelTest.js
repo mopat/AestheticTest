@@ -40,7 +40,7 @@ AestheticTest.ParseModelTest = (function () {
                 TestPerson = Parse.Object.extend(tableName),
                 testPerson = new TestPerson(),
                 gender = $("#gender option:selected").text(),
-                age = $("#age option:selected").text(),
+                age = $("#age option:selected").val(),
                 websiteExperience = $("#website-experience option:selected").val(),
                 profession = $("#profession").val();
             console.log(gender,age,websiteExperience,profession);

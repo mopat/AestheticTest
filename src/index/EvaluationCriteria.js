@@ -18,15 +18,12 @@ $(document).ready(function () {
 
         if ($('#checkbox1').attr("checked") == "checked") {
             toRate.push($('#checkbox1').attr('name'));
-            alert("CHECKED")
         }
         if ($('#checkbox2').attr("checked") == "checked") {
             toRate.push($('#checkbox2').attr('name'));
-            alert("CHECKED")
         }
         if ($('#checkbox3').attr("checked") == "checked") {
             toRate.push($('#checkbox3').attr('name'));
-            alert("CHECKED")
         }
         if ($('#chracteristic1').val() != "") {
             toRate.push($('#chracteristic1').val().toLowerCase());
@@ -39,7 +36,6 @@ $(document).ready(function () {
         }
 
         saveEvaluationCriteria(toRate);
-
     });
 
     function saveEvaluationCriteria(toRate) {
