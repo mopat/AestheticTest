@@ -45,6 +45,11 @@ AestheticTest.ParseModelTest = (function () {
                 profession = $("#profession").val();
             console.log(gender,age,websiteExperience,profession);
 
+            testPerson.set("gender", gender);
+            testPerson.set("age", age);
+            testPerson.set("website_experience", websiteExperience);
+            testPerson.set("profession", profession);
+
 
             for (var i = 0; i < ratingFields.length; i++) {
 

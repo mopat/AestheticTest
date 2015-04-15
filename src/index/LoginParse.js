@@ -88,7 +88,7 @@ $(document).ready(function () {
                 } else {
                     $('#alert-null-tests').hide();
                 }
-                $("#number-of-tests").append('<div id="demographic-test-data" class="panel">' + '<lable>' + "Number of finished Tests: " + results.length + '</lable>' + '</div');
+                $("#demographic-test-data").append('<span>' + "Number of finished Tests: " + results.length + '</span>');
 
 
                 $('#div-aesthetic-test-result').append('<div id="first-aesthetic-rate" class="panel">' + '<h1 class="subheader">' + "First Aesthetic Rate" + '</h1>' + '</div>');
@@ -126,7 +126,7 @@ $(document).ready(function () {
                 for (var j = 0; j < results.length; j++) {
                     var object = results[j];
 
-                    $('#freetext-aesthetic').append('<p>' + object.get("freetext_aesthetic") + '</p>');
+                    $('#freetext-aesthetic').append('<blockquote>' + object.get("freetext_aesthetic") + '</blockquote>');
                 }
 
                 for (var i = 0; i < toRate.length; i++) {
@@ -135,7 +135,7 @@ $(document).ready(function () {
 //Aufbau RESULTPANLÈL
 
                     var $criteriaDiv = $("<div>", {class: "criteria"});
-                    var subheader = "<h1 class='subheader'><a href='#' class='open-panel'>" + criteria + "</a></h1>";
+                    var subheader = "<h1 class='subheader circle'><a href='#' class='open-panel'>" + criteria + "</a></h1>";
 
                     var $resultPanel = $("<div>", {id: criteria, class:"result-wrapper panel"});
                     $("#div-aesthetic-test-result").append($criteriaDiv);

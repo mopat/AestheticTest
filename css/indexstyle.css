@@ -1,5 +1,11 @@
 body {
     overflow: scroll;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.top-bar {
+    margin-bottom: 10px;
 }
 
 .full-width {
@@ -63,3 +69,14 @@ body {
     right: 0;
     position: absolute;
 }
+
+#result-h {
+    color: #008CBA;
+    font-weight: bold;
+}
+
+#div-index-result-panel {
+    background-color: mintcream;
+    padding: 30px;
+}
+
