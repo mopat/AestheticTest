@@ -88,7 +88,52 @@ $(document).ready(function () {
                 } else {
                     $('#alert-null-tests').hide();
                 }
-                $("#demographic-test-data").append('<span>' + "Number of finished Tests: " + results.length + '</span>');
+                $("#demographic-test-data").append('<p><span>' + "Number of finished Tests: " + results.length + '</span></p>');
+
+
+                var m = 0,
+                    w = 0,
+                    noEx = 0,
+                    upTo1Mo = 0,
+                    mo16 = 0,
+                    moreT6 = 0;
+
+
+                for (var j = 0; j < results.length; j++) {
+                    var object = results[j];
+                    if (object.get("gender") == "man") {
+                        m++;
+                    } else {
+                        w++;
+                    }
+
+
+                    if (object.get("website_experience") == "3") {
+                        moreT6++;
+                    }
+                    if (object.get("website_experience") == "2") {
+                        mo16++;
+                    }
+                    if (object.get("website_experience") == "1") {
+                        upTo1Mo++;
+                    }
+                    if (object.get("website_experience") == "0") {
+                        noEx++;
+                    }
+
+
+                }
+
+                $("#demographic-test-data").append('<p><span>' + "Man: " + m + '</span>' + '</br>' + '<span>' + "Woman: " + w + '</span></p>');
+
+
+                $("#demographic-test-data").append('<p><span>' + "I have no experience with this website: " + noEx + '</span>' + '</br>' + '<span>' + "Up to 1 Month: " + upTo1Mo + '</span>' + '</br>' + '<span>' + "1 - 6 Months: " + mo16 + '</span>' + '</br>' + '<span>' + "More Than 6 Months: " + moreT6 + '</span></p>');
+
+
+
+
+
+
 
 
                 $('#div-aesthetic-test-result').append('<div id="first-aesthetic-rate" class="panel">' + '<h1 class="subheader">' + "First Aesthetic Rate" + '</h1>' + '</div>');

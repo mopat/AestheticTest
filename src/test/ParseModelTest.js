@@ -41,7 +41,7 @@ AestheticTest.ParseModelTest = (function () {
                 testPerson = new TestPerson(),
                 gender = $("#gender option:selected").text(),
                 age = $("#age option:selected").text(),
-                websiteExperience = $("#website-experience option:selected").text(),
+                websiteExperience = $("#website-experience option:selected").val(),
                 profession = $("#profession").val();
             console.log(gender,age,websiteExperience,profession);
 
