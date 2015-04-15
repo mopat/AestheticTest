@@ -35,6 +35,9 @@ body{
     display: none;
 }
 
+#test-box{
+    height: 100%;
+}
 .rate-textbox {
     width: 100% !important;
     margin-bottom: 10px !important;

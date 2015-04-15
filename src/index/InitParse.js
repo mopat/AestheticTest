@@ -34,8 +34,6 @@ $(document).ready(function () {
 
             user.signUp(null, {
                 success: function (user) {
-                    //$('#alert-now-login').show();
-                    swal("user erzeugt", null, "success");
                     loggedIn();
                 },
                 error: function (user, error) {
