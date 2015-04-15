@@ -38,6 +38,16 @@ body {
     height: 100% !important;
 }
 
+.criteria {
+    width: 100%;
+    height: 100%;
+    background-color: #c0c0c0;
+}
+
+.open-panel {
+    padding-left: 10px;
+}
+
 .rate-textbox {
     width: 100% !important;
     margin-bottom: 10px !important;
