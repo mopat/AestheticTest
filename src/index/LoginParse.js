@@ -135,6 +135,13 @@ $(document).ready(function () {
 //Aufbau RESULTPANLÈL
 
                     var $criteriaDiv = $("<div>", {class: "criteria"});
+
+                    if(i%2 == 0){
+                        $criteriaDiv.css("background-color", "#DEDEDE")
+                    }
+                    else{
+                        $criteriaDiv.css("background-color", "#C0C0C0")
+                    }
                     var subheader = "<h1 class='subheader circle'><a href='#' class='open-panel'>" + criteria + "</a></h1>";
 
                     var $resultPanel = $("<div>", {id: criteria, class:"result-wrapper panel"});
@@ -282,6 +289,10 @@ $(document).ready(function () {
                             stacking: 'percent'
                         }
                     },
+                    tooltip: {
+                        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+                        shared: true
+                    },
                     series: [{
                         name: 'Uihhh, this is very beautiful!',
                         data: seriesDataHc6
@@ -339,6 +350,10 @@ $(document).ready(function () {
                             stacking: 'percent'
                         }
                     },
+                    tooltip: {
+                        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+                        shared: true
+                    },
                     series: [{
                         name: 'Uihhh, this is very beautiful!',
                         data: [seriesDataHcFirstAe[6]]
@@ -395,6 +410,10 @@ $(document).ready(function () {
                             series: {
                                 stacking: 'percent'
                             }
+                        },
+                        tooltip: {
+                            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+                            shared: true
                         },
                         series: [{
                             name: 'Uihhh, this is very beautiful!',
