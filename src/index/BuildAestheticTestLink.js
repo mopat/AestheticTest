@@ -29,8 +29,20 @@ $(document).ready(function () {
             checkbox1 = "";
         }
 
+        if ($('#checkbox2').prop('checked') == true) {
+            var checkbox2 = "on";
+        } else {
+            checkbox2 = "";
+        }
+
+        if ($('#checkbox3').prop('checked') == true) {
+            var checkbox3 = "on";
+        } else {
+            checkbox3 = "";
+        }
+
         aestheticTestLink = aestheticTestLink + "?projectname=" + projectName + "&testurl=" + testurl + "&time=" + time +
-        "&font=" + checkbox1 + "&color=" + "on" + "&pictures=" + "on" + "&chracteristic1=" + $('#chracteristic1').val() + "&chracteristic2=" + $('#chracteristic2').val() + "&chracteristic3=" + $('#chracteristic3').val();
+        "&font=" + checkbox1 + "&color=" + checkbox2 + "&pictures=" + checkbox3 + "&chracteristic1=" + $('#chracteristic1').val() + "&chracteristic2=" + $('#chracteristic2').val() + "&chracteristic3=" + $('#chracteristic3').val();
         saveAestheticTestLink(aestheticTestLink);
         showAestheticTestLink(aestheticTestLink);
 
@@ -47,7 +59,6 @@ $(document).ready(function () {
         var user = Parse.User.current();
         user.set("aesthetic_test_link", aestheticTestLink);
         user.save();
-        //$('#div-index-create-test').hide();
     }
 
 
