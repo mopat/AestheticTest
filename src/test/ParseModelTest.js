@@ -30,7 +30,6 @@ AestheticTest.ParseModelTest = (function () {
 
         _setRatingArray = function (toRate) {
             ratingFields = toRate;
-            console.log(ratingFields)
         },
 
         saveAestheticData = function () {

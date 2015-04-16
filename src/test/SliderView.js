@@ -6,7 +6,7 @@ AestheticTest.SliderView = (function () {
         $firstAesthteticRateBox = null,
 
         init = function () {
-            console.log("init slider");
+
             $aestheticSliderModal = $('#aesthetic-slider-modal');
             $closeSliderModalButton = $("#close-slider-modal-button");
             $firstAesthteticRateBox = $("#first-aesthetic-rate-box");

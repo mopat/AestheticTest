@@ -6,7 +6,7 @@ AestheticTest.TestSetup = (function () {
         toRate = null,
 
         init = function () {
-            console.log("init testsetup");
+
             toRate = [];
 
             testUrl = getParameterByName("testurl");
