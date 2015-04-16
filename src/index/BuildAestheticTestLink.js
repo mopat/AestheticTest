@@ -1,6 +1,5 @@
 AestheticIndex.BuildAestheticTestLink = (function () {
     var that = {},
-        test = null,
 
         init = function () {
 

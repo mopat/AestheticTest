@@ -1,5 +1,5 @@
 var AestheticTest = {
-    init: function() {
+    init: function () {
         AestheticTest.MainController.init();
     }
 };

@@ -5,7 +5,6 @@ AestheticTest.MainController = (function () {
         ratingView = null,
         freeTextView = null,
         parseModalTest = null,
-        result = null,
 
         init = function () {
             testSetup = AestheticTest.TestSetup.init();
@@ -25,13 +24,13 @@ AestheticTest.MainController = (function () {
             sliderView._showSliderModal();
         },
 
-        showRatingBox = function(){
+        showRatingBox = function () {
             ratingView._showRatingBox();
         },
 
-            generateCharacteristics = function (e, toRate) {
-                ratingView._addRatingFields(toRate)
-                parseModalTest._setRatingArray(toRate);
+        generateCharacteristics = function (e, toRate) {
+            ratingView._addRatingFields(toRate);
+            parseModalTest._setRatingArray(toRate);
         };
 
     that.init = init;

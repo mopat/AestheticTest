@@ -186,7 +186,6 @@ AestheticIndex.ResultView = (function () {
             for (var i = 0; i < toRate.length; i++) {
                 var criteria = toRate[i],
                     aestheticRateMedian = 0;
-//Aufbau RESULTPANLÈL
 
                 var $criteriaDiv = $("<div>", {class: "criteria"});
 
@@ -213,7 +212,6 @@ AestheticIndex.ResultView = (function () {
                 $('#' + criteria).append('<div>' + '<img src="img/smileys/' + Math.round(aestheticRateMedian / results.length) + '.png">' + '<h2 class="subheader">' + ugBeaArray[Math.round(aestheticRateMedian / results.length)] + '</h2>' + '</div>');
             }
 
-            //open wrapper
             $(".open-panel").on("click", function (e) {
                 var $result = $(e.target).parent().parent().find(".panel");
 
@@ -490,9 +488,9 @@ AestheticIndex.ResultView = (function () {
             }
         };
 
+    that._showResults = _showResults;
     that.init = init;
 
-    that._showResults = _showResults;
     return that;
 }());
 

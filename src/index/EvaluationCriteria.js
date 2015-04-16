@@ -1,6 +1,5 @@
 AestheticIndex.EvaluationCriteria = (function () {
     var that = {},
-        test = null,
 
         init = function () {
 
