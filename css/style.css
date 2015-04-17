@@ -1,37 +1,38 @@
-body{
+body {
     overflow: hidden;
 }
 
-.full-width{
+.full-width {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
     max-width: initial;
 }
 
-#rating-box{
+#rating-box {
     height: 300px;
     width: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     position: absolute;
     bottom: 0;
     display: none;
 }
 
-.rate-list{
+.rate-list {
     list-style-type: none;
 }
-.picked{
+
+.picked {
     border: 3px solid #008CBA;
     border-radius: 5px;
 }
 
-.show-rate-components-button{
+.show-rate-components-button {
     float: left;
     margin-right: 5px;
 }
 
-.show-rate-components{
+.show-rate-components {
     display: none;
 }
 
@@ -44,14 +45,15 @@ body{
     resize: none;
 }
 
-.rate-slider{
+.rate-slider {
     width: 100%;
 }
-#show-rating-box-button{
+
+#show-rating-box-button {
     display: none;
 }
 
-.hide-show-button{
+.hide-show-button {
     right: 0;
     bottom: 0;
     position: absolute;

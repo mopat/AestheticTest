@@ -30,20 +30,19 @@ AestheticTest.ParseModelTest = (function () {
 
         _setRatingArray = function (toRate) {
             ratingFields = toRate;
-            console.log(ratingFields)
         },
 
         saveAestheticData = function () {
             var endFreeText = $("#end-freetext-aesthetic-test").val(),
-             firstAestheticValue = $(".picked-first-aesthetic").attr("data-value"),
-             tableName = projectName + "_table",
+                firstAestheticValue = $(".picked-first-aesthetic").attr("data-value"),
+                tableName = projectName + "_table",
                 TestPerson = Parse.Object.extend(tableName),
                 testPerson = new TestPerson(),
                 gender = $("#gender option:selected").text(),
                 age = $("#age option:selected").val(),
                 websiteExperience = $("#website-experience option:selected").val(),
                 profession = $("#profession").val();
-            console.log(gender,age,websiteExperience,profession);
+            console.log(gender, age, websiteExperience, profession);
 
             testPerson.set("gender", gender);
             testPerson.set("age", age);

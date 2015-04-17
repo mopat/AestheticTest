@@ -151,12 +151,31 @@
 
 <div id="div-index-result-panel" class="small-12" hidden>
     <p>
+
     <h2 id="result-h">AestheticTest Result</h2>
     <h5 class="subheader">In the following, the test results will be presented.</h5>
     </p>
     <div id="alert-null-tests" hidden data-alert class="alert-box info radius">
         Until now, no one has tested your site. Send your AestheticTest link to people!
         <a href="#" class="close">&times;</a>
+    </div>
+
+    <div id="demographic-test-data" class="panel">
+        <h4> Demographic data </h4>
+    </div>
+
+    <div id="div-aesthetic-test-result">
+
+        <div id="first-aesthetic-rate" class="panel">
+            <h1 class="subheader"> First Aesthetic Rate </h1>
+
+            <div id="first-aesthetic-rate-highchart"></div>
+        </div>
+
+        <div id="freetext-aesthetic" class="panel">
+            <h1 class="subheader">Freetext Aesthetic</h1>
+        </div>
+        <div id="container" class="panel"></div>
     </div>
 
 
@@ -171,15 +190,21 @@
 <script src="js/highcharts/highcharts.js"></script>
 <script src="js/highcharts/exporting.js"></script>
 
-
-<script src="src/index/InitParse.js"></script>
-<script src="src/index/LoginParse.js"></script>
-<script src="src/index/EvaluationCriteria.js"></script>
-<script src="src/index/ResultPanel.js"></script>
-<script src="src/index/BuildAestheticTestLink.js"></script>
+<script type="text/javascript" src="src/index/AestheticIndex.js"></script>
+<script type="text/javascript" src="src/index/StartView.js"></script>
+<script type="text/javascript" src="src/index/LoggedInView.js"></script>
+<script type="text/javascript" src="src/index/InitParse.js"></script>
+<script type="text/javascript" src="src/index/LoginParse.js"></script>
+<script type="text/javascript" src="src/index/EvaluationCriteria.js"></script>
+<script type="text/javascript" src="src/index/ResultView.js"></script>
+<script type="text/javascript" src="src/index/BuildAestheticTestLink.js"></script>
+<script type="text/javascript" src="src/index/IndexController.js"></script>
 
 <script>
     $(document).foundation();
+    $(function () {
+        AestheticIndex.init();
+    });
     $("#time-slider").on("mousemove", function () {
         $("#range-value").html($(this).val());
     });

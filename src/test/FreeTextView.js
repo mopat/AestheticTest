@@ -1,7 +1,7 @@
-AestheticTest.FreeTextView = (function() {
+AestheticTest.FreeTextView = (function () {
     var that = {},
 
-        init = function() {
+        init = function () {
             return this;
         };
 

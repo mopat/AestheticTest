@@ -6,7 +6,7 @@ AestheticTest.TestSetup = (function () {
         toRate = null,
 
         init = function () {
-            console.log("init testsetup");
+
             toRate = [];
 
             testUrl = getParameterByName("testurl");
@@ -26,8 +26,8 @@ AestheticTest.TestSetup = (function () {
 
         setupCharacteristics = function () {
             var font = getParameterByName("font"),
-            color = getParameterByName("color"),
-            pictures = getParameterByName("pictures");
+                color = getParameterByName("color"),
+                pictures = getParameterByName("pictures");
 
             if (font == "on")
                 toRate.push("Font");
