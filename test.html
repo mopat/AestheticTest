@@ -73,16 +73,9 @@
         </div>
     </div>
 
-    <button id="show-rating-box-button" class="hide-show-button">
-        Show
-    </button>
-    <div id="rating-box">
-        <button id="hide-rating-box-button" class="hide-show-button">
-            Hide
-        </button>
 
-        <a href="#" class="button success finish-button" data-reveal-id="general-aesthetic-modal">Finish
-            AestheticTest</a>
+    <div id="rating-box">
+
     </div>
 
     <div id="general-aesthetic-modal" class="reveal-modal" data-reveal
@@ -168,62 +161,60 @@
 <script type="text/html" id="to-rate-tpl">
     <div class="to-rate-wrapper">
 
-        <button class="show-rate-components-button" id="<%= attribute %>"><%= button_attribute_to_rate %></button>
+        <button class="show-rate-components-button tiny" id="<%= attribute %>"><%= button_attribute_to_rate %></button>
 
         <div class="show-rate-components" id="rate-components-<%= attribute %>">
             <div class="row full-width">
-                <div class="large-10 columns">
                     <div class="row">
-                        <div class="large-10 columns">
+                        <div class="large-8 medium-10 small-12 columns">
                             <ul id="rate-list-<%= attribute %>" class="rate-list" data-num-characteristic>
                                 <li>
                                     <div class="at-general-rate-box" data-value="0">
                                         <img src="img/smileys/0.png" width="50%" height="50%">
                                         <br>
-                                        Urghhh, this is pretty ugly!
+                                        pretty ugly
                                     </div>
                                 </li>
                                 <li>
                                     <div class="at-general-rate-box" data-value="1">
                                         <img src="img/smileys/1.png" width="50%" height="50%">
                                         <br>
-                                        Urghhh, this is ugly!
+                                        ugly
                                     </div>
                                 </li>
                                 <li>
                                     <div class="at-general-rate-box" data-value="2">
                                         <img src="img/smileys/2.png" width="50%" height="50%">
                                         <br>
-                                        This is bad!
+                                        bad
                                     </div>
                                 </li>
                                 <li>
                                     <div class="at-general-rate-box picked" data-value="3">
                                         <img src="img/smileys/3.png" width="50%" height="50%">
                                         <br>
-                                        This is okay!
+                                        okay
                                     </div>
                                 </li>
                                 <li>
                                     <div class="at-general-rate-box" data-value="4">
                                         <img src="img/smileys/4.png" width="50%" height="50%">
                                         <br>
-                                        This is not bad!
+                                        not bad
                                     </div>
                                 </li>
                                 <li>
                                     <div class="at-general-rate-box" data-value="5">
                                         <img src="img/smileys/5.png" width="50%" height="50%">
                                         <br>
-                                        Uihhh, this is beautiful!
-
+                                        beautiful
                                     </div>
                                 </li>
                                 <li>
                                     <div class="at-general-rate-box" data-value="6">
                                         <img src="img/smileys/6.png" width="50%" height="50%">
                                         <br>
-                                        Uihhh, this is very beautiful!
+                                        very beautiful
                                     </div>
                                 </li>
                             </ul>
@@ -231,14 +222,15 @@
                             </div>
                         </div>
                     </div>
-                </div>
                 <div class="row full-width">
-                    <div class="large-12 columns">
+                    <div class="large-8 medium-10 small-12 columns">
                         <div>Please rate the overall <%= attribute %></div>
                     <textarea style="float: left" cols="100" rows="4" type="text"
                               placeholder="Tell us what you didn't like! " id="rate-textbox-<%= attribute %>"
                               class="rate-textbox"></textarea>
-                        <button class="ok-button" id="ok-button-<%= attribute %>">OK</button>
+                        <button class="ok-button tiny" id="ok-button-<%= attribute %>">OK</button>
+                        <a href="#" class="button tiny success finish-button" data-reveal-id="general-aesthetic-modal">Finish
+                            Test</a>
                     </div>
                 </div>
 
@@ -252,5 +244,11 @@
         AestheticTest.init();
     });
 </script>
+<button id="show-rating-box-button" class="hide-show-button tiny">
+    Show
+</button>
+<button id="hide-rating-box-button" class="hide-show-button tiny">
+    Hide
+</button>
 </body>
 </html>

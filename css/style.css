@@ -20,6 +20,7 @@ body {
 
 .rate-list {
     list-style-type: none;
+    width: 80%;
 }
 
 .picked {
@@ -56,7 +57,8 @@ body {
 .hide-show-button {
     right: 0;
     bottom: 0;
-    position: absolute;
+    margin-bottom: 0px;
+    position: fixed;
 }
 
 .reveal-modal-bg {
@@ -72,17 +74,16 @@ body {
 
 .finish-button {
     right: 0;
-    position: absolute;
 }
 
 .at-general-rate-box {
-    width: 14.26%;
+    width: 14.28%;
     float: left;
     text-align: center;
 }
 
 .at-smiley-rate-box {
-    width: 14.26%;
+    width: 50px;
     float: left;
 }
 
