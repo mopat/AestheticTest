@@ -41,8 +41,45 @@ AestheticTest.ParseModelTest = (function () {
                 gender = $("#gender option:selected").text(),
                 age = $("#age option:selected").val(),
                 websiteExperience = $("#website-experience option:selected").val(),
-                profession = $("#profession").val();
-            console.log(gender, age, websiteExperience, profession);
+                profession = $("#profession").val(),
+
+                colorComposition = $('#color-composition').val(),
+                hue = $('#color-hue').val(),
+                colorSaturation = $('#color-saturation').val(),
+                colorBrightness = $('#color-brightness').val(),
+                colorOther = $('#color-other').val(),
+
+                fontComposition = $('#font-composition'),
+                fontFamily = $('#font-family'),
+                fontStyle = $('#font-style'),
+                fontSize = $('#font-size'),
+                fontOther = $('#font-other'),
+
+                imagesNumber = $('#images-number'),
+                imagesSize = $('#images-size'),
+                imagesUsage = $('#images-usage'),
+                imagesOther = $('#images-other');
+
+
+            testPerson.set("images_number", imagesNumber);
+            testPerson.set("images_size", imagesSize);
+            testPerson.set("images_usage", imagesUsage);
+            testPerson.set("images_other", imagesOther);
+
+
+            testPerson.set("font_composition", fontComposition);
+            testPerson.set("font_family", fontFamily);
+            testPerson.set("font:style", fontStyle);
+            testPerson.set("font_size", fontSize);
+            testPerson.set("font_other", fontOther);
+
+
+            testPerson.set("color_composition", colorComposition);
+            testPerson.set("hue", hue);
+            testPerson.set("color_saturation", colorSaturation);
+            testPerson.set("color_brightness", colorBrightness);
+            testPerson.set("color-other", colorOther);
+
 
             testPerson.set("gender", gender);
             testPerson.set("age", age);

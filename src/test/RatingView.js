@@ -23,7 +23,6 @@ AestheticTest.RatingView = (function () {
             $showButton.on("click", showButtonClick);
         },
 
-
         hideButtonClick = function () {
             $(this).hide();
             $showButton.show();
@@ -32,6 +31,7 @@ AestheticTest.RatingView = (function () {
                 $("#test-page").css("height", height);
             });
         },
+
         showButtonClick = function () {
             $(this).hide();
             $hideButton.show();

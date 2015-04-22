@@ -128,6 +128,7 @@ AestheticIndex.ResultView = (function () {
                 $demographicTestData.append('<span>' + object.get("profession") + '; ' + '</span>');
             }
 
+
         },
 
         showFirstAestheticRatePanel = function (results) {
@@ -143,7 +144,9 @@ AestheticIndex.ResultView = (function () {
 
             fARMRound = Math.round(firstAestheticRateMedian / results.length);
 
-            $firstAestheticRate.append('<img src="img/smileys/' + fARMRound + '.png">' + '<h2 class="subheader">' + ugBeaArray[fARMRound] + '</h2>');
+            if (isNaN(fARMRound) == false) {
+                $firstAestheticRate.append('<img src="img/smileys/' + fARMRound + '.png">' + '<h2 class="subheader">' + ugBeaArray[fARMRound] + '</h2>');
+            }
 
 
             for (var j = 0; j < results.length; j++) {
@@ -367,7 +370,7 @@ AestheticIndex.ResultView = (function () {
             var options = {
                 chart: {
                     type: 'bar',
-                    renderTo: 'container'
+                    renderTo: 'all-aesthetic-criteria-highchart'
                 },
                 title: {
                     text: 'AestheticTest Characteristics'
