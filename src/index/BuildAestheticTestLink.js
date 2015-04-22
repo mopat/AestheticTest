@@ -45,7 +45,7 @@ AestheticIndex.BuildAestheticTestLink = (function () {
             }
 
             aestheticTestLink = aestheticTestLink + "?projectname=" + projectName + "&testurl=" + testurl + "&time=" + time +
-            "&font=" + checkbox1 + "&color=" + checkbox2 + "&pictures=" + checkbox3 + "&chracteristic1=" + $('#chracteristic1').val() + "&chracteristic2=" + $('#chracteristic2').val() + "&chracteristic3=" + $('#chracteristic3').val();
+            "&font=" + checkbox1 + "&color=" + checkbox2 + "&images=" + checkbox3 + "&chracteristic1=" + $('#chracteristic1').val() + "&chracteristic2=" + $('#chracteristic2').val() + "&chracteristic3=" + $('#chracteristic3').val();
 
             saveAestheticTestLink(aestheticTestLink);
             showAestheticTestLink();

@@ -27,7 +27,7 @@ AestheticTest.TestSetup = (function () {
         setupCharacteristics = function () {
             var font = getParameterByName("font"),
                 color = getParameterByName("color"),
-                pictures = getParameterByName("pictures");
+                images = getParameterByName("images");
 
             if (font == "on")
                 toRate.push("Font");
@@ -35,8 +35,8 @@ AestheticTest.TestSetup = (function () {
             if (color == "on")
                 toRate.push("Color");
 
-            if (pictures == "on")
-                toRate.push("Pictures");
+            if (images == "on")
+                toRate.push("Images");
 
             for (var i = 1; i <= 3; i++) {
                 var characteristic = getParameterByName("chracteristic" + i);

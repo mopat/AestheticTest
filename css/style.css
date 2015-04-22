@@ -97,3 +97,12 @@ body {
 .reveal-modal{
     top: 0px !important;
 }
+
+.rate-header{
+    color: white;
+}
+
+.finish-button{
+    right: 0;
+    position: absolute;
+}
