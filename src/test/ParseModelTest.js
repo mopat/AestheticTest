@@ -49,17 +49,20 @@ AestheticTest.ParseModelTest = (function () {
                 colorBrightness = $('#color-brightness').val(),
                 colorOther = $('#color-other').val(),
 
-                fontComposition = $('#font-composition'),
-                fontFamily = $('#font-family'),
-                fontStyle = $('#font-style'),
-                fontSize = $('#font-size'),
-                fontOther = $('#font-other'),
+                fontComposition = $('#font-composition').val(),
+                fontFamily = $('#font-family').val(),
+                fontStyle = $('#font-style').val(),
+                fontSize = $('#font-size').val(),
+                fontOther = $('#font-other').val(),
 
-                imagesNumber = $('#images-number'),
-                imagesSize = $('#images-size'),
-                imagesUsage = $('#images-usage'),
-                imagesOther = $('#images-other');
+                imagesNumber = $('#images-number').val(),
+                imagesSize = $('#images-size').val(),
+                imagesUsage = $('#images-usage').val(),
+                imagesOther = $('#images-other').val(),
 
+                firstImpressions = $('#first-impressions').val();
+
+            testPerson.set("first_impressions", firstImpressions);
 
             testPerson.set("images_number", imagesNumber);
             testPerson.set("images_size", imagesSize);
@@ -69,7 +72,7 @@ AestheticTest.ParseModelTest = (function () {
 
             testPerson.set("font_composition", fontComposition);
             testPerson.set("font_family", fontFamily);
-            testPerson.set("font:style", fontStyle);
+            testPerson.set("font_style", fontStyle);
             testPerson.set("font_size", fontSize);
             testPerson.set("font_other", fontOther);
 
