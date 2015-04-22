@@ -78,6 +78,7 @@ AestheticTest.RatingView = (function () {
                 $(e.target).closest(".to-rate-wrapper").show();
                 var id = $(this).attr("id"),
                     rateComponents = $("#rate-components-" + id),
+                    rateTextBox = $("#rate-textbox-" + id),
                     okButton = $("#ok-button-" + id),
                     rateInfo = $("#rate-info-" + id);
 
@@ -89,9 +90,20 @@ AestheticTest.RatingView = (function () {
                 rateComponents.show();
 
                 okButton.on("click", function (e) {
+                    console.log(rateTextBox.attr("id"))
+                    if(rateTextBox.attr("id") == "rate-textbox-Font"){
+                        $("#font-modal").foundation("reveal", "open");
+                    }
+                    if(rateTextBox.attr("id") == "rate-textbox-Color"){
+                        $("#color-modal").foundation("reveal", "open");
+                    }
+                    if(rateTextBox.attr("id") == "rate-textbox-Pictures"){
+                        $("#picture-modal").foundation("reveal", "open");
+                    }
                     rateComponents.hide();
                     $(".to-rate-wrapper").show();
                     $(".show-rate-components-button").show();
+
                 });
             })
         };

@@ -77,9 +77,11 @@ body {
 }
 
 .at-general-rate-box {
-    width: 14.28%;
+    width: 10%;
     float: left;
     text-align: center;
+    font-size: 0.7rem;
+    margin-right: 4%;
 }
 
 .at-smiley-rate-box {
@@ -90,4 +92,8 @@ body {
 .smileys {
     width: 25%;
     height: 25%;
+}
+
+.reveal-modal{
+    top: 0px !important;
 }
