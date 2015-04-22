@@ -98,7 +98,7 @@ AestheticTest.RatingView = (function () {
                         $("#color-modal").foundation("reveal", "open");
                     }
                     if(rateTextBox.attr("id") == "rate-textbox-Pictures"){
-                        $("#picture-modal").foundation("reveal", "open");
+                        $("#image-modal").foundation("reveal", "open");
                     }
                     rateComponents.hide();
                     $(".to-rate-wrapper").show();
