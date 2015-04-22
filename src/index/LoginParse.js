@@ -13,8 +13,6 @@ AestheticIndex.LoginParse = (function () {
                 }
             });
 
-
-
             return this;
         },
 
