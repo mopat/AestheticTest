@@ -81,7 +81,7 @@ AestheticTest.ParseModelTest = (function () {
             testPerson.set("hue", hue);
             testPerson.set("color_saturation", colorSaturation);
             testPerson.set("color_brightness", colorBrightness);
-            testPerson.set("color-other", colorOther);
+            testPerson.set("color_other", colorOther);
 
 
             testPerson.set("gender", gender);

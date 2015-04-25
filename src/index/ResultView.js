@@ -8,6 +8,23 @@ AestheticIndex.ResultView = (function () {
         $firstAestheticRateHighchart = null,
         $freetextAesthetic = null,
         ugBeaArray = [],
+        $divColorResult = null,
+        $divFontResult = null,
+        $divImgResult = null,
+        $divColorResultComposition = null,
+        $divColorResultHue = null,
+        $divColorResultSaturation = null,
+        $divColorResultBrightness = null,
+        $divColorResultOther = null,
+        $divFontResultComposition = null,
+        $divFontResultFamily = null,
+        $divFontResultStyle = null,
+        $divFontResultSize = null,
+        $divFontResultOther = null,
+        $divImgResultNumber = null,
+        $divImgResultSize = null,
+        $divImgResultBadUsages = null,
+        $divImgResultOther = null,
 
 
         init = function () {
@@ -19,6 +36,27 @@ AestheticIndex.ResultView = (function () {
             $firstAestheticRate = $('#first-aesthetic-rate');
             $firstAestheticRateHighchart = $('#first-aesthetic-rate-highchart');
             $freetextAesthetic = $('#freetext-aesthetic');
+
+            $divColorResult = $('#div-color-result');
+            $divFontResult = $('#div-font-result');
+            $divImgResult = $('#div-img-result');
+            $divColorResultComposition = $('#div-color-result-composition');
+            $divColorResultHue = $('#div-color-result-hue');
+            $divColorResultSaturation = $('#div-color-result-saturation');
+            $divColorResultBrightness = $('#div-color-result-brightness');
+            $divColorResultOther = $('#div-color-result-other');
+
+
+            $divFontResultComposition = $('#div-font-result-composition');
+            $divFontResultFamily = $('#div-font-result-family');
+            $divFontResultStyle = $('#div-font-result-style');
+            $divFontResultSize = $('#div-font-result-size');
+            $divFontResultOther = $('#div-font-result-other');
+
+            $divImgResultNumber = $('#div-img-result-number');
+            $divImgResultSize = $('#div-img-result-size');
+            $divImgResultBadUsages = $('#div-img-result-bad-usages');
+            $divImgResultOther = $('#div-img-result-other');
 
             initUgBeaArray();
 
@@ -190,6 +228,7 @@ AestheticIndex.ResultView = (function () {
                 var criteria = toRate[i],
                     aestheticRateMedian = 0;
 
+
                 var $criteriaDiv = $("<div>", {class: "criteria"});
 
                 if (i % 2 == 0) {
@@ -212,7 +251,52 @@ AestheticIndex.ResultView = (function () {
                     aestheticRateMedian = aestheticRateMedian + object.get(criteria + "val") * 1;
                 }
 
-                $('#' + criteria).append('<div>' + '<img src="img/smileys/' + Math.round(aestheticRateMedian / results.length) + '.png">' + '<h2 class="subheader">' + ugBeaArray[Math.round(aestheticRateMedian / results.length)] + '</h2>' + '</div>');
+                if (criteria == "color" || criteria == "font" || criteria == "images") {
+                    if (criteria == "color") {
+                        $('#' + criteria).append('<div>' + '<img src="img/smileys/' + Math.round(aestheticRateMedian / results.length) + '.png">' + '<h2 class="subheader">' + ugBeaArray[Math.round(aestheticRateMedian / results.length)] + '</h2>' + '</div>');
+                        $('#' + criteria).append($divColorResult);
+                        for (var j = 0; j < results.length; j++) {
+                            var object = results[j];
+                            $divColorResultComposition.append('<blockquote>' + object.get("color_composition") + '</blockquote>');
+                            $divColorResultHue.append('<blockquote>' + object.get("hue") + '</blockquote>');
+                            $divColorResultSaturation.append('<blockquote>' + object.get("color_saturation") + '</blockquote>');
+                            $divColorResultBrightness.append('<blockquote>' + object.get("color_brightness") + '</blockquote>');
+                            $divColorResultOther.append('<blockquote>' + object.get("color_other") + '</blockquote>');
+                        }
+
+                    }
+                    if (criteria == "font") {
+                        $('#' + criteria).append('<div>' + '<img src="img/smileys/' + Math.round(aestheticRateMedian / results.length) + '.png">' + '<h2 class="subheader">' + ugBeaArray[Math.round(aestheticRateMedian / results.length)] + '</h2>' + '</div>');
+                        $('#' + criteria).append($divFontResult);
+                        for (var j = 0; j < results.length; j++) {
+                            var object = results[j];
+
+
+                            $divFontResultComposition.append('<blockquote>' + object.get("font_composition") + '</blockquote>');
+                            $divFontResultFamily.append('<blockquote>' + object.get("font_family") + '</blockquote>');
+                            $divFontResultStyle.append('<blockquote>' + object.get("font_style") + '</blockquote>');
+                            $divFontResultSize.append('<blockquote>' + object.get("font_size") + '</blockquote>');
+                            $divFontResultOther.append('<blockquote>' + object.get("font_other") + '</blockquote>');
+
+
+                        }
+
+                    }
+                    if (criteria == "images") {
+                        $('#' + criteria).append('<div>' + '<img src="img/smileys/' + Math.round(aestheticRateMedian / results.length) + '.png">' + '<h2 class="subheader">' + ugBeaArray[Math.round(aestheticRateMedian / results.length)] + '</h2>' + '</div>');
+                        $('#' + criteria).append($divImgResult);
+                        for (var j = 0; j < results.length; j++) {
+                            var object = results[j];
+
+                            $divImgResultNumber.append('<blockquote>' + object.get("images_number") + '</blockquote>');
+                            $divImgResultSize.append('<blockquote>' + object.get("images_size") + '</blockquote>');
+                            $divImgResultBadUsages.append('<blockquote>' + object.get("images_usage") + '</blockquote>');
+                            $divImgResultOther.append('<blockquote>' + object.get("images_other") + '</blockquote>');
+                        }
+                    }
+                } else {
+                    $('#' + criteria).append('<div>' + '<img src="img/smileys/' + Math.round(aestheticRateMedian / results.length) + '.png">' + '<h2 class="subheader">' + ugBeaArray[Math.round(aestheticRateMedian / results.length)] + '</h2>' + '</div>');
+                }
             }
 
             $(".open-panel").on("click", function (e) {
