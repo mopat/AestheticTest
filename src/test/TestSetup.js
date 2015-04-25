@@ -4,46 +4,52 @@ AestheticTest.TestSetup = (function () {
         time = null,
         testPage = null,
         toRate = null,
+        projectname = null,
 
         init = function () {
 
+            // Initialize Parse with your Parse application javascript keys
+            Parse.initialize("f9adAlRbVFDK1YlOeuU5sbeIi6e46brSVvADAUZW",
+                "Y9hZUmuVX5EHU7q05rdsO7CuaOQNH1XxZ0K5IWk1");
+
             toRate = [];
-
-            testUrl = getParameterByName("testurl");
-            time = getParameterByName("time");
             testPage = $("#test-page");
-
-            setupCharacteristics();
+            projectname = getParameterByName("projectname");
 
             $(document).ready(function () {
-                setupIframe();
-                runTimer();
-                $(that).trigger("characteristicsGenerated", [toRate]);
+                setup();
             });
 
             return this;
         },
 
-        setupCharacteristics = function () {
-            var font = getParameterByName("font"),
-                color = getParameterByName("color"),
-                images = getParameterByName("images");
+        setup = function () {
 
-            if (font == "on")
-                toRate.push("Font");
+            var project = Parse.Object.extend("User"),
+                query = new Parse.Query(project);
 
-            if (color == "on")
-                toRate.push("Color");
+            query.find({
+                success: function (results) {
+                    for (var j = 0; j < results.length; j++) {
+                        var object = results[j];
+                        if (object.get("username") == projectname) {
 
-            if (images == "on")
-                toRate.push("Images");
+                            testUrl = object.get("testurl");
+                            setupIframe(testUrl);
 
-            for (var i = 1; i <= 3; i++) {
-                var characteristic = getParameterByName("chracteristic" + i);
-                if (characteristic != "") {
-                    toRate.push(characteristic);
+                            time = object.get("testtime");
+                            runTimer(time);
+
+                            toRate = object.get("evaluation_criteria");
+                            $(that).trigger("characteristicsGenerated", [toRate]);
+                        }
+                    }
+
+                },
+                error: function (error) {
+                    swal("Error: " + error.code + " " + error.message, null, "error");
                 }
-            }
+            });
         },
 
         getParameterByName = function (name) {
@@ -53,16 +59,16 @@ AestheticTest.TestSetup = (function () {
             return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
         },
 
-        setupIframe = function () {
+        setupIframe = function (testUrl) {
             if (testPage.length)
                 testPage.attr('src', testUrl);
         },
 
-        runTimer = function () {
+        runTimer = function (time) {
             testPage.load(function () {
                 setTimeout(function () {
                     $(that).trigger("showSliderModal");
-                }, 1000);
+                }, time);
             });
         };
 

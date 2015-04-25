@@ -38,36 +38,21 @@ AestheticIndex.LoggedInView = (function () {
             }
 
             $divAestheticTestLinkPanel.show();
-
             $labelAestheticTestLink.html(aestheticTestLink);
             $labelAestheticTestLink.attr("href", aestheticTestLink);
             $divIndexResultPanel.show();
-
 
             var linkUrl = new ZeroClipboard($("#copy-link-button"), {
                 moviePath: "libs/ZeroClipboard.swf",
                 debug: false
             });
 
-
             //in zwischenablage kopieren
             linkUrl.on("load", function (linkUrl) {
                 linkUrl.on("complete", function (linkUrl, args) {
                     linkUrl.setText(aestheticTestLink);
-
                 });
             });
-
-            /* document.getElementById('input-projectname-login').onkeypress = function (e) {
-             if (!e) e = window.event;
-             var keyCode = e.keyCode || e.which;
-             swal("HEEE")
-             if (keyCode == '13') {
-             // Enter pressed
-             return false;
-             }
-             }*/
-
         };
 
     that._showLoggedInView = _showLoggedInView;

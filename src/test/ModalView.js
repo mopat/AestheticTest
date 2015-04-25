@@ -5,11 +5,6 @@ AestheticTest.ModalView = (function () {
 
         init = function () {
 
-            $buttonColorModalClose = $('#button-color-modal-close');
-
-            $buttonColorModalClose.on('click', function () {
-                $(that).trigger("buttonColorModalCloseClicked", [$('#color-composition').val(), $('#color-hue').val(), $('#color-saturation').val(), $('#color-brightness').val(), $('#color-other').val()]);
-            });
 
             return this;
         };

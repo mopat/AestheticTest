@@ -49,8 +49,9 @@ AestheticTest.RatingView = (function () {
         },
 
         _addRatingFields = function (toRate) {
+
             ratingFields = toRate;
-            for (var i = 0; i < toRate.length; i++) {
+            for (var i = 0; i < ratingFields.length; i++) {
 
                 var rateItem = toRateTpl({
                     button_attribute_to_rate: ratingFields[i],
@@ -72,9 +73,9 @@ AestheticTest.RatingView = (function () {
             });
 
             $(".show-rate-components-button").on("click", function (e) {
-                $("#rate-textbox-Font").hide();
-                $("#rate-textbox-Color").hide();
-                $("#rate-textbox-Images").hide();
+                $("#rate-textbox-font").hide();
+                $("#rate-textbox-color").hide();
+                $("#rate-textbox-images").hide();
                 $(".active").removeClass("active");
                 $(this).hide();
                 $(".to-rate-wrapper").hide();
@@ -93,14 +94,13 @@ AestheticTest.RatingView = (function () {
                 rateComponents.show();
 
                 okButton.on("click", function (e) {
-                    console.log(rateTextBox.attr("id"))
-                    if($(this).attr("id") == "ok-button-Font"){
+                    if ($(this).attr("id") == "ok-button-font") {
                         $("#font-modal").foundation("reveal", "open");
                     }
-                    if($(this).attr("id") == "ok-button-Color"){
+                    if ($(this).attr("id") == "ok-button-color") {
                         $("#color-modal").foundation("reveal", "open");
                     }
-                    if($(this).attr("id") == "ok-button-Images"){
+                    if ($(this).attr("id") == "ok-button-images") {
                         $("#image-modal").foundation("reveal", "open");
                     }
                     rateComponents.hide();

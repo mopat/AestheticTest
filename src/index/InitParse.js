@@ -23,10 +23,8 @@ AestheticIndex.InitParse = (function () {
 
                 user.signUp(null, {
                     success: function (user) {
-
                         $(that).trigger("parseUserLoggedIn", [Parse.User.current().get("aesthetic_test_link")]);
                         $(that).trigger("fetchParseResults");
-
                     },
                     error: function (user, error) {
                         swal(error.message, null, "error");
@@ -43,6 +41,7 @@ AestheticIndex.InitParse = (function () {
 
             Parse.User.requestPasswordReset(email, {
                 success: function () {
+
                 },
                 error: function (error) {
                     // Show the error message somewhere

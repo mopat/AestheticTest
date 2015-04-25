@@ -38,15 +38,18 @@ AestheticIndex.EvaluationCriteria = (function () {
                     toRate.push($('#chracteristic3').val().toLowerCase());
                 }
 
-                saveEvaluationCriteria(toRate);
+
+                saveEvaluationCriteria(toRate, $('#time-slider').val());
+
             });
 
             return this;
         },
 
-        saveEvaluationCriteria = function (toRate) {
+        saveEvaluationCriteria = function (toRate, time) {
             var user = Parse.User.current();
             user.set("evaluation_criteria", toRate);
+            user.set("testtime", time * 1);
             user.save();
             $('#div-index-create-test').hide();
         };

@@ -16,36 +16,11 @@ AestheticIndex.BuildAestheticTestLink = (function () {
         buildAesthteticTestLink = function () {
             var aestheticTestLink = "",
                 user = Parse.User.current(),
-                testurl = user.get("testurl"),
-                projectName = user.get("username"),
-                time = $('#time-slider').val(),
-                toRate = user.get("evaluation_criteria");
+                projectName = user.get("username");
 
             aestheticTestLink = document.URL.replace(window.location.pathname, "/AestheticTest/test.html");
             aestheticTestLink = aestheticTestLink.replace("#", "");
-            testurl = testurl.replace(":", "%3A");
-            testurl = testurl.replace("/", "%2F");
-
-            if ($('#checkbox1').prop('checked') == true) {
-                var checkbox1 = "on";
-            } else {
-                checkbox1 = "";
-            }
-
-            if ($('#checkbox2').prop('checked') == true) {
-                var checkbox2 = "on";
-            } else {
-                checkbox2 = "";
-            }
-
-            if ($('#checkbox3').prop('checked') == true) {
-                var checkbox3 = "on";
-            } else {
-                checkbox3 = "";
-            }
-
-            aestheticTestLink = aestheticTestLink + "?projectname=" + projectName + "&testurl=" + testurl + "&time=" + time +
-            "&font=" + checkbox1 + "&color=" + checkbox2 + "&images=" + checkbox3 + "&chracteristic1=" + $('#chracteristic1').val() + "&chracteristic2=" + $('#chracteristic2').val() + "&chracteristic3=" + $('#chracteristic3').val();
+            aestheticTestLink = aestheticTestLink + "?projectname=" + projectName;
 
             saveAestheticTestLink(aestheticTestLink);
             showAestheticTestLink();
@@ -53,7 +28,7 @@ AestheticIndex.BuildAestheticTestLink = (function () {
 
         saveAestheticTestLink = function (aestheticTestLink) {
             var user = Parse.User.current();
-            user.set("aesthetic_test_link", aestheticTestLink);
+            user.set("aesthetic_test_link", aestheticTestLink.toString());
             user.save();
         },
 
