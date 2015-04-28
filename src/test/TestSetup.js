@@ -37,7 +37,7 @@ AestheticTest.TestSetup = (function () {
                             testUrl = object.get("testurl");
                             setupIframe(testUrl);
 
-                            time = object.get("testtime");
+                            time = object.get("testtime") * 1000;
                             runTimer(time);
 
                             toRate = object.get("evaluation_criteria");
