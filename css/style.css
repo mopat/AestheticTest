@@ -62,6 +62,9 @@ body {
     position: fixed;
 }
 
+#hide-rating-box-button{
+    display: none;
+}
 .reveal-modal-bg {
     background: rgba(0, 0, 0, 0.95);
 }

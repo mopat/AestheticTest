@@ -74,11 +74,9 @@ AestheticTest.TestSetup = (function () {
         },
 
         runTimer = function () {
-            testPage.load(function () {
                 setTimeout(function () {
                     $(that).trigger("showSliderModal");
                 }, time);
-            });
         };
 
 

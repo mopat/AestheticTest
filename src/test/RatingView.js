@@ -42,6 +42,7 @@ AestheticTest.RatingView = (function () {
         },
 
         _showRatingBox = function () {
+            $hideButton.show();
             $ratingBox.slideDown(200, function () {
                 var height = $(document).height() - $ratingBox.height();
                 $("#test-page").css("height", height);
