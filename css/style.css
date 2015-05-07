@@ -12,7 +12,7 @@ body {
 #rating-box {
     height: 300px;
     width: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: #e8e8e8;
     position: absolute;
     bottom: 0;
     display: none;
@@ -78,6 +78,7 @@ body {
 }
 
 .at-general-rate-box {
+    margin-top: 30px;
     width: 10%;
     float: left;
     text-align: center;
@@ -100,10 +101,18 @@ body {
 }
 
 .rate-header {
-    color: white;
+    color: black;
 }
 
 .finish-button {
     right: 0;
     position: absolute;
+}
+
+.attribute{
+    color: red;
+}
+.ok-button{
+    margin-top: 20px;
+    margin-left: 20px;
 }

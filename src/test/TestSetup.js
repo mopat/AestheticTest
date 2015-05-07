@@ -5,9 +5,10 @@ AestheticTest.TestSetup = (function () {
         testPage = null,
         toRate = null,
         projectname = null,
+        $testIntroModal = null,
+        $startTestButton = null,
 
         init = function () {
-
             // Initialize Parse with your Parse application javascript keys
             Parse.initialize("f9adAlRbVFDK1YlOeuU5sbeIi6e46brSVvADAUZW",
                 "Y9hZUmuVX5EHU7q05rdsO7CuaOQNH1XxZ0K5IWk1");
@@ -15,12 +16,20 @@ AestheticTest.TestSetup = (function () {
             toRate = [];
             testPage = $("#test-page");
             projectname = getParameterByName("projectname");
+            $testIntroModal = $("#test-intro-modal");
+            $startTestButton = $("#start-test-button");
 
             $(document).ready(function () {
+                $testIntroModal.foundation("reveal", "open");
                 setup();
             });
-
+            $startTestButton.on("click", startTestButtonClick);
             return this;
+        },
+
+        startTestButtonClick = function(){
+            $testIntroModal.foundation("reveal", "close");
+            runTimer();
         },
 
         setup = function () {
@@ -38,7 +47,7 @@ AestheticTest.TestSetup = (function () {
                             setupIframe(testUrl);
 
                             time = object.get("testtime") * 1000;
-                            runTimer(time);
+
 
                             toRate = object.get("evaluation_criteria");
                             $(that).trigger("characteristicsGenerated", [toRate]);
@@ -64,7 +73,7 @@ AestheticTest.TestSetup = (function () {
                 testPage.attr('src', testUrl);
         },
 
-        runTimer = function (time) {
+        runTimer = function () {
             testPage.load(function () {
                 setTimeout(function () {
                     $(that).trigger("showSliderModal");
