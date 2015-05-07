@@ -33,6 +33,7 @@ AestheticTest.ParseModelTest = (function () {
         },
 
         saveAestheticData = function () {
+
             var endFreeText = $("#end-freetext-aesthetic-test").val(),
                 firstAestheticValue = $(".picked-first-aesthetic").attr("data-value"),
                 tableName = projectName + "_table",
