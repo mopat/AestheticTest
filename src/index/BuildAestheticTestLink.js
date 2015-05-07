@@ -8,6 +8,7 @@ AestheticIndex.BuildAestheticTestLink = (function () {
 
             $('#button-create-aesthetic-test').on('click', function () {
                 buildAesthteticTestLink();
+                $(that).trigger("buildAestheticTestLink");
             });
 
             return this;

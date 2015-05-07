@@ -31,6 +31,7 @@ AestheticIndex.IndexController = (function () {
             $(loginParse).on("parseUserLoggedIn", showLoggedInView);
             $(loginParse).on("showResults", showResults);
 
+            $(buildAestheticTestLink).on("buildAestheticTestLink", showLinkAndResultPanel);
             return this;
         },
 
@@ -60,6 +61,10 @@ AestheticIndex.IndexController = (function () {
 
         showResults = function (e, toRate, results) {
             resultView._showResults(toRate, results);
+        },
+
+        showLinkAndResultPanel = function(){
+            resultView._showLinkAndResultPanel();
         };
 
     that.init = init;

@@ -19,6 +19,7 @@ AestheticTest.MainController = (function () {
             $(testSetup).on("showSliderModal", showSliderModal);
             $(sliderView).on("showRatingBox", showRatingBox);
 
+
             return this;
         },
 
