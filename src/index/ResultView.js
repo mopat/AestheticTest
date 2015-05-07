@@ -25,19 +25,9 @@ AestheticIndex.ResultView = (function () {
         $divImgResultSize = null,
         $divImgResultBadUsages = null,
         $divImgResultOther = null,
-        $divAestheticTestLinkPanel = null,
-        $divIndexResultPanel = null,
 
 
         init = function () {
-            $divIndexResultPanel = $("#div-index-result-panel");
-            $divAestheticTestLinkPanel = $("#div-aesthetic-test-link-panel");
-
-            if(Parse.User.current() == null){
-                $divAestheticTestLinkPanel.hide();
-                $divAestheticTestLinkPanel.hide();
-            }
-
             $alertNullTests = $('#alert-null-tests');
             $demographicTestData = $("#demographic-test-data");
             $divAestheticTestResult = $('#div-aesthetic-test-result');
@@ -581,15 +571,8 @@ AestheticIndex.ResultView = (function () {
                 });
 
             }
-        },
-
-        _showLinkAndResultPanel = function(){
-            alert("SHOW")
-            $divIndexResultPanel.show();
-            $divAestheticTestLinkPanel.show();
         };
 
-    that._showLinkAndResultPanel = _showLinkAndResultPanel;
     that._showResults = _showResults;
     that.init = init;
 
