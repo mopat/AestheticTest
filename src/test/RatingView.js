@@ -16,6 +16,15 @@ AestheticTest.RatingView = (function () {
             toRateTpl = _.template($("#to-rate-tpl").html());
             start = true;
             initHandler();
+            $(".font-image-color-box").on("click", ".close-reveal-modal", function () {
+                swal({
+                    title: "Your data has been saved successfully!",
+                    text: "Auto-close close in 2 seconds.",
+                    type: "success",
+                    timer: 2000,
+                    showConfirmButton: false
+                });
+            });
 
             return this;
         },
@@ -47,11 +56,11 @@ AestheticTest.RatingView = (function () {
             $hideButton.show();
             $ratingBox.slideDown(200, function () {
                 var height = $(document).height() - $ratingBox.height();
-                if(start){
+                if (start) {
                     $ratingBox.dimBackground();
                     $ratingBoxPointer.show();
                     start = false;
-                    setTimeout(function(){
+                    setTimeout(function () {
                         $ratingBox.undim();
                         $ratingBoxPointer.hide();
                     }, 5000);
@@ -85,6 +94,7 @@ AestheticTest.RatingView = (function () {
             });
 
             $(".show-rate-components-button").on("click", function (e) {
+                $(this).css("background", "green")
                 $("#rate-textbox-font").hide();
                 $("#rate-textbox-color").hide();
                 $("#rate-textbox-images").hide();

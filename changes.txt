@@ -1,3 +1,5 @@
 - zeit von max 15 auf max 20 geändert
 - promintere box zur bewertung der eigenschaften. von grau nach rot
  - information, mit Zeiger auf die Rating Box!
+ - third step button größer
+ - geklickte eigenschaften werden grün angezeigt
