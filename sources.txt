@@ -30,3 +30,5 @@ https://github.com/zeroclipboard/zeroclipboard
 
 //Sweet alert
 http://tristanedwards.me/sweetalert
+
+//dimmen des hintergrunds https://github.com/andywer/jquery-dim-background

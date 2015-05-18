@@ -5,14 +5,16 @@ AestheticTest.RatingView = (function () {
         $showButton = null,
         toRateTpl = null,
         ratingFields = null,
+        $ratingBoxPointer = null,
+        start = null,
 
         init = function () {
             $ratingBox = $("#rating-box");
             $hideButton = $("#hide-rating-box-button");
             $showButton = $("#show-rating-box-button");
-
+            $ratingBoxPointer = $("#rating-box-pointer");
             toRateTpl = _.template($("#to-rate-tpl").html());
-
+            start = true;
             initHandler();
 
             return this;
@@ -45,6 +47,15 @@ AestheticTest.RatingView = (function () {
             $hideButton.show();
             $ratingBox.slideDown(200, function () {
                 var height = $(document).height() - $ratingBox.height();
+                if(start){
+                    $ratingBox.dimBackground();
+                    $ratingBoxPointer.show();
+                    start = false;
+                    setTimeout(function(){
+                        $ratingBox.undim();
+                        $ratingBoxPointer.hide();
+                    }, 5000);
+                }
                 $("#test-page").css("height", height);
             });
         },

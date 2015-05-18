@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>AestheticTest</title>
     <link rel="stylesheet" href="css/foundation.css"/>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/teststyle.css"/>
     <link rel="stylesheet" href="js/foundation/foundation-icons/foundation-icons.css">
     <script src="libs/parse-1.3.5.js"></script>
     <script src="js/vendor/modernizr.js"></script>
@@ -259,6 +259,14 @@
         </div>
         <a href="#" id="finish-test-button" class="button">finish test and send test data</a>
     </div>
+    <div id="rating-box-pointer">
+        <h1>Second Step</h1>
+        Please rate the given attributes in the bottom box!
+        <br>
+        This will auto-close in 5 seconds!
+        <br>
+        <i class="fi-arrow-down"></i>
+    </div>
 </div>
 
 <div hidden id="test-finished">
@@ -273,6 +281,7 @@
 <script src="js/foundation/foundation.tooltip.js"></script>
 <script src="libs/underscore.js"></script>
 <script src="libs/sweet-alert.min.js"></script>
+<script src="libs/jquery.dim-background.min.js"></script>
 
 <script type="text/javascript" src="src/test/AestheticTest.js"></script>
 <script type="text/javascript" src="src/test/MainController.js"></script>
