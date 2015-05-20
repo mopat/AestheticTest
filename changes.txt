@@ -3,3 +3,4 @@
  - information, mit Zeiger auf die Rating Box!
  - third step button größer
  - geklickte eigenschaften werden grün angezeigt
+ - fadeIn/out pfeil zeiger

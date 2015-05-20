@@ -59,6 +59,12 @@ AestheticTest.RatingView = (function () {
                 if (start) {
                     $ratingBox.dimBackground();
                     $ratingBoxPointer.show();
+                    function loopArrowDown(){
+                        $("#arrow-down-pointer").fadeOut(500, function(){
+                            $(this).fadeIn(500, loopArrowDown);
+                        });
+                    }
+                    loopArrowDown();
                     start = false;
                     setTimeout(function () {
                         $ratingBox.undim();
