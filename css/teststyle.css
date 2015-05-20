@@ -144,3 +144,10 @@ body {
 .reveal-modal{
     overflow-y: auto;
 }
+
+.arrow-in-button {
+    position: absolute;
+    margin-right: 0px;
+    margin-bottom: 0px;
+}
+
