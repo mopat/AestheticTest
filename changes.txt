@@ -6,4 +6,8 @@
  - fadeIn/out pfeil zeiger
  - merkmal buttons style, ratingbox bgcolor, thirdbutton show hide
  - modal minimieren möglich
- - seconstep alert
+ - secondstep alert
+ - third step button bild in tutorial
+ - tutorial erweitert
+ - schrift geändert zu open sans https://www.google.com/fonts
+ some things to tutorial added
