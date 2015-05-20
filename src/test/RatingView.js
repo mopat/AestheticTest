@@ -8,18 +8,30 @@ AestheticTest.RatingView = (function () {
         $ratingBoxPointer = null,
         start = null,
         $thirdStepButton = null,
+        $ratingBoxHeading = null,
+        allRated = false;
 
-        init = function () {
-            $ratingBox = $("#rating-box");
-            $hideButton = $("#hide-rating-box-button");
-            $showButton = $("#show-rating-box-button");
-            $ratingBoxPointer = $("#rating-box-pointer");
-            $thirdStepButton = $("#third-step-button");
-            $thirdStepButton.hide();
-            toRateTpl = _.template($("#to-rate-tpl").html());
-            start = true;
-            initHandler();
-            $(".font-image-color-box").on("click", ".close-reveal-modal", function () {
+    init = function () {
+        $ratingBox = $("#rating-box");
+        $hideButton = $("#hide-rating-box-button");
+        $showButton = $("#show-rating-box-button");
+        $ratingBoxPointer = $("#rating-box-pointer");
+        $thirdStepButton = $("#third-step-button");
+        $thirdStepButton.hide();
+        $ratingBoxHeading = $("#rating-box-heading");
+        toRateTpl = _.template($("#to-rate-tpl").html());
+        start = true;
+        initHandler();
+        $(".font-image-color-box").on("click", ".close-reveal-modal", function () {
+            if (allRated) {
+                swal({
+                    title: "Thanks for your rating! Now you can enter the third step on the right!!",
+                    type: "success",
+                    text: "You can't go back after clicking the 'Third Step' button!",
+                    imageUrl: "img/thirdstep.png"
+                });
+            }
+            else {
                 swal({
                     title: "Your data has been saved successfully!",
                     text: "Auto-close close in 2 seconds.",
@@ -27,10 +39,11 @@ AestheticTest.RatingView = (function () {
                     timer: 2000,
                     showConfirmButton: false
                 });
-            });
+            }
+        });
 
-            return this;
-        },
+        return this;
+    },
 
         initHandler = function () {
             $hideButton.on("click", hideButtonClick);
@@ -62,11 +75,12 @@ AestheticTest.RatingView = (function () {
                 if (start) {
                     $ratingBox.dimBackground();
                     $ratingBoxPointer.show();
-                    function loopArrowDown(){
-                        $("#arrow-down-pointer").fadeOut(500, function(){
+                    function loopArrowDown() {
+                        $("#arrow-down-pointer").fadeOut(500, function () {
                             $(this).fadeIn(500, loopArrowDown);
                         });
                     }
+
                     loopArrowDown();
                     start = false;
                     setTimeout(function () {
@@ -106,7 +120,7 @@ AestheticTest.RatingView = (function () {
             $(".show-rate-components-button").on("click", function (e) {
                 $(this).removeClass("info");
                 $(this).addClass("success");
-
+                $ratingBoxHeading.hide();
 
                 $("#rate-textbox-font").hide();
                 $("#rate-textbox-color").hide();
@@ -140,20 +154,20 @@ AestheticTest.RatingView = (function () {
                         $("#image-modal").foundation("reveal", "open");
                     }
                     rateComponents.hide();
+                    $ratingBoxHeading.show();
                     $(".to-rate-wrapper").show();
                     $(".show-rate-components-button").show();
+
                     var count = 0;
 
                     $(".show-rate-components-button").each(function (index) {
-
                         if ($(this).hasClass("success") == false) {
                             return;
                         }
-
                         count++;
-
                         if (count == toRate.length) {
                             $thirdStepButton.show();
+                            allRated = true;
                         }
 
                     });
