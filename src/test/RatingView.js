@@ -54,14 +54,12 @@ AestheticTest.RatingView = (function () {
             $imageModalShowButton.hide();
             $(".to-rate-wrapper").show();
 
-
-
             if (allRated) {
                 swal({
-                    title: "Thanks for your rating! Now you can enter the third step on the right!!",
-                    type: "success",
+                    title: "Thanks for your rating! Now you can enter the third step on the right!",
                     text: "You can't go back after clicking the 'Third Step' button!",
-                    imageUrl: "img/thirdstep.png"
+                    imageUrl: "img/thirdstep.png",
+                    imageSize: "180x180"
                 });
             }
             else {
