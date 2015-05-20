@@ -6,3 +6,4 @@
  - fadeIn/out pfeil zeiger
  - merkmal buttons style, ratingbox bgcolor, thirdbutton show hide
  - modal minimieren möglich
+ - seconstep alert
