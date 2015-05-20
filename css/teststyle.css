@@ -32,7 +32,8 @@ body {
 
 .show-rate-components-button {
     float: left;
-    margin-right: 5px;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
 .show-rate-components {
@@ -107,6 +108,8 @@ body {
 }
 
 .rate-header {
+    margin-left: 20px;
+    margin-top: 20px;
     color: #ffffff;
 }
 

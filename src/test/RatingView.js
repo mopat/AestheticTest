@@ -7,12 +7,15 @@ AestheticTest.RatingView = (function () {
         ratingFields = null,
         $ratingBoxPointer = null,
         start = null,
+        $thirdStepButton = null,
 
         init = function () {
             $ratingBox = $("#rating-box");
             $hideButton = $("#hide-rating-box-button");
             $showButton = $("#show-rating-box-button");
             $ratingBoxPointer = $("#rating-box-pointer");
+            $thirdStepButton = $("#third-step-button");
+            $thirdStepButton.hide();
             toRateTpl = _.template($("#to-rate-tpl").html());
             start = true;
             initHandler();
@@ -78,6 +81,7 @@ AestheticTest.RatingView = (function () {
         _addRatingFields = function (toRate) {
 
             ratingFields = toRate;
+            var counter = toRate.length;
             for (var i = 0; i < ratingFields.length; i++) {
 
                 var rateItem = toRateTpl({
@@ -100,7 +104,10 @@ AestheticTest.RatingView = (function () {
             });
 
             $(".show-rate-components-button").on("click", function (e) {
-                $(this).css("background", "green")
+                $(this).removeClass("info");
+                $(this).addClass("success");
+
+
                 $("#rate-textbox-font").hide();
                 $("#rate-textbox-color").hide();
                 $("#rate-textbox-images").hide();
@@ -121,6 +128,7 @@ AestheticTest.RatingView = (function () {
                 });
                 rateComponents.show();
 
+
                 okButton.on("click", function (e) {
                     if ($(this).attr("id") == "ok-button-font") {
                         $("#font-modal").foundation("reveal", "open");
@@ -134,6 +142,22 @@ AestheticTest.RatingView = (function () {
                     rateComponents.hide();
                     $(".to-rate-wrapper").show();
                     $(".show-rate-components-button").show();
+                    var count = 0;
+
+                    $(".show-rate-components-button").each(function (index) {
+
+                        if ($(this).hasClass("success") == false) {
+                            return;
+                        }
+
+                        count++;
+
+                        if (count == toRate.length) {
+                            $thirdStepButton.show();
+                        }
+
+                    });
+
 
                 });
             })
