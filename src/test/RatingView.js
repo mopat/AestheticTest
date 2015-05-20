@@ -9,7 +9,14 @@ AestheticTest.RatingView = (function () {
         start = null,
         $thirdStepButton = null,
         $ratingBoxHeading = null,
-        allRated = false;
+        allRated = false,
+        $imageModalMinimize = null,
+        $colorModalMinimize = null,
+        $fontModalMinimize = null,
+        $imageModalShowButton = null,
+        $colorModalShowButton = null,
+        $fontModalShowButton = null,
+        $modalButtonBox = null,
 
     init = function () {
         $ratingBox = $("#rating-box");
@@ -19,10 +26,36 @@ AestheticTest.RatingView = (function () {
         $thirdStepButton = $("#third-step-button");
         $thirdStepButton.hide();
         $ratingBoxHeading = $("#rating-box-heading");
+
+
+        $modalButtonBox = $("#modal-button-box");
+
+
+        $imageModalMinimize = $("#image-modal-minimize");
+        $colorModalMinimize = $("#color-modal-minimize");
+        $fontModalMinimize = $("#font-modal-minimize");
+
+        $imageModalShowButton = $("#image-modal-show-button");
+        $colorModalShowButton = $("#color-modal-show-button");
+        $fontModalShowButton = $("#font-modal-show-button");
+
+        $imageModalShowButton.hide();
+        $colorModalShowButton.hide();
+        $fontModalShowButton.hide();
+
+
         toRateTpl = _.template($("#to-rate-tpl").html());
         start = true;
         initHandler();
         $(".font-image-color-box").on("click", ".close-reveal-modal", function () {
+            $ratingBox.height(300);
+            $fontModalShowButton.hide();
+            $colorModalShowButton.hide();
+            $imageModalShowButton.hide();
+            $(".to-rate-wrapper").show();
+
+
+
             if (allRated) {
                 swal({
                     title: "Thanks for your rating! Now you can enter the third step on the right!!",
@@ -48,10 +81,25 @@ AestheticTest.RatingView = (function () {
         initHandler = function () {
             $hideButton.on("click", hideButtonClick);
             $showButton.on("click", showButtonClick);
+            $imageModalShowButton.on("click", showImageModal);
+            $colorModalShowButton.on("click", showColorModal);
+            $fontModalShowButton.on("click", showFontModal);
+        },
+
+        showImageModal = function () {
+            $("#image-modal").foundation("reveal", "open");
+        },
+
+        showColorModal = function () {
+            $("#color-modal").foundation("reveal", "open");
+        },
+
+        showFontModal = function () {
+            $("#font-modal").foundation("reveal", "open");
         },
 
         hideButtonClick = function () {
-            $(this).hide();
+            $hideButton.hide();
             $showButton.show();
             $ratingBox.slideUp(200, function () {
                 var height = $(document).height();
@@ -60,7 +108,7 @@ AestheticTest.RatingView = (function () {
         },
 
         showButtonClick = function () {
-            $(this).hide();
+            $showButton.hide();
             $hideButton.show();
             $ratingBox.slideDown(200, function () {
                 var height = $(document).height() - $ratingBox.height();
@@ -146,13 +194,34 @@ AestheticTest.RatingView = (function () {
                 okButton.on("click", function (e) {
                     if ($(this).attr("id") == "ok-button-font") {
                         $("#font-modal").foundation("reveal", "open");
+                        $fontModalMinimize.on('click', function () {
+                            $ratingBox.height(51);
+                            $fontModalShowButton.show();
+                            $(".to-rate-wrapper").hide();
+                            $("#font-modal").foundation("reveal", "close");
+                        });
                     }
                     if ($(this).attr("id") == "ok-button-color") {
                         $("#color-modal").foundation("reveal", "open");
+                        $colorModalMinimize.on('click', function () {
+                            $ratingBox.height(51);
+                            $(".to-rate-wrapper").hide();
+                            $colorModalShowButton.show();
+                            $("#color-modal").foundation("reveal", "close");
+                        });
+
                     }
                     if ($(this).attr("id") == "ok-button-images") {
                         $("#image-modal").foundation("reveal", "open");
+                        $imageModalMinimize.on('click', function () {
+                            $ratingBox.height(51);
+                            $imageModalShowButton.show();
+                            $(".to-rate-wrapper").hide();
+                            $("#image-modal").foundation("reveal", "close");
+                        });
                     }
+
+
                     rateComponents.hide();
                     $ratingBoxHeading.show();
                     $(".to-rate-wrapper").show();
