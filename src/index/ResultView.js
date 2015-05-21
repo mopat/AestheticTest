@@ -222,7 +222,10 @@ AestheticIndex.ResultView = (function () {
         showFreetextAestheticPanel = function (results) {
             for (var j = 0; j < results.length; j++) {
                 var object = results[j];
-                $freetextAesthetic.append('<blockquote>' + object.get("freetext_aesthetic") + '</blockquote>');
+                if (object.get("freetext_aesthetic") != "") {
+                    $freetextAesthetic.append('<blockquote>' + object.get("freetext_aesthetic") + '</blockquote>');
+                }
+
             }
         },
 
@@ -260,11 +263,27 @@ AestheticIndex.ResultView = (function () {
                         $('#' + criteria).append($divColorResult);
                         for (var j = 0; j < results.length; j++) {
                             var object = results[j];
-                            $divColorResultComposition.append('<blockquote>' + object.get("color_composition") + '</blockquote>');
-                            $divColorResultHue.append('<blockquote>' + object.get("hue") + '</blockquote>');
-                            $divColorResultSaturation.append('<blockquote>' + object.get("color_saturation") + '</blockquote>');
-                            $divColorResultBrightness.append('<blockquote>' + object.get("color_brightness") + '</blockquote>');
-                            $divColorResultOther.append('<blockquote>' + object.get("color_other") + '</blockquote>');
+
+
+                            if (object.get("color_composition") != "") {
+                                $divColorResultComposition.append('<blockquote>' + object.get("color_composition") + '</blockquote>');
+                            }
+                            if (object.get("hue") != "") {
+                                $divColorResultHue.append('<blockquote>' + object.get("hue") + '</blockquote>');
+                            }
+
+                            if (object.get("color_saturation") != "") {
+                                $divColorResultSaturation.append('<blockquote>' + object.get("color_saturation") + '</blockquote>');
+
+                            }
+                            if (object.get("color_brightness") != "") {
+                                $divColorResultBrightness.append('<blockquote>' + object.get("color_brightness") + '</blockquote>');
+
+                            }
+                            if (object.get("color_other") != "") {
+                                $divColorResultOther.append('<blockquote>' + object.get("color_other") + '</blockquote>');
+
+                            }
                         }
 
                     }
@@ -274,16 +293,22 @@ AestheticIndex.ResultView = (function () {
                         for (var j = 0; j < results.length; j++) {
                             var object = results[j];
 
-
-                            $divFontResultComposition.append('<blockquote>' + object.get("font_composition") + '</blockquote>');
-                            $divFontResultFamily.append('<blockquote>' + object.get("font_family") + '</blockquote>');
-                            $divFontResultStyle.append('<blockquote>' + object.get("font_style") + '</blockquote>');
-                            $divFontResultSize.append('<blockquote>' + object.get("font_size") + '</blockquote>');
-                            $divFontResultOther.append('<blockquote>' + object.get("font_other") + '</blockquote>');
-
-
+                            if (object.get("font_composition") != "") {
+                                $divFontResultComposition.append('<blockquote>' + object.get("font_composition") + '</blockquote>');
+                            }
+                            if (object.get("font_family") != "") {
+                                $divFontResultFamily.append('<blockquote>' + object.get("font_family") + '</blockquote>');
+                            }
+                            if (object.get("font_style") != "") {
+                                $divFontResultStyle.append('<blockquote>' + object.get("font_style") + '</blockquote>');
+                            }
+                            if (object.get("font_size") != "") {
+                                $divFontResultSize.append('<blockquote>' + object.get("font_size") + '</blockquote>');
+                            }
+                            if (object.get("font_other") != "") {
+                                $divFontResultOther.append('<blockquote>' + object.get("font_other") + '</blockquote>');
+                            }
                         }
-
                     }
                     if (criteria == "images") {
                         $('#' + criteria).append('<div>' + '<img src="img/smileys/' + Math.round(aestheticRateMedian / results.length) + '.png">' + '<h2 class="subheader">' + ugBeaArray[Math.round(aestheticRateMedian / results.length)] + '</h2>' + '</div>');
@@ -291,10 +316,26 @@ AestheticIndex.ResultView = (function () {
                         for (var j = 0; j < results.length; j++) {
                             var object = results[j];
 
-                            $divImgResultNumber.append('<blockquote>' + object.get("images_number") + '</blockquote>');
-                            $divImgResultSize.append('<blockquote>' + object.get("images_size") + '</blockquote>');
-                            $divImgResultBadUsages.append('<blockquote>' + object.get("images_usage") + '</blockquote>');
-                            $divImgResultOther.append('<blockquote>' + object.get("images_other") + '</blockquote>');
+                            if (object.get("images_number") != "") {
+                                $divImgResultNumber.append('<blockquote>' + object.get("images_number") + '</blockquote>');
+                            }
+
+                            if (object.get("images_size") != "") {
+                                $divImgResultSize.append('<blockquote>' + object.get("images_size") + '</blockquote>');
+                            }
+
+                            if (object.get("images_usage") != "") {
+                                $divImgResultBadUsages.append('<blockquote>' + object.get("images_usage") + '</blockquote>');
+                            }
+
+                            if (object.get("images_other") != "") {
+                                $divImgResultOther.append('<blockquote>' + object.get("images_other") + '</blockquote>');
+                            }
+
+
+
+
+
                         }
                     }
                 } else {
@@ -384,7 +425,10 @@ AestheticIndex.ResultView = (function () {
 
                 for (var j = 0; j < results.length; j++) {
                     var object = results[j];
-                    $('#' + criteria).append('<blockquote>' + object.get(criteria + "text") + '</blockquote>');
+                    if (object.get(criteria + "text") != "") {
+                        $('#' + criteria).append('<blockquote>' + object.get(criteria + "text") + '</blockquote>');
+
+                    }
                     $(".result-wrapper").hide();
 
                 }

@@ -11,3 +11,6 @@
  - tutorial erweitert
  - schrift geändert zu open sans https://www.google.com/fonts
  some things to tutorial added
+ - style startseite evtl hintergrund heidenelkenrot
+ - eingeloggt anzeige von projectname und url
+ - alle blockquotes ohne eingabe raus
