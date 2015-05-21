@@ -8,6 +8,9 @@ AestheticIndex.LoggedInView = (function () {
         $divAestheticTestLinkPanel = null,
         $labelAestheticTestLink = null,
         $divIndexResultPanel = null,
+        $projectinfoPanel = null,
+
+
 
         init = function () {
 
@@ -19,6 +22,7 @@ AestheticIndex.LoggedInView = (function () {
             $divAestheticTestLinkPanel = $('#div-aesthetic-test-link-panel');
             $labelAestheticTestLink = $('#label-aesthetic-test-link');
             $divIndexResultPanel = $('#div-index-result-panel');
+            $projectinfoPanel = $('#projectinfo-panel');
 
             return this;
         },
@@ -28,6 +32,7 @@ AestheticIndex.LoggedInView = (function () {
             $loginElements.hide();
             $logoutElement.show();
             $divIndexStart.hide();
+            $projectinfoPanel.show();
 
             $buttonLogout.click(function (event) {
                 $(that).trigger("buttonLogoutClicked");

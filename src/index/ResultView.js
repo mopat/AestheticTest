@@ -25,9 +25,14 @@ AestheticIndex.ResultView = (function () {
         $divImgResultSize = null,
         $divImgResultBadUsages = null,
         $divImgResultOther = null,
+        $projectInfo = null,
 
 
         init = function () {
+
+            $projectnameInfo = $("#projectinfo");
+            $projectnameInfo.append("Projectname: " + Parse.User.current().get("username") + "</br>" + "Project-URL: " + Parse.User.current().get("testurl"));
+
             $alertNullTests = $('#alert-null-tests');
             $demographicTestData = $("#demographic-test-data");
             $divAestheticTestResult = $('#div-aesthetic-test-result');
