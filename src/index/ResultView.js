@@ -30,8 +30,12 @@ AestheticIndex.ResultView = (function () {
 
         init = function () {
 
-            $projectnameInfo = $("#projectinfo");
-            $projectnameInfo.append("Projectname: " + Parse.User.current().get("username") + "</br>" + "Project-URL: " + Parse.User.current().get("testurl"));
+
+            $projectInfo = $("#projectinfo");
+
+            if (Parse.User.current() != null) {
+                $projectInfo.append("Projectname: " + Parse.User.current().get("username") + "</br>" + "Project-URL: " + "<a href='" + Parse.User.current().get("testurl") + "' target='_blank'>" + Parse.User.current().get("testurl") + "</a>");
+            }
 
             $alertNullTests = $('#alert-null-tests');
             $demographicTestData = $("#demographic-test-data");
