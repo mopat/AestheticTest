@@ -26,6 +26,7 @@ AestheticIndex.ResultView = (function () {
         $divImgResultBadUsages = null,
         $divImgResultOther = null,
         $projectInfo = null,
+        $firstAestheticRateOutput = null,
 
 
         init = function () {
@@ -36,6 +37,13 @@ AestheticIndex.ResultView = (function () {
             $demographicTestData = $("#demographic-test-data");
             $divAestheticTestResult = $('#div-aesthetic-test-result');
             $firstAestheticRate = $('#first-aesthetic-rate');
+            $firstAestheticRateOutput = $('#first-aesthetic-rate-output');
+
+
+
+
+
+
             $firstAestheticRateHighchart = $('#first-aesthetic-rate-highchart');
             $freetextAesthetic = $('#freetext-aesthetic');
 
@@ -78,7 +86,7 @@ AestheticIndex.ResultView = (function () {
         _showResults = function (toRate, results) {
 
             if (Parse.User.current() != null) {
-                $projectInfo.append("Projectname: " + Parse.User.current().get("username") + "</br>" + "Project-URL: " + "<a href='" + Parse.User.current().get("testurl") + "' target='_blank'>" + Parse.User.current().get("testurl") + "</a>");
+                $projectInfo.append("Projectname: " + Parse.User.current().get("username") + " | " + "Project-URL: " + "<a href='" + Parse.User.current().get("testurl") + "' target='_blank'>" + Parse.User.current().get("testurl") + "</a>");
             }
 
 
@@ -190,7 +198,7 @@ AestheticIndex.ResultView = (function () {
             fARMRound = Math.round(firstAestheticRateMedian / results.length);
 
             if (isNaN(fARMRound) == false) {
-                $firstAestheticRate.append('<img src="img/smileys/' + fARMRound + '.png">' + '<h2 class="subheader">' + ugBeaArray[fARMRound] + '</h2>');
+                $firstAestheticRateOutput.append('<img src="img/smileys/' + fARMRound + '.png">' + '<h2 class="subheader">' + ugBeaArray[fARMRound] + '</h2>');
             }
 
 
