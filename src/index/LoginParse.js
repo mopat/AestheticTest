@@ -42,6 +42,7 @@ AestheticIndex.LoginParse = (function () {
             query.find({
                 success: function (results) {
                     $(that).trigger("showResults", [Parse.User.current().get("evaluation_criteria"), results]);
+
                 },
                 error: function (error) {
                     swal("Error: " + error.code + " " + error.message, null, "error");

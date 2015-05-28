@@ -21,7 +21,7 @@ AestheticIndex.StartView = (function () {
             });
 
             $buttonLogin.click(function (event) {
-                $(that).trigger("buttonLoginClicked", [$('#input-projectname-login').val(), $('#input-password-login').val()])
+                $(that).trigger("buttonLoginClicked", [$('#input-projectname-login').val(), $('#input-password-login').val()]);
             });
 
             return this;

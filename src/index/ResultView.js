@@ -32,11 +32,6 @@ AestheticIndex.ResultView = (function () {
 
 
             $projectInfo = $("#projectinfo");
-
-            if (Parse.User.current() != null) {
-                $projectInfo.append("Projectname: " + Parse.User.current().get("username") + "</br>" + "Project-URL: " + "<a href='" + Parse.User.current().get("testurl") + "' target='_blank'>" + Parse.User.current().get("testurl") + "</a>");
-            }
-
             $alertNullTests = $('#alert-null-tests');
             $demographicTestData = $("#demographic-test-data");
             $divAestheticTestResult = $('#div-aesthetic-test-result');
@@ -81,6 +76,11 @@ AestheticIndex.ResultView = (function () {
         },
 
         _showResults = function (toRate, results) {
+
+            if (Parse.User.current() != null) {
+                $projectInfo.append("Projectname: " + Parse.User.current().get("username") + "</br>" + "Project-URL: " + "<a href='" + Parse.User.current().get("testurl") + "' target='_blank'>" + Parse.User.current().get("testurl") + "</a>");
+            }
+
 
             if (results.length === 0) {
                 $alertNullTests.show();
