@@ -34,7 +34,6 @@ AestheticIndex.LoginParse = (function () {
         },
 
         _fetchParseResults = function () {
-
             var projectTable = Parse.User.current().get("username") + "_table",
                 project = Parse.Object.extend(projectTable),
                 query = new Parse.Query(project);

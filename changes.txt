@@ -14,3 +14,5 @@
  - style startseite evtl hintergrund heidenelkenrot
  - eingeloggt anzeige von projectname und url
  - alle blockquotes ohne eingabe raus
+ - save textarea data in localstorage
+ - alert wenn nutzer seite verlassen will oder refreshed

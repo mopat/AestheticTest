@@ -107,7 +107,7 @@ AestheticTest.ParseModelTest = (function () {
 
             testPerson.save(null, {
                 success: function (val) {
-
+                    localStorage.clear();
                     // Execute any logic that should take place after the object is saved.
                     //alert('New object created with objectId: ');
                 },

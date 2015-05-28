@@ -19,63 +19,68 @@ AestheticTest.RatingView = (function () {
         $modalButtonBox = null,
         $backButton = null,
 
-    init = function () {
-        $ratingBox = $("#rating-box");
-        $hideButton = $("#hide-rating-box-button");
-        $showButton = $("#show-rating-box-button");
-        $ratingBoxPointer = $("#rating-box-pointer");
-        $thirdStepButton = $("#third-step-button");
-        $thirdStepButton.hide();
-        $ratingBoxHeading = $("#rating-box-heading");
-        $backButton = $(".back-button");
+        init = function () {
+            $ratingBox = $("#rating-box");
+            $hideButton = $("#hide-rating-box-button");
+            $showButton = $("#show-rating-box-button");
+            $ratingBoxPointer = $("#rating-box-pointer");
+            $thirdStepButton = $("#third-step-button");
+            $thirdStepButton.hide();
+            $ratingBoxHeading = $("#rating-box-heading");
+            $backButton = $(".back-button");
 
-        $modalButtonBox = $("#modal-button-box");
-
-
-        $imageModalMinimize = $("#image-modal-minimize");
-        $colorModalMinimize = $("#color-modal-minimize");
-        $fontModalMinimize = $("#font-modal-minimize");
-
-        $imageModalShowButton = $("#image-modal-show-button");
-        $colorModalShowButton = $("#color-modal-show-button");
-        $fontModalShowButton = $("#font-modal-show-button");
-
-        $imageModalShowButton.hide();
-        $colorModalShowButton.hide();
-        $fontModalShowButton.hide();
+            $modalButtonBox = $("#modal-button-box");
 
 
-        toRateTpl = _.template($("#to-rate-tpl").html());
-        start = true;
-        initHandler();
-        $(".font-image-color-box").on("click", ".close-reveal-modal", function () {
-            $ratingBox.height(380);
-            $fontModalShowButton.hide();
-            $colorModalShowButton.hide();
+            $imageModalMinimize = $("#image-modal-minimize");
+            $colorModalMinimize = $("#color-modal-minimize");
+            $fontModalMinimize = $("#font-modal-minimize");
+
+            $imageModalShowButton = $("#image-modal-show-button");
+            $colorModalShowButton = $("#color-modal-show-button");
+            $fontModalShowButton = $("#font-modal-show-button");
+
             $imageModalShowButton.hide();
-            $(".to-rate-wrapper").show();
+            $colorModalShowButton.hide();
+            $fontModalShowButton.hide();
 
-            if (allRated) {
-                swal({
-                    title: "Thanks for your rating! Now you can enter the third step on the right!",
-                    text: "You can't go back after clicking the 'Third Step' button!",
-                    imageUrl: "img/thirdstep.png",
-                    imageSize: "180x180"
-                });
-            }
-            else {
-                swal({
-                    title: "Your data has been saved successfully!",
-                    text: "Auto-close close in 2 seconds.",
-                    type: "success",
-                    timer: 2000,
-                    showConfirmButton: false
-                });
-            }
-        });
+            toRateTpl = _.template($("#to-rate-tpl").html());
+            start = true;
+            initHandler();
+            $(".font-image-color-box").on("click", ".close-reveal-modal", function () {
+                $ratingBox.height(380);
+                $fontModalShowButton.hide();
+                $colorModalShowButton.hide();
+                $imageModalShowButton.hide();
+                $(".to-rate-wrapper").show();
 
-        return this;
-    },
+                if (allRated) {
+                    swal({
+                        title: "Thanks for your rating! Now you can enter the third step on the right!",
+                        text: "You can't go back after clicking the 'Third Step' button!",
+                        imageUrl: "img/thirdstep.png",
+                        imageSize: "180x180"
+                    });
+                }
+                else {
+                    swal({
+                        title: "Your data has been saved successfully!",
+                        text: "Auto-close close in 2 seconds.",
+                        type: "success",
+                        timer: 2000,
+                        showConfirmButton: false
+                    });
+                }
+            });
+            $(window).on("resize", function () {
+                var height = $(document).height() - $ratingBox.height();
+                $("#test-page").css("height", height);
+            });
+            window.onbeforeunload = function() {
+                return "Some data will be lost. Formular data will be restored."
+            };
+            return this;
+        },
 
         initHandler = function () {
             $hideButton.on("click", hideButtonClick);
@@ -244,11 +249,23 @@ AestheticTest.RatingView = (function () {
 
                 });
             });
-            $(".show-all-button").on("click", function(){
+            $(".show-all-button").on("click", function () {
                 $ratingBoxHeading.show();
                 $(".to-rate-wrapper").show();
                 $(".show-rate-components").hide();
                 $(".show-rate-components-button").show();
+            });
+
+            $("textarea").each(function () {
+                var textareaID = $(this).attr("id");
+                var text = localStorage.getItem(textareaID);
+                $(this).val(text)
+            });
+
+            $("textarea").on("keyup", function () {
+                var textareaID = $(this).attr("id")
+                console.log(textareaID, $(this).val())
+                localStorage.setItem(textareaID, $(this).val());
             });
         };
 
