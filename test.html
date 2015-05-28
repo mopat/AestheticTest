@@ -428,12 +428,14 @@
                 </div>
                 <div class="row full-width">
                     <div class="large-8 medium-10 small-12 columns">
-                    <textarea style="float: left; margin-top: 10px" cols="100" rows="3" type="text"
+                    <textarea style="float: left; margin-top: 10px; margin-left: 10px" cols="60" rows="2" type="text"
                               placeholder="Tell us what you didn't like! " id="rate-textbox-<%= attribute %>"
                               class="rate-textbox"></textarea>
                     </div>
                 </div>
-                <button class="ok-button bottom" id="ok-button-<%= attribute %>">Close</button>
+                <button class="ok-button bottom tiny success" id="ok-button-<%= attribute %>">Confirm</button>
+                <button href class="show-all-button bottom tiny alert" style="margin-left: 20px; color: white"><i class="fi-arrow-left
+                "></i> Cancel</button>
             </div>
         </div>
     </div>

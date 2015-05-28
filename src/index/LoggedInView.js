@@ -28,7 +28,6 @@ AestheticIndex.LoggedInView = (function () {
         },
 
         _showLoggedInView = function (aestheticTestLink) {
-
             $loginElements.hide();
             $logoutElement.show();
             $divIndexStart.hide();

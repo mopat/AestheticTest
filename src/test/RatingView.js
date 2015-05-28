@@ -17,6 +17,7 @@ AestheticTest.RatingView = (function () {
         $colorModalShowButton = null,
         $fontModalShowButton = null,
         $modalButtonBox = null,
+        $backButton = null,
 
     init = function () {
         $ratingBox = $("#rating-box");
@@ -26,7 +27,7 @@ AestheticTest.RatingView = (function () {
         $thirdStepButton = $("#third-step-button");
         $thirdStepButton.hide();
         $ratingBoxHeading = $("#rating-box-heading");
-
+        $backButton = $(".back-button");
 
         $modalButtonBox = $("#modal-button-box");
 
@@ -48,7 +49,7 @@ AestheticTest.RatingView = (function () {
         start = true;
         initHandler();
         $(".font-image-color-box").on("click", ".close-reveal-modal", function () {
-            $ratingBox.height(300);
+            $ratingBox.height(380);
             $fontModalShowButton.hide();
             $colorModalShowButton.hide();
             $imageModalShowButton.hide();
@@ -164,8 +165,8 @@ AestheticTest.RatingView = (function () {
             });
 
             $(".show-rate-components-button").on("click", function (e) {
-                $(this).removeClass("info");
-                $(this).addClass("success");
+                var $clickedCharactersiticButton = $(this)
+
                 $ratingBoxHeading.hide();
 
                 $("#rate-textbox-font").hide();
@@ -190,6 +191,7 @@ AestheticTest.RatingView = (function () {
 
 
                 okButton.on("click", function (e) {
+                    $clickedCharactersiticButton.addClass("success").removeClass("info");
                     if ($(this).attr("id") == "ok-button-font") {
                         $("#font-modal").foundation("reveal", "open");
                         $fontModalMinimize.on('click', function () {
@@ -241,7 +243,13 @@ AestheticTest.RatingView = (function () {
 
 
                 });
-            })
+            });
+            $(".show-all-button").on("click", function(){
+                $ratingBoxHeading.show();
+                $(".to-rate-wrapper").show();
+                $(".show-rate-components").hide();
+                $(".show-rate-components-button").show();
+            });
         };
 
     that._addRatingFields = _addRatingFields;
