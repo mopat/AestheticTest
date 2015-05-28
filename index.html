@@ -117,17 +117,7 @@
     <button id="button-reset-pw">Reset password!</button>
     <a class="close-reveal-modal">&#215;</a>
 </div>
-<div hidden id="projectinfo-panel" class="panel" style="background-color: #9c004b; padding-top: 10px">
-    <div class="row" style="margin-left: 0px">
-        <div class="large-6 columns">
-            <img src="img/aet%20logo%20tranzparent.png" width="100%" height="100%">
-        </div>
-        <div class="large-6 columns" id="projectinfos">
-            <h5 id="projectinfo" style="color: #ffffff"></h5>
 
-        </div>
-    </div>
-</div>
 
 
 <div id="div-index-create-test" hidden class="panel callout radius">
@@ -154,25 +144,37 @@
 
 </div>
 
-<div hidden id="div-aesthetic-test-link-panel" class="panel callout radius">
-    <h2>Your AestheticTest link!</h2>
-    <h5 class="subheader">Copy the link and send it to your subjects!</h5>
-
-    <p><a href="" id="label-aesthetic-test-link" name="label-aesthetic-test-link" target="_blank"></a></p>
-
-    <p>
-        <button id="copy-link-button" data-clipboard-target="label-aesthetic-test-link">Copy to Clipboard</button>
-    </p>
-</div>
 
 
 <div id="div-index-result-panel" class="small-12" hidden>
 
+    <div hidden id="projectinfo-panel">
+        <div class="row" style="margin-left: 0px;margin-bottom: 15px">
+            <div class="large-6 columns">
+                <img src="img/aet%20logo%20tranzparent.png" width="100%" height="100%">
+            </div>
+            <div class="large-6 columns" id="projectinfos">
+                <h5 id="projectinfo" style="color: #ffffff"></h5>
+
+            </div>
+        </div>
+    </div>
+
+    <div hidden id="div-aesthetic-test-link-panel" class="panel callout radius">
+        <h2>Your AestheticTest link!</h2>
+        <h5 class="subheader">Copy the link and send it to your subjects!</h5>
+
+        <p><a href="" id="label-aesthetic-test-link" name="label-aesthetic-test-link" target="_blank"></a></p>
+
+        <p>
+            <button id="copy-link-button" data-clipboard-target="label-aesthetic-test-link">Copy to Clipboard</button>
+        </p>
+    </div>
 
 <p>
 
-    <h2 id="result-h">AestheticTest Result</h2>
-    <h5 class="subheader">In the following, the test results will be presented.</h5>
+    <h2 class="result-h">AestheticTest Result</h2>
+    <h5 class="result-h subheader">In the following, the test results will be presented.</h5>
     </p>
     <div id="alert-null-tests" hidden data-alert class="alert-box info radius">
         Until now, no one has tested your site. Send your AestheticTest link to people!
@@ -189,14 +191,24 @@
 
         <div id="first-aesthetic-rate" class="panel">
             <h1 class="subheader"> First Aesthetic Rate </h1>
+            <i>After starting the test the website is shown only a certain time. In the first step of the test the
+                participant should determine the first aesthetic impression of the website.</i>
 
+            <div id="first-aesthetic-rate-output"></div>
             <div id="first-aesthetic-rate-highchart"></div>
         </div>
 
         <div id="freetext-aesthetic" class="panel">
             <h1 class="subheader">Freetext Aesthetic</h1>
+            <i>Finally the participant have the chance to say something more about the website.</i>
         </div>
-        <div id="all-aesthetic-criteria-highchart" class="panel"></div>
+
+        <div class="panel">
+            <h1 class="subheader"> All Aesthetic Characteritics in one Chart! </h1>
+
+            <div id="all-aesthetic-criteria-highchart"></div>
+        </div>
+
 
         <div id="div-color-result" class="panel" hidden>
             <div class="row">

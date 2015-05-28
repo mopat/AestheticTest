@@ -84,8 +84,8 @@ h1, h2, h3, h4, h5, h6 {
     position: absolute;
 }
 
-#result-h {
-    color: #008CBA;
+.result-h {
+    color: #ffffff;
     font-weight: bold;
 }
 
@@ -95,5 +95,13 @@ h1, h2, h3, h4, h5, h6 {
     border-style: solid;
     border-width: 1px;
     border-color: #d8d8d8;
+    background-color: #9c004b;
 }
+
+.panel {
+    background-color: #ffffff;
+!important;
+}
+
+
 
