@@ -27,6 +27,7 @@ AestheticIndex.ResultView = (function () {
         $divImgResultOther = null,
         $projectInfo = null,
         $firstAestheticRateOutput = null,
+        $divCriteriaAverage = null,
 
 
         init = function () {
@@ -38,7 +39,7 @@ AestheticIndex.ResultView = (function () {
             $divAestheticTestResult = $('#div-aesthetic-test-result');
             $firstAestheticRate = $('#first-aesthetic-rate');
             $firstAestheticRateOutput = $('#first-aesthetic-rate-output');
-
+            $divCriteriaAverage = $('#div-criteria-average');
 
 
 
@@ -242,6 +243,7 @@ AestheticIndex.ResultView = (function () {
         },
 
         showCriteriaPanels = function (toRate, results) {
+            var aestheticRateMedianArray = [];
             for (var i = 0; i < toRate.length; i++) {
                 var criteria = toRate[i],
                     aestheticRateMedian = 0;
@@ -268,6 +270,8 @@ AestheticIndex.ResultView = (function () {
                     var object = results[j];
                     aestheticRateMedian = aestheticRateMedian + object.get(criteria + "val") * 1;
                 }
+
+                aestheticRateMedianArray.push(Math.round(aestheticRateMedian / results.length));
 
                 if (criteria == "color" || criteria == "font" || criteria == "images") {
                     if (criteria == "color") {
@@ -355,6 +359,10 @@ AestheticIndex.ResultView = (function () {
                 }
             }
 
+
+            appendCriteriaAverage(toRate.length, aestheticRateMedianArray);
+
+
             $(".open-panel").on("click", function (e) {
                 var $result = $(e.target).parent().parent().find(".panel");
 
@@ -426,10 +434,10 @@ AestheticIndex.ResultView = (function () {
 
             }
 
+
             showCriteriasHighchartPanel(toRate, seriesDataHc0, seriesDataHc1, seriesDataHc2, seriesDataHc3, seriesDataHc4, seriesDataHc5, seriesDataHc6);
 
             showAestheticCriteriaHighcharts(toRate, seriesDataHc0, seriesDataHc1, seriesDataHc2, seriesDataHc3, seriesDataHc4, seriesDataHc5, seriesDataHc6);
-
 
             for (var i = 0; i < toRate.length; i++) {
                 var criteria = toRate[i];
@@ -446,6 +454,18 @@ AestheticIndex.ResultView = (function () {
                 }
 
             }
+        },
+
+        appendCriteriaAverage = function (length, aestheticRateMedianArray) {
+
+            var sum = 0;
+            for (var i = 0; i < aestheticRateMedianArray.length; i++) {
+                sum = sum + aestheticRateMedianArray[i]
+            }
+            sum = sum / length;
+
+            $divCriteriaAverage.append('<div>' + '<img src="img/smileys/' + Math.round(sum) + '.png">' + '<h2 class="subheader">' + ugBeaArray[Math.round(sum)] + '</h2>' + '</div>');
+
         },
 
         showFirstAestheticRateHighchart = function (seriesDataHcFirstAe) {
