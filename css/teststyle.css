@@ -73,6 +73,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 .reveal-modal-bg {
     background: rgba(0, 0, 0, 0.95);
+    overflow-y: scroll !important;
+    position: fixed;
 }
 
 #aesthetic-test-link-box {
