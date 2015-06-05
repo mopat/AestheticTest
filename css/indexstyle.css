@@ -102,6 +102,8 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #ffffff;
 !important;
 }
-
+#projectinfo a{
+    color: #1cc7ff;
+}
 
 
