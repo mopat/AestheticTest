@@ -92,14 +92,20 @@ AestheticTest.RatingView = (function () {
 
         showImageModal = function () {
             $("#image-modal").foundation("reveal", "open");
+            if(allRated)
+                $thirdStepButton.show();
         },
 
         showColorModal = function () {
             $("#color-modal").foundation("reveal", "open");
+            if(allRated)
+                $thirdStepButton.show();
         },
 
         showFontModal = function () {
             $("#font-modal").foundation("reveal", "open");
+            if(allRated)
+                $thirdStepButton.show();
         },
 
         hideButtonClick = function () {
@@ -204,6 +210,7 @@ AestheticTest.RatingView = (function () {
                             $fontModalShowButton.show();
                             $(".to-rate-wrapper").hide();
                             $("#font-modal").foundation("reveal", "close");
+                            $thirdStepButton.hide();
                         });
                     }
                     if ($(this).attr("id") == "ok-button-color") {
@@ -213,6 +220,7 @@ AestheticTest.RatingView = (function () {
                             $(".to-rate-wrapper").hide();
                             $colorModalShowButton.show();
                             $("#color-modal").foundation("reveal", "close");
+                            $thirdStepButton.hide();
                         });
 
                     }
@@ -223,6 +231,7 @@ AestheticTest.RatingView = (function () {
                             $imageModalShowButton.show();
                             $(".to-rate-wrapper").hide();
                             $("#image-modal").foundation("reveal", "close");
+                            $thirdStepButton.hide();
                         });
                     }
 
