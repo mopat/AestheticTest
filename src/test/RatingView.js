@@ -72,9 +72,10 @@ AestheticTest.RatingView = (function () {
                     });
                 }
             });
-            $(window).on("resize", function () {
+            $(window).resize(function () {
                 var height = $(document).height() - $ratingBox.height();
-                $("#test-page").css("height", height);
+                //$("#test-page").css("height", height);
+                //alert("SHOW")
             });
             window.onbeforeunload = function() {
                 return "Some data will be lost. Formular data will be restored."
@@ -104,6 +105,7 @@ AestheticTest.RatingView = (function () {
 
         showFontModal = function () {
             $("#font-modal").foundation("reveal", "open");
+            $("#test-page").height($(document).height() - $ratingBox.height());
             if(allRated)
                 $thirdStepButton.show();
         },
@@ -207,6 +209,7 @@ AestheticTest.RatingView = (function () {
                         $("#font-modal").foundation("reveal", "open");
                         $fontModalMinimize.on('click', function () {
                             $ratingBox.height(51);
+                            $("#test-page").height($(document).height() - $ratingBox.height());
                             $fontModalShowButton.show();
                             $(".to-rate-wrapper").hide();
                             $("#font-modal").foundation("reveal", "close");
